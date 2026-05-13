@@ -1,0 +1,116 @@
+{% extends "base.html.j2" %}
+{% block title %}Methodology — Stablecoin Blacklisting{% endblock %}
+{% block content %}
+<p class="lede">How the dataset is structured, how source quality is evaluated, how entity
+relationships are classified, and where we know we have gaps.</p>
+
+<section>
+<h1>Schema — Data Dictionary</h1>
+<p>Canonical enum values live in <code>scripts/utils/schema.py</code> and are enforced by
+<code>scripts/99_validate.py</code>. When updating this file, update <code>schema.py</code>
+in the same commit.</p>
+
+<h2>Table overview</h2>
+<table>
+<thead><tr><th>Table</th><th>Role</th></tr></thead>
+<tbody>
+<tr><td><code>actions.csv</code></td><td>Spine — one row per freeze, restrict, or non-action event</td></tr>
+<tr><td><code>triggers.csv</code></td><td>External catalysts (OFAC designations, court orders, statutes)</td></tr>
+<tr><td><code>incidents.csv</code></td><td>Real-world events that may precipitate requests</td></tr>
+<tr><td><code>requests.csv</code></td><td>Explicit or plausible requests for Circle action (nullable <code>resulting_action_id</code> captures refusals)</td></tr>
+<tr><td><code>policies.csv</code></td><td>Circle policies, versioned by effective date</td></tr>
+<tr><td><code>implementations.csv</code></td><td>Mechanical execution records (on-chain tx or off-chain operational step)</td></tr>
+<tr><td><code>entities.csv</code></td><td>Every relevant party, with YES/MAYBE/NO Circle relationship classification</td></tr>
+<tr><td><code>sources.csv</code></td><td>Every citation, audit-trailed with SHA256</td></tr>
+<tr><td><code>action_sources.csv</code></td><td>Many-to-many join between actions and sources</td></tr>
+</tbody>
+</table>
+
+<h2><code>actions.csv</code> — spine</h2>
+<p>One row per discrete freeze / restrict / non-action event.</p>
+<table>
+<thead><tr><th>Field</th><th>Type</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><code>action_id</code></td><td>string, PK</td><td>Stable ID, e.g. <code>CU-ACT-0001</code></td></tr>
+<tr><td><code>action_date</code></td><td>ISO 8601 UTC</td><td>Date of the action itself, not the date of disclosure</td></tr>
+<tr><td><code>mechanism_type</code></td><td>enum</td><td><code>BLACKLIST</code>, <code>UNBLACKLIST</code>, <code>PAUSE</code>, <code>UNPAUSE</code>, <code>REDEMPTION_REFUSAL</code>, <code>ACCOUNT_CLOSURE</code>, <code>JURISDICTIONAL</code>, <code>LAW_ENFORCEMENT_RESPONSE</code>, <code>NON_ACTION</code>, <code>POLICY_COMMITMENT</code></td></tr>
+<tr><td><code>target_identifier</code></td><td>string</td><td>Address, account ID, jurisdiction code, or counterparty name</td></tr>
+<tr><td><code>target_type</code></td><td>enum</td><td><code>ADDRESS</code>, <code>ACCOUNT</code>, <code>JURISDICTION</code>, <code>COUNTERPARTY</code>, <code>CATEGORY</code>, <code>NA</code></td></tr>
+<tr><td><code>target_category</code></td><td>string, nullable</td><td>Free-tag, e.g. <code>sanctioned_entity</code>, <code>stolen_funds</code></td></tr>
+<tr><td><code>status</code></td><td>enum</td><td><code>ACTIVE</code>, <code>REVERSED</code>, <code>UNCLEAR</code></td></tr>
+<tr><td><code>trigger_id</code></td><td>FK → triggers, nullable</td><td>Legal / regulatory trigger</td></tr>
+<tr><td><code>implementation_id</code></td><td>FK → implementations, nullable</td><td>Mechanical execution record</td></tr>
+<tr><td><code>confidence</code></td><td>enum</td><td><code>HIGH</code>, <code>MEDIUM</code>, <code>LOW</code></td></tr>
+<tr><td><code>issuer</code></td><td>string</td><td>Stablecoin issuer, e.g. <code>Circle</code></td></tr>
+</tbody>
+</table>
+<p>Null <code>trigger_id</code>, <code>policy_id</code>, or <code>implementation_id</code> values are
+themselves findings — they signal a policy-versus-practice gap or opaque implementation and should
+be coded deliberately, not treated as missing data.</p>
+</section>
+
+<hr>
+
+<section>
+<h1>Sourcing Standards</h1>
+<h2>Source tiers</h2>
+<p>Every <code>source_id</code> carries a <code>source_tier</code>:</p>
+<ul>
+<li><strong><code>PRIMARY</code></strong> — Circle itself or US / foreign government primary documents.</li>
+<li><strong><code>SECONDARY</code></strong> — Reputable news organizations and court-filed third-party documents.</li>
+<li><strong><code>TERTIARY</code></strong> — Forensics-firm reports, industry publications, research notes, social media.</li>
+</ul>
+
+<h2>Confidence mapping</h2>
+<table>
+<thead><tr><th>Evidence available</th><th><code>confidence</code></th></tr></thead>
+<tbody>
+<tr><td>On-chain event recovered via Dune / Etherscan</td><td><code>HIGH</code></td></tr>
+<tr><td>PRIMARY source explicitly describing the action</td><td><code>HIGH</code></td></tr>
+<tr><td>≥2 SECONDARY sources corroborating</td><td><code>HIGH</code> or <code>MEDIUM</code></td></tr>
+<tr><td>1 SECONDARY source, no corroboration</td><td><code>MEDIUM</code></td></tr>
+<tr><td>TERTIARY sources only</td><td><code>LOW</code></td></tr>
+<tr><td>Inferred from context, no direct statement</td><td><code>LOW</code></td></tr>
+</tbody>
+</table>
+</section>
+
+<hr>
+
+<section>
+<h1>Entity → Circle Relationship Classification</h1>
+<p>Every <code>entities.csv</code> row carries <code>circle_relationship ∈ {YES, MAYBE, NO}</code>.</p>
+
+<h2><code>YES</code></h2>
+<p>Requires at least one documented source showing: equity investment, Centre Consortium
+membership, revenue-share agreement, board/advisor interlock, banking counterparty named
+in Transparency Reports, or disclosed commercial partnership.</p>
+
+<h2><code>NO</code></h2>
+<p>Requires affirmative evidence of absence or adversarial distance (entity on a sanctions list
+Circle has complied with; Circle has publicly severed ties; entity is in active litigation
+against Circle).</p>
+
+<h2><code>MAYBE</code></h2>
+<p>Default residual. Used whenever we lack documented evidence in either direction. Expected to
+be the largest bucket.</p>
+</section>
+
+<hr>
+
+<section>
+<h1>Completeness Map</h1>
+<h2>Summary</h2>
+<ul>
+<li>Total on-chain events: {{ actions|length }} ({{ actions | selectattr("mechanism_type", "equalto", "BLACKLIST") | list | length }} BLACKLIST + {{ actions | selectattr("mechanism_type", "equalto", "UNBLACKLIST") | list | length }} UNBLACKLIST)</li>
+<li>Chains covered: 6 EVM (Ethereum, Base, Polygon, Avalanche, Arbitrum, Optimism)</li>
+<li>Date range: {{ actions | map(attribute='action_date') | min }} to {{ actions | map(attribute='action_date') | max }}</li>
+<li>Pause/Unpause events observed: 0 across all chains</li>
+</ul>
+
+<h2>Known Gaps</h2>
+<p>Non-EVM chains (Solana, NEAR, Stellar, Algorand, Hedera) are out of scope for Pass A.
+Internal Circle policies not published externally are unobservable. Requests Circle received
+but did not disclose and which produced no action are partially unobservable.</p>
+</section>
+{% endblock %}

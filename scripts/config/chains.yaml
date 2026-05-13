@@ -1,0 +1,55 @@
+# USDC contract addresses per chain. Proxy addresses; implementation contracts vary.
+# Reference: https://www.circle.com/en/multi-chain-usdc
+#
+# `from_block` is reserved for an alternative per-chain query path (querying
+# `<chain>.logs` directly instead of cross-chain `evms.logs`); it is NOT used
+# by the default Dune query in `scripts/config/dune_queries/blacklist_events.sql`
+# which filters by `contract_address` alone.
+chains:
+  ethereum:
+    proxy: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    from_block: 6082465     # USDC deployment
+    dune_blockchain: "ethereum"
+  base:
+    proxy: "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+    from_block: 2797295     # Approx USDC launch on Base
+    dune_blockchain: "base"
+  polygon:
+    proxy: "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"   # Native USDC on Polygon PoS
+    from_block: 48484556
+    dune_blockchain: "polygon"
+  avalanche:
+    proxy: "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E"
+    from_block: 7835175
+    dune_blockchain: "avalanche_c"
+  arbitrum:
+    proxy: "0xaf88d065e77c8cc2239327c5edb3a432268e5831"   # Native USDC on Arbitrum
+    from_block: 70328749
+    dune_blockchain: "arbitrum"
+  optimism:
+    proxy: "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85"   # Native USDC on Optimism
+    from_block: 105000000
+    dune_blockchain: "optimism"
+
+# Event topic0 signatures (keccak256 of event signature)
+# NOTE: Blacklisted and UnBlacklisted topic0 values are authoritative
+# (taken from the verified USDC FiatTokenV2 contract). Pause and Unpause
+# topic0 values must be verified on the first Dune run: if the query
+# returns zero events for PAUSE/UNPAUSE while returning expected BLACKLIST
+# counts, recompute the topic0 from the event signature and update.
+# Tether's DestroyBlackFunds is NOT emitted by USDC and is excluded.
+events:
+  Blacklisted:
+    topic0: "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855"
+    mechanism_type: "BLACKLIST"
+  UnBlacklisted:
+    topic0: "0x117e3210bb9aa7d9baff172026820255c6f6c30ba8999d1c2fd88e2848137c4e"
+    mechanism_type: "UNBLACKLIST"
+  Paused:
+    # keccak256("Paused(address)"); verify on first run.
+    topic0: "0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258"
+    mechanism_type: "PAUSE"
+  Unpaused:
+    # keccak256("Unpaused(address)"); verify on first run.
+    topic0: "0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa"
+    mechanism_type: "UNPAUSE"

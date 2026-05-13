@@ -1,0 +1,41 @@
+# Per-issuer contract metadata for the USDC + USDT pipeline.
+#
+# `chains` lists the chain → contract address mapping for that issuer.
+# `event_topics` is the topic0 hash for each blacklist-related event we ingest.
+# `function_selectors` is the 4-byte function selector for the BL/UB calls
+#   (used by the implementations.csv `method_called` field).
+
+Circle:
+  chains:
+    ethereum: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    base: "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+    polygon: "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+    avalanche: "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e"
+    arbitrum: "0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+    optimism: "0x0b2c639c533813f4aa9d7837caf62653d097ff85"
+  event_topics:
+    Blacklisted: "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855"
+    UnBlacklisted: "0x117e3210bb9aa7d9baff172026820255c6f6c30ba8999d1c2fd88e2848137c4e"
+    Paused: "0x62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258"
+    Unpaused: "0x5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa"
+  function_selectors:
+    blacklist: "0xf9f92be4"
+    unBlacklist: "0x1a895266"
+
+Tether:
+  chains:
+    ethereum: "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    base: "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2"
+    polygon: "0xc2132d05d31c914a87c6611c10748aeb04b58e8f"
+    avalanche: "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7"
+    arbitrum: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+    optimism: "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58"
+    tron: "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
+  event_topics:
+    AddedBlackList: "0x42e160154868087d6bfdc0ca23d96a1c1cfa32f1b72ba9ba27b69b98a0d819dc"
+    RemovedBlackList: "0xd7c0101d4cf124eb000ddafabb6db7c93c20b6e1eba51d3c80a1b2cd6d6e3a8b"
+    DestroyedBlackFunds: "0x61e6e66b0d6339b2980aecc6ccc0039736791f0ccde9ed512e789a7fbdd698c6"
+  function_selectors:
+    addBlackList: "0x0ecb93c0"
+    removeBlackList: "0xe4997dc5"
+    destroyBlackFunds: "0xf3bdc228"

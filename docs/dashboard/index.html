@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stablecoin Blacklisting — Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="assets/dashboard.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="header-top">
+    <div class="theme-toggle" role="group" aria-label="Theme" style="margin-left:auto">
+      <button data-theme="light" class="active" title="Light">☀</button>
+      <button data-theme="dark" title="Dark">☾</button>
+    </div>
+  </div>
+  <h1>When does compliance become <em>censorship</em>?</h1>
+  <p class="subhead">Every freeze stablecoin issuers have executed, traced from the on‑chain action to the legal or regulatory event behind it. Hover the timeline to read each cluster; drag the band below to zoom into a window.</p>
+  <nav class="nav">
+    <a href="index.html" class="current">Overview</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="explore.html">Explore</a>
+    <a href="clusters.html">Clusters</a>
+    <a href="entities.html">Entities</a>
+    <a href="triggers.html">Triggers</a>
+    <a href="sources.html">Sources</a>
+    <a href="notes.html">Notes</a>
+    <a href="methodology.html">Methodology</a>
+  </nav>
+</header>
+
+<section class="kpis" id="kpi-strip">
+  <!-- KPIs render here -->
+</section>
+
+<section class="controls" id="controls">
+  <div class="filter-group" data-filter="category">
+    <button class="chip showing-btn" id="showing-btn" aria-pressed="true" title="Toggle all categories">All</button>
+    <button class="chip" data-value="ofac" aria-pressed="true"><span class="chip-dot" style="background:var(--bl)"></span>OFAC <span class="chip-count">—</span></button>
+    <button class="chip" data-value="court" aria-pressed="true"><span class="chip-dot" style="background:var(--court)"></span>Court <span class="chip-count">—</span></button>
+    <button class="chip" data-value="hack" aria-pressed="true"><span class="chip-dot" style="background:var(--hack)"></span>Hack <span class="chip-count">—</span></button>
+    <button class="chip" data-value="untriggered" aria-pressed="true"><span class="chip-dot" style="background:var(--na);border:2px solid var(--na);box-sizing:border-box"></span>No public reason <span class="chip-count">—</span></button>
+  </div>
+  <button class="reset" id="reset-btn">↺ Reset view</button>
+</section>
+
+<section class="main">
+  <div class="main-left">
+    <div class="chart-wrap">
+      <svg class="timeline-svg" id="timeline" viewBox="0 0 1600 460" preserveAspectRatio="none"></svg>
+    </div>
+    <div class="brush-wrap">
+      <svg class="brush-svg" id="brush" viewBox="0 0 1600 64" preserveAspectRatio="none"></svg>
+    </div>
+    <div class="detail-card empty" id="detail">
+      <div class="dc-head">
+        <span class="dc-date">—</span>
+        <span class="dc-tag muted">SELECT A BUBBLE</span>
+      </div>
+      <div class="dc-body"></div>
+    </div>
+  </div>
+
+  <aside class="main-right">
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Reason mix</h3>
+        <p>Clusters in current view, by attributed cause</p>
+      </div>
+      <div class="panel-body">
+        <div class="donut-wrap">
+          <svg class="donut-svg" id="donut" viewBox="0 0 100 100"></svg>
+          <div class="donut-list" id="donut-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Largest events</h3>
+        <p>Biggest single‑day clusters in view</p>
+      </div>
+      <div class="panel-body">
+        <div class="top-list" id="top-list"></div>
+      </div>
+    </div>
+
+    <div class="panel year">
+      <div class="panel-head">
+        <h3>By year</h3>
+        <p>Wallets affected · stacked by reason</p>
+      </div>
+      <div class="panel-body">
+        <div class="year-bars" id="year-bars"></div>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>About this dataset</h4>
+      <p>We track every <code>BLACKLIST</code> and <code>UNBLACKLIST</code> transaction emitted by Circle's USDC contracts on Ethereum and five other EVM chains, then attempt to attribute each to a public trigger — an OFAC SDN action, a court order, an exchange hack response, or otherwise. Where we cannot find one, the action is recorded but flagged as <em>no public reason</em>.</p>
+    </div>
+    <div>
+      <h4>Method</h4>
+      <ul>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="sources.html">Sources cited</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <h4>Cite</h4>
+      <p>Lee, Martin, &amp; Townsend, <em>Stablecoin Blacklisting</em>, May 2026.<br/><span id="last-updated" style="color:var(--ink-soft)">Last Updated: …</span></p>
+    </div>
+  </div>
+</footer>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script src="assets/dashboard.js"></script>
+</body>
+</html>

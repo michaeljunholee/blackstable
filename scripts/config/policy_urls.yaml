@@ -1,0 +1,18 @@
+# URLs to crawl via Wayback Machine for Circle policy archaeology.
+# Each URL produces one or more policies.csv rows — one per capture version.
+urls:
+  - url: "https://www.circle.com/legal/terms"
+    policy_type: "TERMS_OF_SERVICE"
+    policy_name: "Circle Terms of Service"
+  - url: "https://www.circle.com/legal/user-agreement"
+    policy_type: "USER_AGREEMENT"
+    policy_name: "Circle User Agreement"
+  - url: "https://www.circle.com/legal/privacy-policy"
+    policy_type: "PRIVACY_POLICY"
+    policy_name: "Circle Privacy Policy"
+  - url: "https://www.circle.com/en/transparency"
+    policy_type: "TRANSPARENCY_REPORT"
+    policy_name: "Circle Transparency Reports landing page"
+  - url: "https://www.circle.com/blog"
+    policy_type: "BLOG_POST"
+    policy_name: "Circle blog index (Pass B drills into individual posts)"

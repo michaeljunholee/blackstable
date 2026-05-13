@@ -1,0 +1,11 @@
+{
+  "execution_id": "01HAY2ZXABC123",
+  "state": "QUERY_STATE_COMPLETED",
+  "result": {
+    "rows": [
+      {"tx_hash": "0xdead", "block_number": 18000000, "block_timestamp": "2024-01-01T00:00:00Z", "target": "0xbeef", "event": "Blacklisted"},
+      {"tx_hash": "0xcafe", "block_number": 18000100, "block_timestamp": "2024-01-01T01:00:00Z", "target": "0xface", "event": "UnBlacklisted"}
+    ],
+    "metadata": {"column_names": ["tx_hash", "block_number", "block_timestamp", "target", "event"]}
+  }
+}

@@ -1,0 +1,46 @@
+{% extends "base.html.j2" %}
+{% block title %}Timeline — Stablecoin Blacklisting{% endblock %}
+{% block body_class %}hero-page{% endblock %}
+{% block head_extra %}
+<style>
+.tl-filters { display: flex; flex-direction: column; gap: 0.4rem; margin: 1.5rem 0 0.75rem; font-family: var(--sans); }
+.tl-filters .tl-filter-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem; }
+.tl-filters .tl-filter-row .tl-filter-label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-right: 0.5rem; min-width: 7rem; }
+.tl-filter { font-family: var(--sans); font-size: 0.82rem; padding: 0.3rem 0.7rem; border: 1px solid #d6d0c4; border-radius: 3px; background: #fff; color: #2d3748; cursor: pointer; transition: all 120ms ease; }
+.tl-filter:hover { border-color: var(--accent); color: var(--accent); }
+.tl-filter[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
+.tl-filter .fc { font-size: 0.72em; opacity: 0.7; margin-left: 0.25rem; }
+.tl-filter[aria-pressed="true"] .fc { opacity: 0.9; }
+.tl-wrap { background: #fafaf8; border: 1px solid #d6d0c4; margin: 0.5rem 0 0; position: relative; }
+.tl-wrap svg { display: block; width: 100%; height: auto; }
+.tl-bubble { cursor: pointer; transition: opacity 120ms ease, stroke-width 120ms ease; }
+.tl-bubble.filtered-out { opacity: 0.06; pointer-events: none; }
+.tl-bubble.dim { opacity: 0.12; }
+.tl-bubble.active { stroke-width: 3 !important; filter: drop-shadow(0 0 4px rgba(179, 59, 21, 0.8)); }
+.tl-bubble.related { stroke-width: 2.5 !important; filter: drop-shadow(0 0 3px rgba(140, 90, 40, 0.55)); }
+.tl-panel { background: #fff; border: 1px solid #d6d0c4; padding: 1rem 1.25rem; margin: 0 0 1.5rem; border-top: none; font-family: var(--sans); font-size: 0.92rem; min-height: 9rem; }
+.tl-panel .tl-head { display: flex; gap: 1rem; align-items: baseline; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.tl-panel .tl-head h3 { margin: 0; font-size: 1rem; font-family: var(--sans); }
+.tl-panel .tl-body { color: var(--ink-soft); line-height: 1.55; }
+.tl-panel .tl-footer { margin-top: 0.75rem; font-size: 0.82rem; color: var(--ink-soft); }
+.tl-panel a.related-link { display: inline-block; margin-right: 0.5rem; margin-top: 0.25rem; padding: 0.15rem 0.55rem; border: 1px solid #d6d0c4; border-radius: 3px; font-size: 0.82rem; color: #0a0e1a; background: #fafaf8; text-decoration: none; }
+.tl-panel a.related-link:hover { background: #f5f2ea; border-color: #b33b15; color: #b33b15; }
+.tl-panel .tl-pin { font-size: 0.78rem; color: var(--accent); font-style: italic; margin-top: 0.5rem; }
+.tl-panel.pinned { border-color: var(--accent); }
+.tl-panel .empty { color: var(--ink-soft); font-style: italic; }
+.tl-status { font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft); margin: 0.3rem 0 0; }
+</style>
+{% endblock %}
+{% block content %}
+<h1>Timeline</h1>
+<p class="hero-blurb">
+  Each bubble is one date with one or more freeze events. Color encodes the
+  reason behind the freeze; size encodes how many events happened that day.
+  Hover any bubble for details; use the filter rows to focus on specific
+  categories.
+</p>
+{% include "_timeline_chart.html.j2" %}
+<p class="small" style="color: var(--ink-soft); font-style: italic; margin-top: 1.5rem;">
+  Snapshot dated 2026-04-20 (199 clusters). Dynamic rebuild from <code>data/events.json</code> is a deferred enhancement.
+</p>
+{% endblock %}

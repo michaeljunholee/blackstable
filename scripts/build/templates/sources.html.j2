@@ -1,0 +1,58 @@
+{% extends "base.html.j2" %}
+{% block title %}Sources — Stablecoin Blacklisting{% endblock %}
+{% block content %}
+<section>
+  <h1>Sources</h1>
+  <p class="lede">
+    {{ sources|length }} sources, SHA256-hashed for tamper evidence. Tiered by evidentiary weight:
+    PRIMARY (Circle/government), SECONDARY (reputable news), TERTIARY (forensics, social media).
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Tier</th>
+        <th>Type</th>
+        <th>Published</th>
+        <th>URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for src in sources | sort(attribute='publication_date', reverse=True) %}
+      <tr id="{{ src.source_id }}">
+        <td><code>{{ src.source_id }}</code></td>
+        <td>{{ src.title }}</td>
+        <td>
+          {% if src.source_tier == 'PRIMARY' %}
+            <span class="badge ok">PRIMARY</span>
+          {% elif src.source_tier == 'SECONDARY' %}
+            <span class="badge warn">SECONDARY</span>
+          {% else %}
+            <span class="badge">{{ src.source_tier }}</span>
+          {% endif %}
+        </td>
+        <td class="small">{{ src.source_type }}</td>
+        <td>{{ src.publication_date if src.publication_date else '' }}</td>
+        <td>
+          {% if src.url %}
+            <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">link</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Tier distribution</h2>
+  {% set primary_count = sources | selectattr("source_tier", "equalto", "PRIMARY") | list | length %}
+  {% set secondary_count = sources | selectattr("source_tier", "equalto", "SECONDARY") | list | length %}
+  {% set tertiary_count = sources | selectattr("source_tier", "equalto", "TERTIARY") | list | length %}
+  <ul>
+    <li><span class="badge ok">PRIMARY</span> {{ primary_count }} — Circle or US/foreign government primary documents</li>
+    <li><span class="badge warn">SECONDARY</span> {{ secondary_count }} — Reputable news organizations and court-filed third-party documents</li>
+    <li><span class="badge">TERTIARY</span> {{ tertiary_count }} — Forensics-firm reports, social media, research notes</li>
+  </ul>
+</section>
+{% endblock %}

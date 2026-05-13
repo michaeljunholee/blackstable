@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "CU-SRC-0001": {
+      "archived_url": "https://web.archive.org/web/20241103171204/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "369d7a9121c0d11b6f3b8fa7e0b929a42374263caa87de3230e68850d52fac29",
+      "local_path": "sources/2024/CU-SRC-0001.html"
+    },
+    "CU-SRC-0002": {
+      "archived_url": "https://web.archive.org/web/20241112130057/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "3650db633823005b3179fce1bd2fa4b49603f3888feb84c67928af43aacfd08b",
+      "local_path": "sources/2024/CU-SRC-0002.html"
+    },
+    "CU-SRC-0003": {
+      "archived_url": "https://web.archive.org/web/20241118003502/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "7d5b9326789c1ae8fb36f8febeb061c8529c1bdd390c97ac8e6c660d57ac506c",
+      "local_path": "sources/2024/CU-SRC-0003.html"
+    },
+    "CU-SRC-0004": {
+      "archived_url": "https://web.archive.org/web/20241205035011/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "95b206c819fed0214639b56471e181def0d24b74b720624b22c2917f68daf371",
+      "local_path": "sources/2024/CU-SRC-0004.html"
+    },
+    "CU-SRC-0005": {
+      "archived_url": "https://web.archive.org/web/20241207231731/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "5d43298bcd18753183830020cc16dc665aeb6cec16c75c554cce2c8179cb7b06",
+      "local_path": "sources/2024/CU-SRC-0005.html"
+    },
+    "CU-SRC-0006": {
+      "archived_url": "https://web.archive.org/web/20250118234639/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "f50b3789342974ebb33ef1aaeb73d31cea350a03176989007adae1b2dfe634af",
+      "local_path": "sources/2025/CU-SRC-0006.html"
+    },
+    "CU-SRC-0007": {
+      "archived_url": "https://web.archive.org/web/20250119122648/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "cc83db406cc0131973ea7f1cbbafc97976b321ce83d596a16c0a387d83bbacc5",
+      "local_path": "sources/2025/CU-SRC-0007.html"
+    },
+    "CU-SRC-0008": {
+      "archived_url": "https://web.archive.org/web/20250130062014/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "dd33bac45cf9a782cbe97af1b5d28a0e945314f61f4d98c4532ee76682809262",
+      "local_path": "sources/2025/CU-SRC-0008.html"
+    },
+    "CU-SRC-0009": {
+      "archived_url": "https://web.archive.org/web/20250203172344/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "b7b823a0855ad918c13bb533d7a398175a95e0d5e951930a2126227a16c2fe35",
+      "local_path": "sources/2025/CU-SRC-0009.html"
+    },
+    "CU-SRC-0010": {
+      "archived_url": "https://web.archive.org/web/20250209142603/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "12bcc1ecac8622cfb06b025010e4d5081276efe55fa4dcaaeca13998aecc723b",
+      "local_path": "sources/2025/CU-SRC-0010.html"
+    },
+    "CU-SRC-0011": {
+      "archived_url": "https://web.archive.org/web/20250212062707/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "1e7fd1b38a9a336ffb9311dac78d8380f12dc1828f09c66ec43be626e25dfdac",
+      "local_path": "sources/2025/CU-SRC-0011.html"
+    },
+    "CU-SRC-0012": {
+      "archived_url": "https://web.archive.org/web/20250224094641/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "f00644845cfa13f964c1a3af19c67032f9dda0bb16fe77ee3d6d054a716322f2",
+      "local_path": "sources/2025/CU-SRC-0012.html"
+    },
+    "CU-SRC-0013": {
+      "archived_url": "https://web.archive.org/web/20250307182745/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "0dd7725568dcff7d550393459a86b3409ac86effdc0584ab229c3d9eff6c19e1",
+      "local_path": "sources/2025/CU-SRC-0013.html"
+    },
+    "CU-SRC-0014": {
+      "archived_url": "https://web.archive.org/web/20250316191642/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "c007bd75e8445a2d8fc01aef0637c37db1120741e30e568ae0bc14c1400efced",
+      "local_path": "sources/2025/CU-SRC-0014.html"
+    },
+    "CU-SRC-0015": {
+      "archived_url": "https://web.archive.org/web/20250319134303/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "2b036e3e2146e787bd05fe68216e12d0b970b5185d03778471f8c018bea5cfb7",
+      "local_path": "sources/2025/CU-SRC-0015.html"
+    },
+    "CU-SRC-0016": {
+      "archived_url": "https://web.archive.org/web/20250327135040/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "25fbe1514a4a818e126234b690560282d9c11954c42c7702083816de774b382d",
+      "local_path": "sources/2025/CU-SRC-0016.html"
+    },
+    "CU-SRC-0017": {
+      "archived_url": "https://web.archive.org/web/20250409112615/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "058a0ce28d9f786f8a006fbf921a5f4edcbc447c86bcedfed283166544699ba2",
+      "local_path": "sources/2025/CU-SRC-0017.html"
+    },
+    "CU-SRC-0018": {
+      "archived_url": "https://web.archive.org/web/20250605065454/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "d5af55579af7281b8b7705f60b2c7e163991c232291b1256b38e8b031faaeda6",
+      "local_path": "sources/2025/CU-SRC-0018.html"
+    },
+    "CU-SRC-0019": {
+      "archived_url": "https://web.archive.org/web/20260205112805/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "bd576aedbafbe61161e37cbca0ebf7c73c22acf5bffc871c9c5a7de47061ded5",
+      "local_path": "sources/2026/CU-SRC-0019.html"
+    },
+    "CU-SRC-0020": {
+      "archived_url": "https://web.archive.org/web/20260217165945/https://www.circle.com/legal/privacy-policy",
+      "content_sha256": "a5e2edcdc5dafb86695aad77eb2510d6ec8e3e086038d6b9bea85b175932dd75",
+      "local_path": "sources/2026/CU-SRC-0020.html"
+    }
+  }
+}

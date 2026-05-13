@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <div class="citation">
+    <strong>Cite as:</strong>
+    {{ site_config.authors|default("Lee, Martin, & Townsend") }} ({{ site_config.citation_year|default(2026) }}).
+    <em>{{ site_config.dataset_title|default("Circle USDC Freeze and Restrict Actions Dataset") }}.</em>
+    Available at the URL of this page.
+  </div>
+  {% if site_config.github_repo_url %}
+  <div class="repo-link">
+    Source &amp; methodology:
+    <a href="{{ site_config.github_repo_url }}">{{ site_config.github_repo_url }}</a>
+  </div>
+  {% endif %}
+</footer>

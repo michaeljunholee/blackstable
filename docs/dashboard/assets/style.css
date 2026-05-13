@@ -1,0 +1,197 @@
+:root {
+  --ink: #0a0e1a;
+  --ink-soft: #2d3748;
+  --paper: #fafaf8;
+  --paper-warm: #f5f2ea;
+  --line: #d6d0c4;
+  --accent: #b33b15;
+  --accent-soft: #c06a4a;
+  --ok: #1f6b38;
+  --warn: #8a6d1c;
+  --err: #a52a2a;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  font-family: var(--serif);
+  color: var(--ink);
+  background: var(--paper);
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem 2.5rem 6rem;
+  line-height: 1.55;
+}
+
+/* Hero pages (overview, timeline) get the full viewport width so the chart
+   can stretch edge-to-edge without horizontal scroll. */
+body.hero-page {
+  max-width: 100%;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+body.hero-page h1 {
+  font-size: 2.1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+body.hero-page .hero-blurb {
+  max-width: 60rem;
+}
+/* Pull the chart edge-to-edge of the viewport, ignoring body padding. */
+body.hero-page .tl-wrap {
+  margin-left: -1.75rem;
+  margin-right: -1.75rem;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+body.hero-page .tl-filters {
+  margin-top: 1.25rem;
+}
+
+/* Hide jargon-y status line — the visual already conveys what's filtered. */
+.tl-status { display: none !important; }
+
+/* New-template header / nav (Project B v1) */
+.site-header {
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.site-header .brand a {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: none;
+}
+.site-header .brand a:hover { color: var(--accent); }
+.site-header .brand-sub {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+}
+nav.primary-nav {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 0.75rem 0 0;
+  margin-top: 0.75rem;
+}
+nav.primary-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+nav.primary-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+nav.primary-nav a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+main.site-content { min-height: 50vh; }
+
+/* New-template footer */
+footer.site-footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+footer.site-footer .citation { margin-bottom: 0.5rem; }
+footer.site-footer em { font-style: italic; }
+footer.site-footer a { color: var(--ink-soft); border-bottom: 1px dotted var(--line); }
+footer.site-footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Headings + body typography */
+h1, h2, h3, h4 { font-family: var(--sans); line-height: 1.2; margin-top: 2rem; margin-bottom: 0.5rem; }
+h1 { font-size: 1.75rem; font-weight: 700; }
+h2 { font-size: 1.35rem; font-weight: 600; border-bottom: 1px solid var(--line); padding-bottom: 0.3rem; }
+h3 { font-size: 1.1rem; font-weight: 600; color: var(--ink-soft); }
+h4 { font-size: 0.95rem; font-weight: 600; }
+p { margin: 0.7rem 0; }
+p.lede { font-size: 1.05rem; color: var(--ink-soft); margin-bottom: 1.5rem; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: var(--accent); }
+
+code { font-family: var(--mono); font-size: 0.85em; background: var(--paper-warm); padding: 0.1em 0.3em; border-radius: 3px; word-break: break-all; }
+pre { background: var(--paper-warm); padding: 1rem; overflow-x: auto; border-left: 3px solid var(--line); font-size: 0.85em; }
+pre code { background: transparent; padding: 0; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.92rem; font-family: var(--sans); }
+th, td { text-align: left; padding: 0.5rem 0.75rem 0.45rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft); border-bottom: 2px solid var(--ink); }
+tr:hover td { background: var(--paper-warm); }
+
+/* Index page metric list */
+ul.metrics {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+ul.metrics li {
+  border: 1px solid var(--line);
+  padding: 0.85rem 1rem;
+  background: #fff;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+ul.metrics li strong {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+/* Note detail page wrapper */
+article.note-detail { font-size: 0.95rem; }
+article.note-detail h1 { font-size: 1.5rem; }
+article.note-detail blockquote {
+  border-left: 3px solid var(--accent-soft);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+article.note-detail hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 1.5rem 0;
+}
+
+/* Carry-over utility classes */
+.byline { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 1.5rem; }
+.addr { font-family: var(--mono); font-size: 0.82em; }
+.small { font-size: 0.85em; color: var(--ink-soft); }
+.badge { display: inline-block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.04em; padding: 0.15rem 0.45rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink-soft); background: #fff; white-space: nowrap; }
+.badge.ok { border-color: var(--ok); color: var(--ok); }
+.badge.warn { border-color: var(--warn); color: var(--warn); }
+.badge.err { border-color: var(--err); color: var(--err); }
+.badge.accent { border-color: var(--accent); color: var(--accent); }
+.finding { background: var(--paper-warm); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; margin: 1.25rem 0; }
+.finding h3 { margin-top: 0; color: var(--accent); }
+blockquote { border-left: 3px solid var(--accent-soft); padding-left: 1rem; margin: 1rem 0; color: var(--ink-soft); font-style: italic; }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ site_config.short_title|default("Stablecoin Blacklisting") }}{% endblock %}</title>
+  <link rel="stylesheet" href="assets/style.css">
+  {% block head_extra %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html"><strong>{{ site_config.short_title|default("Stablecoins: Compliance &amp; Censorship") }}</strong></a>
+    </div>
+    <nav class="primary-nav">
+      <a href="index.html" {% if page == 'index' %}aria-current="page"{% endif %}>Overview</a>
+      <a href="timeline.html" {% if page == 'timeline' %}aria-current="page"{% endif %}>Timeline</a>
+      <a href="explore.html" {% if page == 'explore' %}aria-current="page"{% endif %}>Explore</a>
+      <a href="clusters.html" {% if page == 'clusters' %}aria-current="page"{% endif %}>Clusters</a>
+      <a href="entities.html" {% if page == 'entities' %}aria-current="page"{% endif %}>Entities</a>
+      <a href="triggers.html" {% if page == 'triggers' %}aria-current="page"{% endif %}>Triggers</a>
+      <a href="sources.html" {% if page == 'sources' %}aria-current="page"{% endif %}>Sources</a>
+      <a href="notes.html" {% if page == 'notes' %}aria-current="page"{% endif %}>Notes</a>
+      <a href="methodology.html" {% if page == 'methodology' %}aria-current="page"{% endif %}>Methodology</a>
+    </nav>
+  </header>
+  <main class="site-content">
+    {% block content %}{% endblock %}
+  </main>
+  {% include "_footer.html.j2" %}
+</body>
+</html>

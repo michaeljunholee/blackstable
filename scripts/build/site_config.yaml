@@ -1,0 +1,6 @@
+# Deploy-specific constants surfaced in templates. Edit before first deploy.
+citation_year: 2026
+github_repo_url: ""  # e.g. "https://github.com/username/CircleUSDC" — leave empty to omit the link
+authors: "Lee, Martin, & Townsend"
+dataset_title: "Stablecoin Blacklisting"
+short_title: "Stablecoin Blacklisting"

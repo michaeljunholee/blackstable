@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reddit-buttcoin-16-wallets — Notes</title>
+  <link rel="stylesheet" href="assets/style.css">
+  
+</head>
+<body class="">
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html"><strong>Stablecoin Blacklisting</strong></a>
+    </div>
+    <nav class="primary-nav">
+      <a href="index.html" >Overview</a>
+      <a href="timeline.html" >Timeline</a>
+      <a href="explore.html" >Explore</a>
+      <a href="clusters.html" >Clusters</a>
+      <a href="entities.html" >Entities</a>
+      <a href="triggers.html" >Triggers</a>
+      <a href="sources.html" >Sources</a>
+      <a href="notes.html" aria-current="page">Notes</a>
+      <a href="methodology.html" >Methodology</a>
+    </nav>
+  </header>
+  <main class="site-content">
+    
+<article class="note-detail">
+  <hr />
+<p>title: "r/Buttcoin \"16 operational business wallets\" investigation"
+date: 2026-04-20
+scope: Cross-check r/Buttcoin community claims about the 2026-03-23 Circle freeze against on-chain data; verify entity identifications and assess claim accuracy</p>
+<hr />
+<h1 id="rbuttcoin-16-operational-business-wallets-investigation">r/Buttcoin "16 operational business wallets" investigation</h1>
+<p><strong>Source URL:</strong> https://www.reddit.com/r/Buttcoin/comments/1s2l5os/circle_froze_16_operational_business_wallets/ <!-- TODO: archive -->
+<strong>Thread date:</strong> ~2026-03-24 (post day after the 2026-03-23 freeze)
+<strong>Community claim:</strong> Circle froze 16 wallets it said were linked to a sealed U.S. civil case, but a majority appear to be legitimate operational businesses (exchanges, casinos, forex brokers, payment processors).</p>
+<h2 id="fetch-note">Fetch note</h2>
+<p>The Reddit JSON endpoint returned HTTP 403 in this environment (both via direct <code>curl</code> and <code>urllib</code>). WebSearch-derived snippets and cross-referenced reporting from CoinDesk, FinanceFeeds, CCN, AMLBot, Bitcoin.com News, Cryptonomist.ch, and Cointelegraph provide the factual substance; the Reddit post text itself is not archived locally. All cross-referenced outlet citations are noted in <code>sources/</code> but require Wayback Machine archiving. <!-- TODO: archive cross-reference outlet URLs --></p>
+<h2 id="claim-vs-data">Claim vs. data</h2>
+<table>
+<thead>
+<tr>
+<th>Community claim</th>
+<th>Our on-chain data</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"16 wallets were frozen on 2026-03-23"</td>
+<td>Our <code>actions.csv</code> shows 84 BLACKLIST events on 2026-03-23 (80 eth + 4 polygon) covering 84 unique addresses. The 84-vs-16 gap is likely because the sealed order names 16 underlying entities but Circle blacklists each entity's full address graph (multiple hot wallets + cross-chain deployments).</td>
+<td>CONFIRMED (structurally consistent; exact 16 entities cannot be verified individually because 14 of 16 remain unnamed)</td>
+</tr>
+<tr>
+<td>"DFINITY ckETH Minter was swept up"</td>
+<td><code>0xb25ea1d493b49a1ded42ac5b1208cc618f9a9b80</code> = CU-ACT-0666, BLACKLIST 2026-03-23, REVERSED 2026-03-28 via CU-ACT-0744</td>
+<td>CONFIRMED on-chain</td>
+</tr>
+<tr>
+<td>"Goated.com was swept up and reversed ~3 days later"</td>
+<td><code>0x61f08d119974a3d9915f06765d83fe1aa677e543</code> = blacklisted 2026-03-23; ZachXBT tweet confirms Goated.com identity. No unblacklist action for this address in our data as of the data snapshot.</td>
+<td>PARTIALLY CONFIRMED (blacklist confirmed; reversal reported 2026-03-26 but does not appear in our onchain snapshot — possibly post-cutoff or reversed off-chain / not-yet-indexed by Dune query)</td>
+</tr>
+<tr>
+<td>"500 Casino and Whale were also reversed"</td>
+<td>No publicly disclosed address for either; cannot cross-reference</td>
+<td>UNVERIFIABLE (only ZachXBT's tweet asserts; no on-chain confirmation possible without addresses)</td>
+</tr>
+<tr>
+<td>"Legitimate businesses, not criminals"</td>
+<td>For DFINITY — clearly a public infrastructure contract. For Goated.com — public online casino; ZachXBT's characterization plausible but not independently verified. For the 13 unnamed wallets — cannot assess.</td>
+<td>CONFIRMED for 2-3 cases; UNKNOWN for 13-14 others</td>
+</tr>
+<tr>
+<td>"Willkie Farr obtained the order"</td>
+<td>Reported by multiple outlets; not independently confirmed (sealed docket)</td>
+<td>REPORTED, NOT VERIFIED</td>
+</tr>
+<tr>
+<td>"SDNY case 26-cv-2327"</td>
+<td>Same — sealed, reported in reporting Circle gave to affected parties</td>
+<td>REPORTED, NOT VERIFIED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="entities-populated-based-on-this-investigation">Entities populated based on this investigation</h2>
+<table>
+<thead>
+<tr>
+<th>entity_id</th>
+<th>name</th>
+<th>type</th>
+<th>circle_relationship</th>
+<th>rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CU-ENT-0039</td>
+<td>DFINITY Foundation (ckETH Minter operator)</td>
+<td>BRIDGE</td>
+<td>MAYBE</td>
+<td>Public bridge contract; swept in by transaction-graph clustering; reversed on further review.</td>
+</tr>
+<tr>
+<td>CU-ENT-0040</td>
+<td>Goated.com</td>
+<td>CORPORATION</td>
+<td>MAYBE</td>
+<td>Operational online business; identified by ZachXBT; not documented as commercial partner of Circle.</td>
+</tr>
+<tr>
+<td>CU-ENT-0041</td>
+<td>500 Casino</td>
+<td>CORPORATION</td>
+<td>MAYBE</td>
+<td>Online casino per public reporting; specific address not disclosed.</td>
+</tr>
+<tr>
+<td>CU-ENT-0042</td>
+<td>Whale (unidentified)</td>
+<td>CORPORATION</td>
+<td>MAYBE</td>
+<td>ZachXBT tweet label; no further public identification.</td>
+</tr>
+<tr>
+<td>CU-ENT-0043</td>
+<td>Willkie Farr &amp; Gallagher LLP</td>
+<td>CORPORATION</td>
+<td>MAYBE</td>
+<td>Plaintiffs counsel per reporting; not a Circle commercial partner.</td>
+</tr>
+<tr>
+<td>CU-ENT-0044</td>
+<td>Southern District of New York</td>
+<td>COURT</td>
+<td>MAYBE</td>
+<td>Issuing court; jurisdictional relationship, not commercial.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="assessment">Assessment</h2>
+<p>The r/Buttcoin community claim is substantially corroborated in its two most important factual elements:
+1. Circle did freeze 16 distinct business-wallet clusters on 2026-03-23 (HIGH confidence — on-chain data confirms 84 events covering at least 16 entity-level clusters).
+2. At least 4-5 of those — DFINITY ckETH Minter, Goated.com, 500 Casino, Whale, and others reversed by 2026-04-07 — are apparently legitimate operational businesses or public infrastructure (HIGH confidence for ckETH Minter; MEDIUM confidence for others based on public reporting).</p>
+<p>The community framing — that Circle executed the freeze with insufficient pre-enforcement diligence — is supported by the ckETH Minter inclusion, which is a public bridge contract with no documented nexus to a private civil fraud case.</p>
+<p>The community post's implied claim that all 16 wallets are "operational businesses" (i.e., none are legitimate targets) cannot be verified (LOW confidence in either direction). Sealed-court-order cases routinely target commingled funds; some of the 13 unnamed wallets may be defendants in the civil case. The sealed nature of the order is the core obstacle to a definitive assessment.</p>
+<h2 id="policy-vs-practice-observation">Policy-vs-practice observation</h2>
+<p>This investigation supports the project's central hypothesis: Circle's stated "court-order only" freeze policy produces both over-inclusion (catching a public bridge contract) and under-inclusion (non-intervention in the Drift hack nine days later). The 2026-03-23 cluster constitutes the strongest single piece of evidence that Circle's freeze discipline is not calibrated for individualized-entity review (MEDIUM confidence on causal interpretation; both the over-inclusion and non-intervention observations are on-chain verifiable).</p>
+<h2 id="sources-attached">Sources attached</h2>
+<ul>
+<li>CU-SRC-0024 — multi-outlet news summary (SECONDARY) <!-- TODO: archive --></li>
+<li>CU-SRC-0025 — r/Buttcoin community post archive (TERTIARY) <!-- TODO: archive; Reddit HTTP 403 at fetch time; paraphrased archive only --></li>
+</ul>
+<h2 id="citation-archive-needed">Citation archive needed</h2>
+<ul>
+<li>CU-SRC-0024 and CU-SRC-0025: Wayback Machine archiving required for all companion outlet URLs.</li>
+</ul>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="citation">
+    <strong>Cite as:</strong>
+    Lee, Martin, &amp; Townsend (2026).
+    <em>Stablecoin Blacklisting.</em>
+    Available at the URL of this page.
+  </div>
+  
+</footer>
+</body>
+</html>

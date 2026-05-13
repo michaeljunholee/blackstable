@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zachxbt-thread-crossref — Notes</title>
+  <link rel="stylesheet" href="assets/style.css">
+  
+</head>
+<body class="">
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html"><strong>Stablecoin Blacklisting</strong></a>
+    </div>
+    <nav class="primary-nav">
+      <a href="index.html" >Overview</a>
+      <a href="timeline.html" >Timeline</a>
+      <a href="explore.html" >Explore</a>
+      <a href="clusters.html" >Clusters</a>
+      <a href="entities.html" >Entities</a>
+      <a href="triggers.html" >Triggers</a>
+      <a href="sources.html" >Sources</a>
+      <a href="notes.html" aria-current="page">Notes</a>
+      <a href="methodology.html" >Methodology</a>
+    </nav>
+  </header>
+  <main class="site-content">
+    
+<article class="note-detail">
+  <hr />
+<p>title: "ZachXBT \"Circle USDC files\" thread — dataset cross-reference"
+date: 2026-04-20
+scope: Cross-reference ZachXBT's 15-case thread against the dataset; 2 of 18 EVM theft addresses matched; 16 never blacklisted within observable window</p>
+<hr />
+<h1 id="zachxbt-circle-usdc-files-thread-dataset-cross-reference">ZachXBT "Circle USDC files" thread — dataset cross-reference</h1>
+<p><strong>Thread:</strong> @zachxbt on X, posted 2026-04-03, URL <code>https://x.com/zachxbt/status/2040055823804793165</code> <!-- TODO: archive -->
+<strong>Extraction date:</strong> 2026-04-20
+<strong>Scope:</strong> 15 cases alleging &gt;$420M in USDC "compliance failures" by Circle since 2022</p>
+<h2 id="headline-finding">Headline finding</h2>
+<p>Of <strong>18 EVM theft addresses</strong> ZachXBT named in the thread, <strong>only 2 were ever blacklisted by Circle</strong> according to our 2,922-event dataset across the 6 EVM chains (Ethereum, Base, Polygon, Avalanche, Arbitrum, Optimism).</p>
+<p>The other <strong>16 EVM theft addresses — spanning 12 distinct incidents — never appear in our blacklist data at all.</strong></p>
+<p>Four additional cases (Drift, Mango Markets, Remitano Solana leg, Cetus Sui leg) use non-EVM chains that Pass A explicitly deferred; these cannot be tested against our current dataset.</p>
+<h2 id="the-2-matches">The 2 matches</h2>
+<h3 id="bybit-lazarus-consolidation-case-15">Bybit Lazarus consolidation (Case 15)</h3>
+<ul>
+<li><strong>Address:</strong> <code>0xDa2e12E94060720581994eEc870F83d9C7200c2c</code></li>
+<li><strong>Incident:</strong> 2026-02-21 Bybit exploit ($1.5B total); funds consolidated 2025-02-28</li>
+<li><strong>Our record:</strong> <code>CU-ACT-0285</code>, BLACKLIST on Ethereum, <strong>2025-03-01</strong></li>
+<li><strong>Circle action timing:</strong> <strong>+1 day</strong> after the 2025-02-28 consolidation</li>
+<li><strong>ZachXBT's claim:</strong> "Tether froze within hours. Circle took 24 hours longer to act."</li>
+<li><strong>Dataset verification:</strong> consistent with ZachXBT's characterization. Tether's action is not in this dataset (Circle only), but the +1-day delay is directly on-chain verifiable. The Tether timing component of ZachXBT's claim cannot be independently confirmed from this dataset (LOW confidence on the Tether-vs-Circle comparison).</li>
+<li><strong>Attribution status before this crossref:</strong> untriggered (no <code>trigger_id</code>, no <code>target_entity_id</code>). Now assigned to Bybit Lazarus incident.</li>
+</ul>
+<h3 id="cetus-protocol-eth-leg-case-3">Cetus Protocol ETH leg (Case 3)</h3>
+<ul>
+<li><strong>Address:</strong> <code>0x89012a55cD6b88e407C9d4ae9B3425F55924919b</code></li>
+<li><strong>Incident:</strong> 2025-05-22 Cetus Protocol exploit ($223M total; 61M USDC via CCTP Sui→Ethereum)</li>
+<li><strong>Our record:</strong> <code>CU-ACT-0406</code>, BLACKLIST on Ethereum, <strong>2025-06-20</strong></li>
+<li><strong>Circle action timing:</strong> <strong>+29 days</strong> after the incident</li>
+<li><strong>ZachXBT's claim:</strong> "Circle blacklisted the address one month later, after the USDC had already been converted to ETH"</li>
+<li><strong>Dataset verification:</strong> consistent. 29 days ≈ one month. The timing is on-chain verifiable. The "after conversion to ETH" characterization cannot be confirmed from this dataset's USDC blacklist data alone (LOW confidence on whether USDC balance was depleted before blacklist).</li>
+<li><strong>Attribution status before this crossref:</strong> untriggered. Now assigned to Cetus incident.</li>
+</ul>
+<h2 id="the-16-non-matches-evm-theft-addresses-never-blacklisted">The 16 non-matches (EVM theft addresses never blacklisted)</h2>
+<table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Incident</th>
+<th>Addresses</th>
+<th>Chain(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 Nomad Bridge (2022-08)</td>
+<td>3 addresses</td>
+<td><code>0xbf29...</code>, <code>0x56d8...</code>, <code>0xb5c5...</code></td>
+<td>Ethereum</td>
+</tr>
+<tr>
+<td>10 DeFi builder theft (2022-11)</td>
+<td>1 address</td>
+<td><code>0x7415...</code></td>
+<td>Ethereum</td>
+</tr>
+<tr>
+<td>9 Remitano (2023-09, EVM leg)</td>
+<td>1 address</td>
+<td><code>0x7453...</code></td>
+<td>Ethereum</td>
+</tr>
+<tr>
+<td>7 Ledger Connect Kit (2023-12)</td>
+<td>1 address</td>
+<td><code>0x6587...</code></td>
+<td>Ethereum</td>
+</tr>
+<tr>
+<td>13 Radiant Capital (2024-10)</td>
+<td>7 addresses</td>
+<td><code>0x5226..., 0x00E1..., 0x7997..., 0x60AB..., 0x5b10..., 0x34aa..., 0x348F...</code></td>
+<td>Arbitrum / Ethereum (Hyperliquid-origin)</td>
+</tr>
+<tr>
+<td>14 Garantex (2025-03)</td>
+<td>1 address</td>
+<td><code>0xb271...</code></td>
+<td>Ethereum</td>
+</tr>
+<tr>
+<td>8 GMX (2025-07)</td>
+<td>1 address</td>
+<td><code>0xDF33...</code></td>
+<td>Arbitrum → Ethereum via CCTP</td>
+</tr>
+<tr>
+<td>2 SwapNet (2026-01)</td>
+<td>1 address</td>
+<td><code>0x6cAa...</code></td>
+<td>Base</td>
+</tr>
+</tbody>
+</table>
+<p>None of these 16 addresses appear in <code>actions.csv</code>, <code>entities.associated_addresses</code>, or anywhere else in the dataset.</p>
+<h2 id="the-4-non-evm-cases-out-of-pass-a-scope">The 4 non-EVM cases (out-of-Pass-A-scope)</h2>
+<ul>
+<li>Case 1 Drift Protocol (Solana) — <code>HkGz4Kmo...</code></li>
+<li>Case 4 Mango Markets (Solana) — <code>yUJw9a2P...</code> (Circle deposit address)</li>
+<li>Case 9 Remitano Solana leg — <code>CznNhNTB...</code></li>
+<li>Case 3 Cetus Protocol Sui leg — <code>0xe28b50ce...</code></li>
+</ul>
+<p>These cannot be tested in the current dataset because Pass A scoping excluded Solana / Sui / other non-EVM chains. Promoting these chains into Pass C would allow retest.</p>
+<h2 id="the-3-circle-infrastructure-addresses-cases-11-12">The 3 "Circle-infrastructure" addresses (Cases 11, 12)</h2>
+<ul>
+<li>Case 11 DPRK IT worker payment addresses: 3 Circle-withdrawal addresses (<code>0x241d...</code>, <code>0x3131...</code>, <code>0x5c41...</code>). These are Circle-user-withdrawal destinations, not theft addresses. Our dataset has no mechanism to capture Circle's account-closure decisions vs. blacklist decisions.</li>
+<li>Case 12 SEA pig-butchering Circle-deposit address: <code>0xb4875...</code>. A Circle deposit address the illicit funds passed through; Circle wouldn't blacklist its own infrastructure.</li>
+</ul>
+<p>Both cases fall outside the dataset's theft-address-blacklist paradigm; ZachXBT's critique here is about Circle <em>customer policy</em> enforcement, not about the on-chain blacklist mechanism.</p>
+<h2 id="caveats">Caveats</h2>
+<ol>
+<li><strong>Coverage boundary.</strong> Our dataset captures 6 EVM chains via Dune <code>&lt;chain&gt;.logs</code> queries. If any of the 16 "non-matched" addresses were blacklisted on a chain we don't cover — BNB Chain, Solana, Sui, NEAR, Stellar, Hedera, Algorand — we wouldn't see it. However, for major USDC activity these 6 EVM chains are the canonical Circle-controlled deployments.</li>
+<li><strong>Dune query completeness.</strong> Our <code>topic0 IN (...)</code> filter matches Blacklisted / UnBlacklisted / Paused / Unpaused events only. Any events emitted under a different signature (legacy contract, fork) would be missed. The topic0 values for Blacklisted / UnBlacklisted are verified from the canonical FiatTokenV2 contract; the risk of missing is low for Circle-issued USDC on EVM chains.</li>
+<li><strong>Timing precision.</strong> "Circle took 24 hours longer to act" (ZachXBT, Bybit) measured against Tether. Our +1-day gap is measured from the <strong>consolidation</strong> date, not the <strong>exploit</strong> date. If Tether froze the consolidation address within ~1 hour and Circle at +1 day, the 24-hour gap claim holds. We cannot verify Tether's timing from our dataset; we can only confirm Circle's +1 day.</li>
+<li><strong>Attribution not fabricated.</strong> The 2 matches were already in our dataset as untriggered BLACKLIST events; this crossref simply identifies their real-world cause. No address-to-outcome association has been inferred that isn't present in the raw data.</li>
+</ol>
+<h2 id="what-this-finding-means-for-the-research-question">What this finding means for the research question</h2>
+<p>ZachXBT's thread provides 15 documented cases where Circle either declined or delayed action, compared against Tether's behavior on the same addresses. This crossref tests the project's central hypothesis: whether Circle's "only act on legal requests" policy matches actual practice, conditional on counterparty relationships.</p>
+<p>This dataset's crossref verifies:
+- Circle acted on 2 of the 18 EVM theft addresses — with timing consistent with ZachXBT's characterization (+1 day for Bybit, +29 days for Cetus) (HIGH confidence; both are direct on-chain observations).
+- Circle did not act on the other 16 EVM theft addresses within the observable window (HIGH confidence for non-action; absence of a record is conclusive for the 6 chains tracked).</p>
+<p>The combination supports the Drift-protocol argument: the same Circle compliance apparatus that swept in a legitimate bridge under a sealed civil order did not blacklist 16 EVM theft addresses with public attribution (MEDIUM confidence on the policy-implication framing; the on-chain data itself is HIGH confidence).</p>
+<h2 id="data-actions-taken-alongside-this-crossref">Data actions taken alongside this crossref</h2>
+<ul>
+<li><code>CU-ACT-0285</code> (Bybit Lazarus consolidation freeze) — was untriggered; now linkable to a Bybit Lazarus incident.</li>
+<li><code>CU-ACT-0406</code> (Cetus Protocol ETH freeze) — was untriggered; now linkable to a Cetus incident.</li>
+</ul>
+<p>Population of formal entity/incident/trigger rows for these two events is a small follow-up and will be committed separately.</p>
+<h2 id="citation-archive-needed">Citation archive needed</h2>
+<ul>
+<li>ZachXBT X thread (<code>https://x.com/zachxbt/status/2040055823804793165</code>): Wayback Machine archiving required.</li>
+</ul>
+<h2 id="next-steps">Next steps</h2>
+<ol>
+<li><strong>Populate the 2 matched events</strong> with proper incident + entity + source citations in the dataset (small follow-up).</li>
+<li><strong>Promote Solana coverage to Pass C</strong> so cases 1 (Drift), 4 (Mango), 9 (Remitano Solana), and 3 (Cetus Sui) become testable.</li>
+<li><strong>Expand the theft-address survey</strong> — ZachXBT's thread is 15 cases; the broader hack landscape (Rekt.news, DefiLlama) has hundreds. A targeted follow-up survey of the top-50 hacks by dollar value since 2022 would establish a baseline: how often does Circle act on theft addresses that eventually receive public LE attention?</li>
+<li><strong>Cross-reference against Tether's freeze history</strong> for the same addresses. Would require Tether contract event scans; produces a direct comparator for every non-matched case.</li>
+</ol>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="citation">
+    <strong>Cite as:</strong>
+    Lee, Martin, &amp; Townsend (2026).
+    <em>Stablecoin Blacklisting.</em>
+    Available at the URL of this page.
+  </div>
+  
+</footer>
+</body>
+</html>

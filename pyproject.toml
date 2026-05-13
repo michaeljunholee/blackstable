@@ -1,0 +1,32 @@
+[project]
+name = "circle-usdc-research"
+version = "0.1.0"
+description = "Private research dataset on Circle's USDC freeze and restrict history"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2",
+    "requests>=2.32",
+    "python-dotenv>=1.0",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.2",
+    "pyyaml>=6.0",
+    "jupyter>=1.0",
+    "jinja2>=3.1",
+    "markdown>=3.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-mock>=3.12",
+    "responses>=0.25",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+# Disable `pytest-ethereum` plugin (shipped with `web3.tools`) to avoid
+# environment-level import crashes unrelated to this project. The plugin
+# is incompatible with some `eth_typing` versions found in shared Python
+# environments. Safe to remove once the project uses a dedicated venv.
+addopts = "-p no:pytest_ethereum"

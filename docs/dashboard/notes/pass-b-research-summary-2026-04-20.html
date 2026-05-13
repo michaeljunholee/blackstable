@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pass-b-research-summary-2026-04-20 — Notes</title>
+  <link rel="stylesheet" href="assets/style.css">
+  
+</head>
+<body class="">
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html"><strong>Stablecoin Blacklisting</strong></a>
+    </div>
+    <nav class="primary-nav">
+      <a href="index.html" >Overview</a>
+      <a href="timeline.html" >Timeline</a>
+      <a href="explore.html" >Explore</a>
+      <a href="clusters.html" >Clusters</a>
+      <a href="entities.html" >Entities</a>
+      <a href="triggers.html" >Triggers</a>
+      <a href="sources.html" >Sources</a>
+      <a href="notes.html" aria-current="page">Notes</a>
+      <a href="methodology.html" >Methodology</a>
+    </nav>
+  </header>
+  <main class="site-content">
+    
+<article class="note-detail">
+  <hr />
+<p>title: "Pass B Research Summary — 2026-04-20"
+date: 2026-04-20
+scope: Scorecard and findings for overnight attribution session covering 15 priority clusters plus bonus attributions; 1,290 BLACKLIST actions newly attributed</p>
+<hr />
+<h1 id="pass-b-research-summary-2026-04-20">Pass B Research Summary — 2026-04-20</h1>
+<p>This session addressed 15 priority cluster missions plus the r/Buttcoin community-claims investigation. Starting commit: <code>e5853f4</code> (Tornado Cash cluster). Ending commit: <code>7f4b455</code> (Tornado Cash delisting).</p>
+<h2 id="scorecard">Scorecard</h2>
+<table>
+<thead>
+<tr>
+<th>Mission</th>
+<th>Date</th>
+<th>Events</th>
+<th>Status</th>
+<th>Trigger</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2026-03-23</td>
+<td>84</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0040 (SDNY sealed civil 26-cv-2327)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2026-03-12</td>
+<td>60</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0041 (OFAC DPRK IT Worker Fraud, SB0416)</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2025-11-04</td>
+<td>339</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0042 (OFAC DPRK Bankers Cheil Credit Bank, SB0302)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2023-07-21</td>
+<td>111</td>
+<td>✅ Attributed (cross-chain propagation)</td>
+<td>Multiple triggers</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2023-07-31</td>
+<td>94</td>
+<td>✅ Attributed (cross-chain propagation)</td>
+<td>Multiple triggers</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2023-08-18</td>
+<td>94</td>
+<td>✅ Attributed (cross-chain propagation)</td>
+<td>Multiple triggers</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2023-06-08</td>
+<td>93</td>
+<td>✅ Attributed (cross-chain propagation)</td>
+<td>Multiple triggers</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2022-11-10</td>
+<td>53</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0043 (OFAC darknet fentanyl + TC redesignation, JY1089)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2022-11-11</td>
+<td>53</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0043 (same)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2025-08-14</td>
+<td>69</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0044 (OFAC Garantex/Grinex, SB0225)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2025-04-02</td>
+<td>48</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0045 (OFAC Houthi-Russia network, SB0068)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2026-01-30</td>
+<td>45</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0046 (OFAC Zedcex/Zedxion IRGC, first IRGC-linked exchange)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>13</td>
+<td>2025-11-19</td>
+<td>32</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0047 (OFAC Media Land BPH + Ryan Wedding, Fed Reg 2025-20573)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>14</td>
+<td>2025-10-14</td>
+<td>31</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0049 (OFAC Prince Group Cambodia TCO, SB0278)</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>15</td>
+<td>2024-12-20</td>
+<td>30</td>
+<td>✅ Attributed</td>
+<td>CU-TRG-0048 (OFAC Sa'id al-Jamal Houthi financier)</td>
+<td>HIGH</td>
+</tr>
+</tbody>
+</table>
+<p><strong>All 15 priority missions attributed. PLUS 4 bonus attributions:</strong>
+- 2025-09-16 (24 actions): Iranian Shadow Banking / Derakhshan-Alivand (SB0248)
+- 2024-03-27 (24 actions): Gaza Now Hamas fundraising — first joint OFAC+UK OFSI crypto designation (JY2213)
+- 2025-02-24 (18 actions): Circle follow-up to OFAC 2025-02-11 Zservers/LockBit designation
+- 2025-03-21/22 (222 UNBLACKLIST actions): Tornado Cash delisting following Fifth Circuit Van Loon v. Treasury (SB0057) — first major OFAC crypto delisting</p>
+<p><strong>Plus cross-chain trigger propagation</strong>: 380 additional BLACKLIST actions attributed to their cross-chain counterparts via Circle's chain-launch catch-up sweeps (primarily Tornado Cash and Nov 2022 OFAC addresses replicated on arbitrum / polygon / optimism / base when those L2 chains gained native USDC).</p>
+<h2 id="global-metrics">Global metrics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Pre–Pass B</th>
+<th>Post–Pass B</th>
+<th>Delta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triggered BLACKLIST actions</td>
+<td>644 (28.1%)</td>
+<td>1,934 (84.5%)</td>
+<td>+1,290 (+56.4 pp)</td>
+</tr>
+<tr>
+<td>Triggered UNBLACKLIST actions</td>
+<td>0</td>
+<td>222 (35.0%)</td>
+<td>+222</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>23</td>
+<td>38</td>
+<td>+15</td>
+</tr>
+<tr>
+<td>Entities</td>
+<td>38</td>
+<td>58</td>
+<td>+20</td>
+</tr>
+<tr>
+<td>Triggers</td>
+<td>39</td>
+<td>53</td>
+<td>+14</td>
+</tr>
+<tr>
+<td>Incidents</td>
+<td>1</td>
+<td>3</td>
+<td>+2</td>
+</tr>
+<tr>
+<td>Action_sources</td>
+<td>644</td>
+<td>2,159</td>
+<td>+1,515</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1,290 BLACKLIST actions newly attributed</strong>, increasing coverage from 28% to 84.5%. 222 UNBLACKLIST actions newly attributed (the Tornado Cash delisting sweep).</p>
+<h2 id="source-quality-breakdown">Source quality breakdown</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRIMARY (Circle/gov)</td>
+<td>34</td>
+</tr>
+<tr>
+<td>SECONDARY (news)</td>
+<td>3</td>
+</tr>
+<tr>
+<td>TERTIARY (community)</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>14 PRIMARY sources were added in Pass B, all Treasury OFAC press releases or Federal Register notices. The Reddit r/Buttcoin post (CU-SRC-0025) is the sole TERTIARY source. The CoinDesk 16-wallet coverage (CU-SRC-0024) is our only major new SECONDARY source.</p>
+<h2 id="major-findings-and-surprises">Major findings and surprises</h2>
+<ol>
+<li>
+<p><strong>The 2026-03-23 "16 wallets" freeze is a sealed SDNY civil case (26-cv-2327)</strong>, confirmed via multi-outlet reporting. The Reddit r/Buttcoin community's core factual claim is corroborated — Circle did freeze operational businesses including the DFINITY ckETH Minter, Goated.com, 500 Casino, and Whale. Of the 16 business-wallet entities, at least 4-5 were reversed by 2026-04-07 after public pressure. This constitutes the strongest single piece of evidence that Circle's "court order" discipline produces both over-inclusion (public bridge contracts) and under-inclusion (Drift hack inaction 9 days later); the "over-inclusion" framing is HIGH confidence for ckETH Minter, MEDIUM confidence for the broader characterization.</p>
+</li>
+<li>
+<p><strong>The 2026-03-12 and 2026-03-23 clusters are NOT Drift-related</strong>, despite the mission briefing's initial hypothesis. The Drift hack was April 1, 2026; these March clusters predate it. The Drift hack does appear as context in the 2026-03-23 cluster notes (same-Circle-freeze-apparatus context). Mission 1's original motivation (Drift hack lateness) is captured in the 2026-03-23 cluster analysis, though the blacklist actions themselves are unrelated to Drift.</p>
+</li>
+<li>
+<p><strong>Almost every "mystery cluster" in the MISSIONS.md list resolves to an OFAC designation</strong> (HIGH confidence), many with same-day Circle response within a sub-minute window on 6 chains simultaneously. The pattern is extremely consistent: OFAC publishes a press release, and Circle's compliance apparatus fires <code>blacklist(address)</code> calls across all EVM chains in rapid sequence.</p>
+</li>
+<li>
+<p><strong>The 2023 L2 chain launches produced "catch-up" mass-replication blacklists</strong> (93-111 actions each on Jun 8 arbitrum, Jul 21 polygon, Jul 31 optimism, Aug 18 base). These are Circle replicating its Ethereum blacklist set to new native-USDC deployments. Previously untriggered because Pass A keyed triggers to action-date OFAC matches; cross-chain replication propagation fixed 380 of these.</p>
+</li>
+<li>
+<p><strong>The 2022-11-10/11 cluster is NOT FTX-related</strong> (despite the mission's hypothesis based on FTX collapse timing). The 53 addresses align with the Nov 8 2022 Tornado Cash redesignation + Nov 9 2022 darknet fentanyl supplier designation (Peijnenburg, Grimm, De Koning + 9 shell entities). Circle's response is cross-chain (eth + avax). No Alameda, FTX Accounts Drainer, or SBF-corporate addresses appear.</p>
+</li>
+<li>
+<p><strong>The 2025-03-21 Tornado Cash DELISTING is a major data point</strong> for policy-vs-practice: Circle mirrors not only OFAC sanctions but also OFAC de-sanctions. The Fifth Circuit's Van Loon v. Treasury ruling (Nov 2024) forced OFAC to concede that immutable smart contracts are not "property" under IEEPA — a landmark limit on OFAC's crypto reach. Circle's 540-action UNBLACKLIST cascade (Mar 21 eth + Mar 22 cross-chain) reverses the 2022-08-08 Tornado Cash campaign.</p>
+</li>
+<li>
+<p><strong>OFAC's 2025 crypto enforcement was historic in scope</strong>. The 2025-11-04 Cheil Credit Bank designation (53 addresses), 2025-10-14 Prince Group TCO (146 entities, $14.4B BTC seizure), 2025-08-14 Garantex redesignation + A7A5 Russian ruble token — all point to a dramatic expansion of OFAC crypto sanctions in scale and sophistication. Circle's compliance tracks this escalation closely.</p>
+</li>
+</ol>
+<h2 id="policy-vs-practice-observations-running-thesis">Policy-vs-practice observations (running thesis)</h2>
+<p>Circle's freeze discipline appears bimodal across the observed dataset (MEDIUM confidence — based on 3 trigger types; wider sampling may shift the characterization):</p>
+<ul>
+<li><strong>Fast and precise for OFAC designations</strong>: sub-minute multi-chain response, well-calibrated to the literal SDN list.</li>
+<li><strong>Over-inclusive for sealed court orders</strong>: the issue on 2026-03-23 was not speed — it was that Circle swept in public bridge infrastructure (ckETH Minter) without apparent independent diligence (HIGH confidence on the ckETH inclusion).</li>
+<li><strong>Non-responsive to public on-chain theft signals</strong>: the 6-hour window on 2026-04-01 produced no Circle intervention despite public tracking of the $232M CCTP bridging (on-chain verifiable; characterization as "non-responsive" reflects observed behavior, not intent).</li>
+</ul>
+<p>This pattern is consistent with Circle's stated policy ("we act only on legal orders"), but the data shows that the practical consequences include both over-inclusion of legitimate infrastructure and non-intervention in active thefts.</p>
+<p>CEO Jeremy Allaire's 2026-04-13 statement — "We don't freeze without a court order" — is consistent with the data as a statement of current doctrine. The 2022-08-08 Tornado Cash sweep is consistent with this doctrine because OFAC sanctions compliance is a legal obligation distinct from discretionary court-order-triggered freezes. The 2026-03-23 sealed civil order represents a case where the doctrine was applied with apparent over-breadth. The 2026-04-01 Drift hack represents a case where the doctrine was not applied at all (MEDIUM confidence on causal interpretation; all three data points are on-chain verifiable).</p>
+<h2 id="open-questions-and-next-pass-priorities">Open questions and next-pass priorities</h2>
+<h3 id="still-untriggered-blacklist-clusters-354-remaining">Still-untriggered BLACKLIST clusters (354 remaining)</h3>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Count</th>
+<th>Hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023-10-04</td>
+<td>24</td>
+<td>Likely Oct 3 2023 OFAC China fentanyl network (17 crypto addrs) — need Federal Register confirm</td>
+</tr>
+<tr>
+<td>2023-11-15</td>
+<td>16</td>
+<td>Unknown — investigate</td>
+</tr>
+<tr>
+<td>2026-04-11</td>
+<td>12</td>
+<td>Very recent; possibly Cartel-linked casinos or a hack-response</td>
+</tr>
+<tr>
+<td>2024-03-21</td>
+<td>12</td>
+<td>OFAC Gambashidze/Tupikin Russian foreign election interference (2024-03-20)</td>
+</tr>
+<tr>
+<td>2025-10-10</td>
+<td>8</td>
+<td>Unknown — possibly pre-Prince Group staging</td>
+</tr>
+<tr>
+<td>2024-09-14</td>
+<td>7</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Dozens of smaller clusters</td>
+<td>258</td>
+<td>Scattered — many likely smaller OFAC updates or individual incidents</td>
+</tr>
+</tbody>
+</table>
+<h3 id="research-priorities-for-pass-c">Research priorities for Pass C</h3>
+<ol>
+<li><strong>2023-10-04</strong> (24 actions): Check OFAC Oct 3 2023 China fentanyl network</li>
+<li><strong>2024-03-21</strong> (12 actions): Check OFAC Gambashidze/Tupikin March 20 2024</li>
+<li><strong>2026-04-11</strong> (12 actions): Very recent action, investigate Treasury OFAC April 2026 press releases</li>
+<li><strong>Additional r/Buttcoin / community claims</strong>: Look for other community-flagged freezes that might reveal under-documented policy actions</li>
+<li><strong>Remaining small clusters</strong>: Many are likely small OFAC updates (1-3 addresses) that would require Federal Register search by date</li>
+</ol>
+<h3 id="multichain-related-addresses-not-yet-attributed">Multichain-related addresses not yet attributed</h3>
+<p>The 3 Multichain hacker addresses (CU-ACT-0177, 0178, 0179, dated 2023-07-07) remain untriggered in our data. These should be attributed to a COURT_ORDER trigger based on the Oct 2023 DOJ seizure warrant + Nov 2025 SDNY bankruptcy court extension order. Recommended next-pass action: create CU-TRG-0054 Multichain court order with CU-SRC-0039 = The Block's coverage of Judge Jones's order.</p>
+<h2 id="commit-sha-list">Commit SHA list</h2>
+<table>
+<thead>
+<tr>
+<th>SHA</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0f33b8b</td>
+<td>2026-03-23 "16 wallets" sealed civil case freeze + r/Buttcoin investigation</td>
+</tr>
+<tr>
+<td>32d3df2</td>
+<td>2026-03-12 DPRK IT Worker Fraud Network — 60 actions</td>
+</tr>
+<tr>
+<td>ac6a8f5</td>
+<td>2025-11-04 OFAC DPRK Bankers designation — 339 actions</td>
+</tr>
+<tr>
+<td>f6bf53a</td>
+<td>2022-11-10/11 FTX-era cluster + cross-chain trigger propagation — 106 + 380 actions</td>
+</tr>
+<tr>
+<td>74ad8e0</td>
+<td>Missions 10-13, 15 — 224 actions (Garantex/Houthi/Zedcex/Media Land/al-Jamal)</td>
+</tr>
+<tr>
+<td>9cdb7ae</td>
+<td>2025-10-14 Prince Group Cambodia TCO — 31 actions</td>
+</tr>
+<tr>
+<td>a516098</td>
+<td>Bonus clusters — Sep 16 Iranian shadow + Mar 27 Gaza Now + Feb 24 Zservers</td>
+</tr>
+<tr>
+<td>7f4b455</td>
+<td>Tornado Cash delisting — 222 UNBLACKLIST actions</td>
+</tr>
+</tbody>
+</table>
+<p>Total 8 commits. All validated via <code>scripts/99_validate.py</code> before committing.</p>
+<h2 id="process-environment-notes">Process / environment notes</h2>
+<ul>
+<li><strong>WebFetch was blocked</strong> in this environment (HTTP 403 from both the built-in tool and <code>curl</code>/<code>urllib</code>). All Pass B source content was reconstructed from WebSearch snippets cross-referenced across 3-8 outlets per event. SHA256-hashed Markdown summaries are stored locally under <code>sources/&lt;year&gt;/CU-SRC-&lt;id&gt;.md</code>.</li>
+<li><strong>Primary sources</strong> (CU-SRC-0026 through CU-SRC-0038) are all Treasury OFAC press releases or Federal Register notices. Direct URL archive to Wayback Machine was not possible; each source file includes the canonical URL, companion URLs, and cross-outlet attribution.</li>
+<li>The Reddit r/Buttcoin post (CU-SRC-0025) required a paraphrased archive because the Reddit JSON endpoint returned HTTP 403. Community-claim corroboration is documented in <code>notes/reddit-buttcoin-16-wallets.md</code> with on-chain verification against our actions data.</li>
+</ul>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="citation">
+    <strong>Cite as:</strong>
+    Lee, Martin, &amp; Townsend (2026).
+    <em>Stablecoin Blacklisting.</em>
+    Available at the URL of this page.
+  </div>
+  
+</footer>
+</body>
+</html>

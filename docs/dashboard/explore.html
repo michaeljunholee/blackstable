@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore — Stablecoin Blacklisting</title>
+  <link rel="stylesheet" href="assets/style.css">
+  
+<link rel="stylesheet" href="assets/explore.css">
+
+</head>
+<body class="">
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html"><strong>Stablecoin Blacklisting</strong></a>
+    </div>
+    <nav class="primary-nav">
+      <a href="index.html" >Overview</a>
+      <a href="timeline.html" >Timeline</a>
+      <a href="explore.html" aria-current="page">Explore</a>
+      <a href="clusters.html" >Clusters</a>
+      <a href="entities.html" >Entities</a>
+      <a href="triggers.html" >Triggers</a>
+      <a href="sources.html" >Sources</a>
+      <a href="notes.html" >Notes</a>
+      <a href="methodology.html" >Methodology</a>
+    </nav>
+  </header>
+  <main class="site-content">
+    
+<section class="explore">
+  <h1>Explore: Search and filter all events</h1>
+  <p class="lede">
+    Filter the 2922 freeze and unfreeze events. Paste an
+    address into the search box to instantly see whether Circle has acted
+    on it. Filter state is encoded in the URL — share a filtered view by
+    copying the link.
+  </p>
+
+  <div class="search-bar">
+    <label for="search-input">Search address or text</label>
+    <input id="search-input" type="text" placeholder="0x… or text from descriptions / triggers" autocomplete="off">
+  </div>
+
+  <div class="filter-chips">
+    <fieldset>
+      <legend>Chain</legend>
+      <label><input type="checkbox" name="chain" value="ethereum" checked> Ethereum</label>
+      <label><input type="checkbox" name="chain" value="base" checked> Base</label>
+      <label><input type="checkbox" name="chain" value="polygon" checked> Polygon</label>
+      <label><input type="checkbox" name="chain" value="avalanche" checked> Avalanche</label>
+      <label><input type="checkbox" name="chain" value="arbitrum" checked> Arbitrum</label>
+      <label><input type="checkbox" name="chain" value="optimism" checked> Optimism</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Mechanism</legend>
+      <label><input type="checkbox" name="mechanism_type" value="BLACKLIST" checked> Blacklist</label>
+      <label><input type="checkbox" name="mechanism_type" value="UNBLACKLIST" checked> Unblacklist</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Status</legend>
+      <label><input type="checkbox" name="status" value="ACTIVE" checked> Active</label>
+      <label><input type="checkbox" name="status" value="REVERSED" checked> Reversed</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Confidence</legend>
+      <label><input type="checkbox" name="confidence" value="HIGH" checked> High</label>
+      <label><input type="checkbox" name="confidence" value="MEDIUM" checked> Medium</label>
+      <label><input type="checkbox" name="confidence" value="LOW" checked> Low</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Date range</legend>
+      <label>From <input type="date" name="date_from"></label>
+      <label>To <input type="date" name="date_to"></label>
+    </fieldset>
+  </div>
+
+  <div class="result-summary">
+    <span id="result-count">2922</span> events match
+    (<span id="bl-count">—</span> blacklist, <span id="ub-count">—</span> unblacklist)
+  </div>
+
+  <div class="result-table-wrapper">
+    <table class="result-table" id="results">
+      <thead>
+        <tr>
+          <th data-sort-key="action_date">Date</th>
+          <th data-sort-key="mechanism_type">Mechanism</th>
+          <th data-sort-key="chain">Chain</th>
+          <th data-sort-key="target_identifier">Address</th>
+          <th data-sort-key="trigger_id">Trigger</th>
+          <th data-sort-key="status">Status</th>
+          <th data-sort-key="confidence">Confidence</th>
+        </tr>
+      </thead>
+      <tbody id="results-body">
+        <!-- populated by explore.js -->
+      </tbody>
+    </table>
+    <p class="result-table-note">Showing first 500 rows. Refine filters to narrow the set.</p>
+  </div>
+</section>
+
+<script src="assets/explore.js"></script>
+
+  </main>
+  <footer class="site-footer">
+  <div class="citation">
+    <strong>Cite as:</strong>
+    Lee, Martin, &amp; Townsend (2026).
+    <em>Stablecoin Blacklisting.</em>
+    Available at the URL of this page.
+  </div>
+  
+</footer>
+</body>
+</html>

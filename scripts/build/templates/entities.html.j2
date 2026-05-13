@@ -1,0 +1,60 @@
+{% extends "base.html.j2" %}
+{% block title %}Entities — Stablecoin Blacklisting{% endblock %}
+{% block content %}
+<section>
+  <h1>Entities</h1>
+  <p class="lede">
+    {{ entities|length }} entities — sanctioned parties, individuals, bridges, and organizations
+    named in freeze actions.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Circle relationship</th>
+        <th>Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ent in entities | sort(attribute='entity_id') %}
+      <tr>
+        <td><code>{{ ent.entity_id }}</code></td>
+        <td>{{ ent.entity_name }}</td>
+        <td class="small">{{ ent.entity_type }}</td>
+        <td>
+          {% if ent.circle_relationship == 'YES' %}
+            <span class="badge ok">YES</span>
+          {% elif ent.circle_relationship == 'NO' %}
+            <span class="badge err">NO</span>
+          {% else %}
+            <span class="badge warn">{{ ent.circle_relationship }}</span>
+          {% endif %}
+        </td>
+        <td class="small">{{ ent.circle_relationship_rationale if ent.circle_relationship_rationale else '' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Relationship distribution</h2>
+  {% set yes_count = entities | selectattr("circle_relationship", "equalto", "YES") | list | length %}
+  {% set no_count = entities | selectattr("circle_relationship", "equalto", "NO") | list | length %}
+  {% set maybe_count = entities | selectattr("circle_relationship", "equalto", "MAYBE") | list | length %}
+  <ul>
+    <li><span class="badge ok">YES</span> — {{ yes_count }} entities with documented Circle relationship</li>
+    <li><span class="badge warn">MAYBE</span> — {{ maybe_count }} entities with no documented evidence either way</li>
+    <li><span class="badge err">NO</span> — {{ no_count }} entities with affirmative evidence of non-relationship</li>
+  </ul>
+
+  <p class="small">
+    Classification criteria: <code>YES</code> requires at least one documented source (equity tie,
+    Centre Consortium membership, revenue-share agreement, board interlock, named in Circle
+    Transparency Reports, or disclosed commercial partnership). <code>NO</code> requires affirmative
+    evidence of absence or adversarial distance. <code>MAYBE</code> is the default residual.
+    See <a href="methodology.html">Methodology</a> for full criteria.
+  </p>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+policy_id,policy_name,policy_type,effective_date,superseded_date,document_path,source_id,key_clauses,issuer
+CU-POL-0001,Circle Privacy Policy,PRIVACY_POLICY,2024-11-03,2024-11-12,policies/privacy_2024-11-03.md,CU-SRC-0001,,Circle
+CU-POL-0002,Circle Privacy Policy,PRIVACY_POLICY,2024-11-12,2024-11-18,policies/privacy_2024-11-12.md,CU-SRC-0002,,Circle
+CU-POL-0003,Circle Privacy Policy,PRIVACY_POLICY,2024-11-18,2024-12-05,policies/privacy_2024-11-18.md,CU-SRC-0003,,Circle
+CU-POL-0004,Circle Privacy Policy,PRIVACY_POLICY,2024-12-05,2024-12-07,policies/privacy_2024-12-05.md,CU-SRC-0004,,Circle
+CU-POL-0005,Circle Privacy Policy,PRIVACY_POLICY,2024-12-07,2025-01-18,policies/privacy_2024-12-07.md,CU-SRC-0005,,Circle
+CU-POL-0006,Circle Privacy Policy,PRIVACY_POLICY,2025-01-18,2025-01-19,policies/privacy_2025-01-18.md,CU-SRC-0006,,Circle
+CU-POL-0007,Circle Privacy Policy,PRIVACY_POLICY,2025-01-19,2025-01-30,policies/privacy_2025-01-19.md,CU-SRC-0007,,Circle
+CU-POL-0008,Circle Privacy Policy,PRIVACY_POLICY,2025-01-30,2025-02-03,policies/privacy_2025-01-30.md,CU-SRC-0008,,Circle
+CU-POL-0009,Circle Privacy Policy,PRIVACY_POLICY,2025-02-03,2025-02-09,policies/privacy_2025-02-03.md,CU-SRC-0009,,Circle
+CU-POL-0010,Circle Privacy Policy,PRIVACY_POLICY,2025-02-09,2025-02-12,policies/privacy_2025-02-09.md,CU-SRC-0010,,Circle
+CU-POL-0011,Circle Privacy Policy,PRIVACY_POLICY,2025-02-12,2025-02-24,policies/privacy_2025-02-12.md,CU-SRC-0011,,Circle
+CU-POL-0012,Circle Privacy Policy,PRIVACY_POLICY,2025-02-24,2025-03-07,policies/privacy_2025-02-24.md,CU-SRC-0012,,Circle
+CU-POL-0013,Circle Privacy Policy,PRIVACY_POLICY,2025-03-07,2025-03-16,policies/privacy_2025-03-07.md,CU-SRC-0013,,Circle
+CU-POL-0014,Circle Privacy Policy,PRIVACY_POLICY,2025-03-16,2025-03-19,policies/privacy_2025-03-16.md,CU-SRC-0014,,Circle
+CU-POL-0015,Circle Privacy Policy,PRIVACY_POLICY,2025-03-19,2025-03-27,policies/privacy_2025-03-19.md,CU-SRC-0015,,Circle
+CU-POL-0016,Circle Privacy Policy,PRIVACY_POLICY,2025-03-27,2025-04-09,policies/privacy_2025-03-27.md,CU-SRC-0016,,Circle
+CU-POL-0017,Circle Privacy Policy,PRIVACY_POLICY,2025-04-09,2025-06-05,policies/privacy_2025-04-09.md,CU-SRC-0017,,Circle
+CU-POL-0018,Circle Privacy Policy,PRIVACY_POLICY,2025-06-05,2026-02-05,policies/privacy_2025-06-05.md,CU-SRC-0018,,Circle
+CU-POL-0019,Circle Privacy Policy,PRIVACY_POLICY,2026-02-05,2026-02-17,policies/privacy_2026-02-05.md,CU-SRC-0019,,Circle
+CU-POL-0020,Circle Privacy Policy,PRIVACY_POLICY,2026-02-17,,policies/privacy_2026-02-17.md,CU-SRC-0020,,Circle

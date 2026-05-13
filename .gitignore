@@ -1,0 +1,28 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.DS_Store
+*.log
+data/raw/**/*.parquet
+data/raw/**/*.json.gz
+# Large local caches — keep manifest only
+sources/**/*.pdf
+sources/**/*.html
+sources/**/*.txt
+!sources/manifest.json
+
+# Working / process docs — kept in the private working repo, never published
+CLAUDE.md
+HANDOFF.md
+MISSIONS.md
+logs/
+notebooks/
+claude-design/
+docs/superpowers/
+docs/wix-landing-instructions.md
+notes/_review-checklist.md
+.claude/

@@ -1,0 +1,42 @@
+{% extends "base.html.j2" %}
+{% block title %}Triggers — Stablecoin Blacklisting{% endblock %}
+{% block content %}
+<section>
+  <h1>Triggers</h1>
+  <p class="lede">
+    {{ triggers|length }} triggers — the legal or regulatory causes linked to blacklist / unblacklist actions.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Authority</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for trg in triggers | sort(attribute='trigger_id') %}
+      <tr>
+        <td><code>{{ trg.trigger_id }}</code></td>
+        <td>{{ trg.trigger_date if trg.trigger_date else '—' }}</td>
+        <td>{{ trg.trigger_type }}</td>
+        <td>{{ trg.authority if trg.authority else '' }}</td>
+        <td class="small">{{ trg.description }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Type distribution</h2>
+  {% set ofac_count = triggers | selectattr("trigger_type", "equalto", "OFAC_DESIGNATION") | list | length %}
+  {% set court_count = triggers | selectattr("trigger_type", "equalto", "COURT_ORDER") | list | length %}
+  <ul>
+    <li><strong>OFAC_DESIGNATION</strong>: {{ ofac_count }}</li>
+    <li><strong>COURT_ORDER</strong>: {{ court_count }}</li>
+    <li><strong>Other types</strong>: {{ triggers|length - ofac_count - court_count }}</li>
+  </ul>
+</section>
+{% endblock %}

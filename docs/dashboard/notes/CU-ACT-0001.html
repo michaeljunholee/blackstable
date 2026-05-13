@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CU-ACT-0001 — Notes</title>
+  <link rel="stylesheet" href="assets/style.css">
+  
+</head>
+<body class="">
+  <header class="site-header">
+    <div class="brand">
+      <a href="index.html"><strong>Stablecoin Blacklisting</strong></a>
+    </div>
+    <nav class="primary-nav">
+      <a href="index.html" >Overview</a>
+      <a href="timeline.html" >Timeline</a>
+      <a href="explore.html" >Explore</a>
+      <a href="clusters.html" >Clusters</a>
+      <a href="entities.html" >Entities</a>
+      <a href="triggers.html" >Triggers</a>
+      <a href="sources.html" >Sources</a>
+      <a href="notes.html" aria-current="page">Notes</a>
+      <a href="methodology.html" >Methodology</a>
+    </nav>
+  </header>
+  <main class="site-content">
+    
+<article class="note-detail">
+  <hr />
+<p>title: "CU-ACT-0001 — First USDC Blacklist Action (2020-06-16)"
+date: 2020-07-08
+scope: "Precedent case: Circle's first on-chain USDC blacklist, attributed to a law-enforcement request with no publicly verifiable court order."</p>
+<hr />
+<h1 id="cu-act-0001-first-usdc-blacklist">CU-ACT-0001 — First USDC blacklist</h1>
+<ul>
+<li><strong>Action date:</strong> 2020-06-16 (block 10,274,701)</li>
+<li><strong>Mechanism:</strong> BLACKLIST on Ethereum mainnet</li>
+<li><strong>Target:</strong> <code>0xaa05f7c7eb9af63d6cc03c36c4f4ef6c37431ee0</code></li>
+<li><strong>Amount:</strong> 100,000 USDC</li>
+<li><strong>Tx hash:</strong> <code>0x15cbde1b9bf285db50e22eeff1a7d04ea267dd94726df8ecabdb4cb6c2b590cb</code></li>
+</ul>
+<h2 id="significance">Significance</h2>
+<p>This is the <strong>first-ever</strong> USDC blacklist action. It established precedent for Circle's discretionary freeze behavior and the public framing Circle would use in subsequent cases.</p>
+<h2 id="circles-framing-verbatim-per-centrecircle-statement-via-coindesk-2020-07-08">Circle's framing (verbatim, per Centre/Circle statement via CoinDesk, 2020-07-08)</h2>
+<blockquote>
+<p>Centre can confirm it blacklisted an address in response to a request from law enforcement. While we cannot comment on the specifics of law enforcement requests, Centre complies with binding court orders that have appropriate jurisdiction over the organization.</p>
+</blockquote>
+<!-- TODO: archive — CoinDesk 2020-07-08 URL not confirmed archived locally beyond CU-SRC-0022 summary -->
+
+<h2 id="whats-documented-vs-unknown">What's documented vs. unknown</h2>
+<table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Known</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target address</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>Yes (~100,000 USDC)</td>
+</tr>
+<tr>
+<td>Approximate date</td>
+<td>Yes (June 16, 2020)</td>
+</tr>
+<tr>
+<td>Requesting agency</td>
+<td><strong>No</strong> — not disclosed</td>
+</tr>
+<tr>
+<td>Court order docket #</td>
+<td><strong>No</strong> — not disclosed</td>
+</tr>
+<tr>
+<td>Underlying crime</td>
+<td>Alleged theft (Etherscan commenter claimed "stole tokens from him" — unverified, LOW confidence)</td>
+</tr>
+<tr>
+<td>Victim identity</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>Disclosure date</td>
+<td>July 8, 2020 (≈22 days after action; disclosed via press response, not proactive)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="policy-vs-practice-observation">Policy-vs-practice observation</h2>
+<p>Circle's public rationale ("complies with binding court orders") is <strong>consistent</strong> with a law-enforcement-driven action as stated. However, several aspects are not externally verifiable:</p>
+<ul>
+<li>No court order was ever published or identified publicly.</li>
+<li>The "binding court order" framing is Circle's self-characterization; Centre's spokesperson explicitly declined to comment on specifics.</li>
+<li>The 22-day disclosure gap is notable: Circle did not proactively disclose the action, instead responding to press inquiry after Etherscan observers noticed the <code>blacklist(address)</code> transaction.</li>
+</ul>
+<p>This case illustrates (HIGH confidence from data): even where Circle claims a clean legal basis, that basis is not externally verifiable from on-chain data or public records alone.</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>Yahoo Finance / CoinDesk, 2020-07-08: <code>CU-SRC-0022</code> (local archive at <code>sources/2020/CU-SRC-0022.md</code>)</li>
+</ul>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="citation">
+    <strong>Cite as:</strong>
+    Lee, Martin, &amp; Townsend (2026).
+    <em>Stablecoin Blacklisting.</em>
+    Available at the URL of this page.
+  </div>
+  
+</footer>
+</body>
+</html>

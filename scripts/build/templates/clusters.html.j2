@@ -1,0 +1,85 @@
+{% extends "base.html.j2" %}
+{% block title %}Clusters — Stablecoin Blacklisting{% endblock %}
+{% block content %}
+<section>
+  <h1>Action Clusters by Date</h1>
+  <p class="lede">
+    Freeze events cluster by date — each coordinated legal cause (OFAC designation, court order,
+    hack response) produces many address-level actions on a single day.
+  </p>
+
+  {# Build cluster summary: group actions by action_date #}
+  {% set date_counts = {} %}
+  {% for row in actions %}
+    {% set d = row.action_date %}
+    {% if d not in date_counts %}
+      {% set _ = date_counts.update({d: {'total': 0, 'bl': 0, 'ubl': 0, 'trigger_id': row.trigger_id}}) %}
+    {% endif %}
+    {% set cur = date_counts[d] %}
+    {% set _ = cur.update({'total': cur.total + 1}) %}
+    {% if row.mechanism_type == 'BLACKLIST' %}
+      {% set _ = cur.update({'bl': cur.bl + 1}) %}
+    {% elif row.mechanism_type == 'UNBLACKLIST' %}
+      {% set _ = cur.update({'ubl': cur.ubl + 1}) %}
+    {% endif %}
+  {% endfor %}
+
+  {% set sorted_dates = date_counts.keys() | sort | reverse | list %}
+  {% set large_clusters = [] %}
+  {% for d in sorted_dates %}
+    {% if date_counts[d].total >= 10 %}
+      {% set _ = large_clusters.append(d) %}
+    {% endif %}
+  {% endfor %}
+
+  <h2>Clusters with 10+ events ({{ large_clusters|length }})</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Events</th>
+        <th>BL / UB</th>
+        <th>Trigger ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in large_clusters %}
+      {% set c = date_counts[d] %}
+      <tr>
+        <td>{{ d }}</td>
+        <td>{{ c.total }}</td>
+        <td>{{ c.bl }} / {{ c.ubl }}</td>
+        <td>
+          {% if c.trigger_id %}
+            {{ c.trigger_id }}
+          {% else %}
+            <span class="badge warn">unattributed</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>All dates with events ({{ sorted_dates|length }})</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Total</th>
+        <th>BL / UB</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in sorted_dates %}
+      {% set c = date_counts[d] %}
+      <tr>
+        <td>{{ d }}</td>
+        <td>{{ c.total }}</td>
+        <td>{{ c.bl }} / {{ c.ubl }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
