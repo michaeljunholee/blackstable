@@ -20,8 +20,6 @@ This is the **first-ever** USDC blacklist action. It established precedent for C
 
 > Centre can confirm it blacklisted an address in response to a request from law enforcement. While we cannot comment on the specifics of law enforcement requests, Centre complies with binding court orders that have appropriate jurisdiction over the organization.
 
-<!-- TODO: archive — CoinDesk 2020-07-08 URL not confirmed archived locally beyond CU-SRC-0022 summary -->
-
 ## What's documented vs. unknown
 
 | Fact | Known |

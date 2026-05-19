@@ -6,7 +6,7 @@ scope: Cross-reference ZachXBT's 15-case thread against the dataset; 2 of 18 EVM
 
 # ZachXBT "Circle USDC files" thread — dataset cross-reference
 
-**Thread:** @zachxbt on X, posted 2026-04-03, URL `https://x.com/zachxbt/status/2040055823804793165` <!-- TODO: archive -->
+**Thread:** @zachxbt on X, posted 2026-04-03, URL `https://x.com/zachxbt/status/2040055823804793165`
 **Extraction date:** 2026-04-20
 **Scope:** 15 cases alleging >$420M in USDC "compliance failures" by Circle since 2022
 

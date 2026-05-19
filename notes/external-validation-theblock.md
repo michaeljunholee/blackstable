@@ -8,7 +8,7 @@ scope: Independent cross-check of our Ethereum net-blacklisted count against The
 
 **Validation date:** 2026-04-23
 **Our source:** `data/actions.csv` + `data/implementations.csv`, Ethereum chain, net running count (BL=+1, UB=−1)
-**Their source:** TheBlock dashboard `usdc-banned-addresses-on-ethereum`, series `Total Banned Addresses`, pulled from JSON API at `https://www.theblock.co/api/charts/chart/stablecoins/usd-pegged/usdc-banned-addresses-on-ethereum` <!-- TODO: archive --> (archived as `CU-SRC-0040`, SHA256 `cffd26fa…ed9e021`)
+**Their source:** TheBlock dashboard `usdc-banned-addresses-on-ethereum`, series `Total Banned Addresses`, pulled from JSON API at `https://www.theblock.co/api/charts/chart/stablecoins/usd-pegged/usdc-banned-addresses-on-ethereum` (archived as `CU-SRC-0040`, SHA256 `cffd26fa…ed9e021`)
 
 ## Headline finding
 

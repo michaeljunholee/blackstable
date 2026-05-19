@@ -6,13 +6,13 @@ scope: Cross-check r/Buttcoin community claims about the 2026-03-23 Circle freez
 
 # r/Buttcoin "16 operational business wallets" investigation
 
-**Source URL:** https://www.reddit.com/r/Buttcoin/comments/1s2l5os/circle_froze_16_operational_business_wallets/ <!-- TODO: archive -->
+**Source URL:** https://www.reddit.com/r/Buttcoin/comments/1s2l5os/circle_froze_16_operational_business_wallets/
 **Thread date:** ~2026-03-24 (post day after the 2026-03-23 freeze)
 **Community claim:** Circle froze 16 wallets it said were linked to a sealed U.S. civil case, but a majority appear to be legitimate operational businesses (exchanges, casinos, forex brokers, payment processors).
 
 ## Fetch note
 
-The Reddit JSON endpoint returned HTTP 403 in this environment (both via direct `curl` and `urllib`). WebSearch-derived snippets and cross-referenced reporting from CoinDesk, FinanceFeeds, CCN, AMLBot, Bitcoin.com News, Cryptonomist.ch, and Cointelegraph provide the factual substance; the Reddit post text itself is not archived locally. All cross-referenced outlet citations are noted in `sources/` but require Wayback Machine archiving. <!-- TODO: archive cross-reference outlet URLs -->
+The Reddit JSON endpoint returned HTTP 403 in this environment (both via direct `curl` and `urllib`). WebSearch-derived snippets and cross-referenced reporting from CoinDesk, FinanceFeeds, CCN, AMLBot, Bitcoin.com News, Cryptonomist.ch, and Cointelegraph provide the factual substance; the Reddit post text itself is not archived locally. All cross-referenced outlet citations are noted in `sources/` but require Wayback Machine archiving.
 
 ## Claim vs. data
 
@@ -52,8 +52,8 @@ The community post's implied claim that all 16 wallets are "operational business
 This investigation supports the project's central hypothesis: Circle's stated "court-order only" freeze policy produces both over-inclusion (catching a public bridge contract) and under-inclusion (non-intervention in the Drift hack nine days later). The 2026-03-23 cluster constitutes the strongest single piece of evidence that Circle's freeze discipline is not calibrated for individualized-entity review (MEDIUM confidence on causal interpretation; both the over-inclusion and non-intervention observations are on-chain verifiable).
 
 ## Sources attached
-- CU-SRC-0024 — multi-outlet news summary (SECONDARY) <!-- TODO: archive -->
-- CU-SRC-0025 — r/Buttcoin community post archive (TERTIARY) <!-- TODO: archive; Reddit HTTP 403 at fetch time; paraphrased archive only -->
+- CU-SRC-0024 — multi-outlet news summary (SECONDARY)
+- CU-SRC-0025 — r/Buttcoin community post archive (TERTIARY)
 
 ## Citation archive needed
 - CU-SRC-0024 and CU-SRC-0025: Wayback Machine archiving required for all companion outlet URLs.

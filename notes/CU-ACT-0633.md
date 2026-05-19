@@ -31,7 +31,7 @@ This cluster presents as a clean compliance case. Circle blacklisted all directl
 Policy-vs-practice verdict: Circle's response to this designation is consistent with its compliance promise (MEDIUM confidence given the 10 non-directly-attested addresses).
 
 ## Sources
-- CU-SRC-0026 — Treasury OFAC press release SB0416 + Chainalysis blog + Federal Register summary (PRIMARY) <!-- TODO: archive -->
+- CU-SRC-0026 — Treasury OFAC press release SB0416 + Chainalysis blog + Federal Register summary (PRIMARY)
 
 ## Citation archive needed
 - CU-SRC-0026: Chainalysis blog URL requires Wayback Machine archiving.

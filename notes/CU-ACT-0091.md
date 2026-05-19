@@ -35,7 +35,7 @@ Circle's Nov 10-11 sweep represents a model OFAC compliance response: same-day o
 
 ## Open questions
 - The 9 entity names (shell companies) designated on Nov 9 2022 are not fully captured in WebSearch summaries. The actual JY1089 press release and Federal Register notice would be the authoritative source for the complete entity list.
-- De Koning crypto addresses: OFAC XML has none; Chainalysis identified "thousands" but these are not in SDN entries and cannot be independently verified from public sources. <!-- TODO: archive -->
+- De Koning crypto addresses: OFAC XML has none; Chainalysis identified "thousands" but these are not in SDN entries and cannot be independently verified from public sources.
 
 ## Citation archive needed
 - CU-SRC-0028 URL requires Wayback Machine verification.

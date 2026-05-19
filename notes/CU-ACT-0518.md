@@ -43,7 +43,7 @@ The primary caveat: the 53 EVM addresses are not directly present in our OFAC XM
 This is a textbook OFAC compliance response. Circle's compliance infrastructure demonstrates precision at sub-minute timing across 6 chains. Compared to the over-inclusive behavior on the 2026-03-23 sealed civil case (76 seconds for a clean OFAC action vs. sweeping up public bridges under sealed orders), the contrast sharpens the central research question: Circle's enforcement quality is not uniform across trigger types — it appears conditioned on the clarity and source of authority behind each request (MEDIUM confidence on this characterization, pending broader sampling).
 
 ## Sources
-- CU-SRC-0027 — Treasury OFAC Press Release SB0302 + Elliptic + TRM Labs blog analysis (PRIMARY) <!-- TODO: archive -->
+- CU-SRC-0027 — Treasury OFAC Press Release SB0302 + Elliptic + TRM Labs blog analysis (PRIMARY)
 
 ## Citation archive needed
 - CU-SRC-0027: Elliptic and TRM Labs blog URLs require Wayback Machine archiving.
