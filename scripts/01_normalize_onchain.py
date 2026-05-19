@@ -301,6 +301,10 @@ def _build_arg_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     load_dotenv()
+
+    parser = _build_arg_parser()
+    args = parser.parse_args()
+
     api_key = os.environ.get("DUNE_API_KEY")
     if not api_key:
         print("ERROR: DUNE_API_KEY not set in environment.", file=sys.stderr)
@@ -309,9 +313,6 @@ def main() -> int:
     config = load_config()
     data_dir = _HERE.parent / "data"
     dune = DuneClient(api_key=api_key)
-
-    parser = _build_arg_parser()
-    args = parser.parse_args()
 
     # Determine which chains to scan.
     if args.chains:
