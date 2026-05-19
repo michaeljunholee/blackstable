@@ -26,3 +26,6 @@ docs/superpowers/
 docs/wix-landing-instructions.md
 notes/_review-checklist.md
 .claude/
+
+# OFAC SDN raw XML — fetched on demand, do not commit (118MB, exceeds GH limit)
+data/raw/**/*.xml
