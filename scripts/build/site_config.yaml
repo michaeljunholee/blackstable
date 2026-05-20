@@ -1,8 +1,8 @@
 # Deploy-specific constants surfaced in templates. Edit before first deploy.
 citation_year: 2026
 citation_period: "May 2026"
-github_repo_url: "https://github.com/knotsandties/blackstable"
-dashboard_url: "https://knotsandties.github.io/blackstable/dashboard/"
+github_repo_url: "https://github.com/michaeljunholee/blackstable"
+dashboard_url: "https://michaeljunholee.github.io/blackstable/dashboard/"
 authors: "Lee"
 dataset_title: "Stablecoin Blacklisting"
 short_title: "Stablecoin Blacklisting"

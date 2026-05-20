@@ -16,7 +16,7 @@ counterparty's commercial relationship to the issuer.
 
 The interactive dashboard is published at:
 
-**<https://knotsandties.github.io/blackstable/dashboard/>**
+**<https://michaeljunholee.github.io/blackstable/dashboard/>**
 
 It includes a brushable bubble timeline, multi-select reason filters,
 per-cluster detail cards, and right-rail breakdowns by reason mix,
@@ -88,7 +88,7 @@ git config core.hooksPath .git-hooks
 
 > Lee, M. *Stablecoin Blacklisting: A Research Dataset and Dashboard.*
 > 2026. Available at:
-> <https://knotsandties.github.io/blackstable/dashboard/>.
+> <https://michaeljunholee.github.io/blackstable/dashboard/>.
 
 If you use the dataset in academic work, please cite the version (commit
 hash) you used.
