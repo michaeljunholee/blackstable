@@ -9,9 +9,27 @@
   --ok: #1f6b38;
   --warn: #8a6d1c;
   --err: #a52a2a;
+  --card-bg: #ffffff;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Dark theme — palette matches the editorial Overview (dashboard.css) so
+   click-through from the dashboard to a detail page doesn't break visual
+   continuity. Applied via body.dark. */
+body.dark {
+  --ink: #ecedf0;
+  --ink-soft: #b3b8c4;
+  --paper: #0e0f12;
+  --paper-warm: #1b1d23;
+  --line: #292d36;
+  --accent: #d4592e;
+  --accent-soft: #b97a5c;
+  --ok: #4ca674;
+  --warn: #c8aa55;
+  --err: #d77373;
+  --card-bg: #15171c;
 }
 
 * { box-sizing: border-box; }
@@ -153,7 +171,7 @@ ul.metrics {
 ul.metrics li {
   border: 1px solid var(--line);
   padding: 0.85rem 1rem;
-  background: #fff;
+  background: var(--card-bg);
   font-family: var(--sans);
   font-size: 0.85rem;
   color: var(--ink-soft);
@@ -187,7 +205,7 @@ article.note-detail hr {
 .byline { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 1.5rem; }
 .addr { font-family: var(--mono); font-size: 0.82em; }
 .small { font-size: 0.85em; color: var(--ink-soft); }
-.badge { display: inline-block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.04em; padding: 0.15rem 0.45rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink-soft); background: #fff; white-space: nowrap; }
+.badge { display: inline-block; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.04em; padding: 0.15rem 0.45rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink-soft); background: var(--card-bg); white-space: nowrap; }
 .badge.ok { border-color: var(--ok); color: var(--ok); }
 .badge.warn { border-color: var(--warn); color: var(--warn); }
 .badge.err { border-color: var(--err); color: var(--err); }
