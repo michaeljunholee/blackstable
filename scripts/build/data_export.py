@@ -29,10 +29,16 @@ def _records(df: pd.DataFrame, fields: list[str]) -> list[dict]:
     return sub.where(sub.notna(), None).to_dict(orient="records")
 
 
-def emit_events_json(actions: pd.DataFrame, impls: pd.DataFrame, out_path: Path) -> None:
+def emit_events_json(
+    actions: pd.DataFrame,
+    impls: pd.DataFrame,
+    out_path: Path,
+    include_notes_path: bool = True,
+) -> None:
     merged = actions.merge(impls[["implementation_id", "chain"]], on="implementation_id")
+    fields = EVENT_FIELDS if include_notes_path else [f for f in EVENT_FIELDS if f != "notes_path"]
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(_records(merged, EVENT_FIELDS), default=str), encoding="utf-8")
+    out_path.write_text(json.dumps(_records(merged, fields), default=str), encoding="utf-8")
 
 
 def emit_triggers_json(triggers: pd.DataFrame, out_path: Path) -> None:

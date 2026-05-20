@@ -58,6 +58,17 @@ PAGES = [
 ]
 
 
+def notes_available() -> bool:
+    """True when notes/ exists and has at least one Markdown file.
+
+    Drives `has_notes` in templates and the conditional inclusion of the
+    notes index page, per-note detail rendering, and `notes_path` in the
+    events.json export. Notes are held private in the public repo, so
+    the dashboard build degrades gracefully when they're absent.
+    """
+    return NOTES_DIR.exists() and any(NOTES_DIR.glob("*.md"))
+
+
 def load_site_config() -> dict:
     if SITE_CONFIG.exists():
         with open(SITE_CONFIG) as f:
@@ -91,23 +102,34 @@ def load_data(issuers: list[str]) -> dict:
     }
 
 
-def render_pages(env: Environment, data: dict, output_dir: Path, site_config: dict) -> None:
+def render_pages(env: Environment, data: dict, output_dir: Path, site_config: dict, has_notes: bool) -> None:
     # Convert DataFrames to lists of dicts for Jinja2 template consumption.
     # DataFrames don't support truthiness tests used in selectattr / boolean checks.
     template_data = {
         k: df_to_records(v) if hasattr(v, "to_dict") else v
         for k, v in data.items()
     }
-    for page in PAGES:
+    pages = [p for p in PAGES if p != "notes" or has_notes]
+    for page in pages:
         template = env.get_template(f"{page}.html.j2")
-        html = template.render(**template_data, page=page, site_config=site_config)
+        html = template.render(
+            **template_data,
+            page=page,
+            site_config=site_config,
+            has_notes=has_notes,
+        )
         (output_dir / f"{page}.html").write_text(html, encoding="utf-8")
 
 
-def emit_json_data(data: dict, output_dir: Path) -> None:
+def emit_json_data(data: dict, output_dir: Path, has_notes: bool) -> None:
     """Pre-render JSON data files for client-side JS consumption."""
     out = output_dir / "data"
-    emit_events_json(data["actions"], data["implementations"], out / "events.json")
+    emit_events_json(
+        data["actions"],
+        data["implementations"],
+        out / "events.json",
+        include_notes_path=has_notes,
+    )
     emit_triggers_json(data["triggers"], out / "triggers.json")
     emit_entities_json(data["entities"], out / "entities.json")
 
@@ -156,11 +178,13 @@ def main():
 
     site_config = load_site_config()
     data = load_data(issuers)
+    has_notes = notes_available()
 
-    render_pages(env, data, out, site_config)
-    emit_json_data(data, out)
+    render_pages(env, data, out, site_config, has_notes)
+    emit_json_data(data, out, has_notes)
     copy_static(out)
-    render_notes(env, data, out, site_config)
+    if has_notes:
+        render_notes(env, data, out, site_config)
 
     print(f"build complete: {len(data['actions'])} actions for issuers={issuers}")
     print(f"output: {out}")

@@ -29,3 +29,6 @@ notes/_review-checklist.md
 
 # OFAC SDN raw XML — fetched on demand, do not commit (118MB, exceeds GH limit)
 data/raw/**/*.xml
+
+# Notes — held private; contains research process and strategy
+notes/

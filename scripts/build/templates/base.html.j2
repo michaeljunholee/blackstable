@@ -20,7 +20,7 @@
       <a href="entities.html" {% if page == 'entities' %}aria-current="page"{% endif %}>Entities</a>
       <a href="triggers.html" {% if page == 'triggers' %}aria-current="page"{% endif %}>Triggers</a>
       <a href="sources.html" {% if page == 'sources' %}aria-current="page"{% endif %}>Sources</a>
-      <a href="notes.html" {% if page == 'notes' %}aria-current="page"{% endif %}>Notes</a>
+      {% if has_notes %}<a href="notes.html" {% if page == 'notes' %}aria-current="page"{% endif %}>Notes</a>{% endif %}
       <a href="methodology.html" {% if page == 'methodology' %}aria-current="page"{% endif %}>Methodology</a>
     </nav>
   </header>

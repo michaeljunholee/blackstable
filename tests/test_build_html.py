@@ -62,9 +62,11 @@ def test_build_renders_all_expected_pages(tmp_path):
         "entities.html",
         "triggers.html",
         "sources.html",
-        "notes.html",
         "methodology.html",
     ]
+    notes_dir = REPO / "notes"
+    if notes_dir.exists() and any(notes_dir.glob("*.md")):
+        expected.append("notes.html")
     for name in expected:
         assert (out / name).exists(), f"missing page: {name}"
 
