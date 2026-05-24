@@ -6,6 +6,22 @@
   <title>Sources — Stablecoin Blacklisting</title>
   <link rel="stylesheet" href="assets/style.css">
   
+<style>
+  .src-table { table-layout: fixed; }
+  .src-table th, .src-table td { vertical-align: top; }
+  .src-table .col-id { width: 7.5rem; }
+  .src-table .col-tier { width: 6rem; }
+  .src-table .col-date { width: 6.5rem; }
+  .src-table .col-links { width: 9rem; white-space: nowrap; }
+  .src-table .col-sha { width: 8rem; }
+  .src-title { font-weight: 600; line-height: 1.35; }
+  .src-publisher { display: block; font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.25rem; font-weight: 400; }
+  .src-links a { display: inline-block; margin-right: 0.6rem; font-size: 0.85rem; }
+  .src-links .archived-yes { color: var(--ok); }
+  .src-links .archived-no { color: var(--ink-soft); opacity: 0.55; cursor: not-allowed; border-bottom: 1px dotted var(--line); }
+  .src-sha { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); word-break: break-all; }
+</style>
+
 </head>
 <body class="dark ">
   <header class="site-header">
@@ -26,699 +42,1018 @@
 <section>
   <h1>Sources</h1>
   <p class="lede">
-    40 sources, SHA256-hashed for tamper evidence. Tiered by evidentiary weight:
-    PRIMARY (Circle/government), SECONDARY (reputable news), TERTIARY (forensics, social media).
+    40 sources tiered by evidentiary weight: <span class="badge ok">PRIMARY</span> (issuer or government documents), <span class="badge warn">SECONDARY</span> (reputable news and cross-referenced reporting), <span class="badge">TERTIARY</span> (forensics-firm and community sources). Each row carries a SHA256 hash of the locally archived copy for tamper evidence; the <em>archive</em> column links to the Wayback Machine where one was captured.
   </p>
 
-  <table>
+  <table class="src-table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Tier</th>
-        <th>Type</th>
-        <th>Published</th>
-        <th>URL</th>
+        <th class="col-id">ID</th>
+        <th>Title and publisher</th>
+        <th class="col-tier">Tier</th>
+        <th class="col-date">Date</th>
+        <th class="col-links">Links</th>
+        <th class="col-sha">SHA256</th>
       </tr>
     </thead>
     <tbody>
       
       <tr id="CU-SRC-0040">
         <td><code>CU-SRC-0040</code></td>
-        <td>USDC Banned Addresses on Ethereum (TheBlock dashboard time series)</td>
+        <td>
+          <span class="src-title">USDC Banned Addresses on Ethereum (TheBlock dashboard time series)</span>
+          <span class="src-publisher">The Block</span>
+        </td>
         <td>
           
             <span class="badge warn">SECONDARY</span>
           
         </td>
-        <td class="small">RESEARCH_REPORT</td>
-        <td>2026-04-23</td>
+        <td class="small">2026-04-23</td>
+        <td class="src-links">
+          <a href="https://www.theblock.co/data/stablecoins/usd-pegged/usdc-banned-addresses-on-ethereum" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://www.theblock.co/data/stablecoins/usd-pegged/usdc-banned-addresses-on-ethereum" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="cffd26fa4aa292431a32596f6889cd1b8cbfa340a8d4c44073bc63ea7ed9e021">cffd26fa4a…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0021">
         <td><code>CU-SRC-0021</code></td>
-        <td>OFAC Specially Designated Nationals (SDN) Advanced XML</td>
+        <td>
+          <span class="src-title">OFAC Specially Designated Nationals (SDN) Advanced XML</span>
+          <span class="src-publisher">US Treasury — Office of Foreign Assets Control</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2026-04-17</td>
+        <td class="small">2026-04-17</td>
+        <td class="src-links">
+          <a href="https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/SDN_ADVANCED.XML" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/SDN_ADVANCED.XML" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="3a080ebf2afe5d329b61592c6199bdc19d184ec47bb3d68d25615406aff82739">3a080ebf2a…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0024">
         <td><code>CU-SRC-0024</code></td>
-        <td>Circle 16-wallet USDC freeze (sealed civil case 26-cv-2327) — multi-outlet reporting</td>
+        <td>
+          <span class="src-title">Circle 16-wallet USDC freeze (sealed civil case 26-cv-2327) — multi-outlet reporting</span>
+          <span class="src-publisher">CoinDesk / FinanceFeeds / CCN / AMLBot / Bitcoin.com News (cross-verified summary)</span>
+        </td>
         <td>
           
             <span class="badge warn">SECONDARY</span>
           
         </td>
-        <td class="small">NEWS_ARTICLE</td>
-        <td>2026-04-13</td>
+        <td class="small">2026-04-13</td>
+        <td class="src-links">
+          <a href="https://www.coindesk.com/business/2026/04/13/circle-ceo-says-he-won-t-freeze-usdc-without-a-court-order-even-as-hackers-walk-away-with-millions" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://www.coindesk.com/business/2026/04/13/circle-ceo-says-he-won-t-freeze-usdc-without-a-court-order-even-as-hackers-walk-away-with-millions" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="533cbcfad4af8bad6725cbd15b2d8e2d4f8ca9244a23d2ef5ad5b7357322acbf">533cbcfad4…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0039">
         <td><code>CU-SRC-0039</code></td>
-        <td>ZachXBT — Welcome to the Circle USDC files</td>
+        <td>
+          <span class="src-title">ZachXBT — Welcome to the Circle USDC files</span>
+          <span class="src-publisher">ZachXBT (@zachxbt) via X</span>
+        </td>
         <td>
           
             <span class="badge">TERTIARY</span>
           
         </td>
-        <td class="small">SOCIAL_MEDIA</td>
-        <td>2026-04-03</td>
+        <td class="small">2026-04-03</td>
+        <td class="src-links">
+          <a href="https://x.com/zachxbt/status/2040055823804793165" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://x.com/zachxbt/status/2040055823804793165" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="745dade38aca46c1c38dc3325473de4cd62b91cb215b5eeb89e001ab3a06ed94">745dade38a…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0025">
         <td><code>CU-SRC-0025</code></td>
-        <td>r/Buttcoin: Circle Froze 16 Operational Business Wallets Yesterday. For A Civil Case Nobody Can Name.</td>
+        <td>
+          <span class="src-title">r/Buttcoin: Circle Froze 16 Operational Business Wallets Yesterday. For A Civil Case Nobody Can Name.</span>
+          <span class="src-publisher">Reddit (r/Buttcoin)</span>
+        </td>
         <td>
           
             <span class="badge">TERTIARY</span>
           
         </td>
-        <td class="small">FORUM_POST</td>
-        <td>2026-03-24</td>
+        <td class="small">2026-03-24</td>
+        <td class="src-links">
+          <a href="https://www.reddit.com/r/Buttcoin/comments/1s2l5os/circle_froze_16_operational_business_wallets/" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://www.reddit.com/r/Buttcoin/comments/1s2l5os/circle_froze_16_operational_business_wallets/" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="e1b1284e208776bf084bf858e3641897c3db0c68edbd39d2aa4c8ae47f9929ee">e1b1284e20…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0026">
         <td><code>CU-SRC-0026</code></td>
-        <td>Treasury Sanctions Facilitators of DPRK IT Worker Fraud Targeting U.S. Businesses (Press Release SB0416)</td>
+        <td>
+          <span class="src-title">Treasury Sanctions Facilitators of DPRK IT Worker Fraud Targeting U.S. Businesses (Press Release SB0416)</span>
+          <span class="src-publisher">U.S. Department of the Treasury — Office of Foreign Assets Control</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2026-03-12</td>
+        <td class="small">2026-03-12</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0416" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/sb0416" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="14ab14396b4663ef8dfd548b77b06c06afd99bf76e99ae9b504b06c61c977a3f">14ab14396b…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0020">
         <td><code>CU-SRC-0020</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2026-02-17</td>
+        <td class="small">2026-02-17</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20260217165945/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="a5e2edcdc5dafb86695aad77eb2510d6ec8e3e086038d6b9bea85b175932dd75">a5e2edcdc5…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0019">
         <td><code>CU-SRC-0019</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2026-02-05</td>
+        <td class="small">2026-02-05</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20260205112805/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="bd576aedbafbe61161e37cbca0ebf7c73c22acf5bffc871c9c5a7de47061ded5">bd576aedba…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0031">
         <td><code>CU-SRC-0031</code></td>
-        <td>OFAC Sanctions Zedcex and Zedxion (first-ever IRGC-linked digital asset exchange designation) + Zanjani</td>
+        <td>
+          <span class="src-title">OFAC Sanctions Zedcex and Zedxion (first-ever IRGC-linked digital asset exchange designation) + Zanjani (SB0375)</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2026-01-30</td>
+        <td class="small">2026-01-30</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0375" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://www.trmlabs.com/resources/blog/ofac-sanctions-zedcex-and-zedxion-in-first-ever-designation-of-an-irgc-linked-digital-asset-exchange" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="f77d20a5a0dc6e97f922a2af4036fd992a9e742dd15671aed9c386e5fdad1257">f77d20a5a0…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0032">
         <td><code>CU-SRC-0032</code></td>
-        <td>OFAC Designates Russia-based Bulletproof Hosting Providers (Media Land / Aeza / Hypercore) + Ryan James Wedding Trafficking Network</td>
+        <td>
+          <span class="src-title">OFAC Designates Russia-based Bulletproof Hosting Providers (Media Land / Aeza / Hypercore) + Ryan James Wedding Trafficking Network</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC; Federal Register 2025-20573</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2025-11-19</td>
+        <td class="small">2025-11-19</td>
+        <td class="src-links">
+          <a href="https://www.federalregister.gov/documents/2025/11/21/2025-20573/notice-of-ofac-sanctions-action" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://www.federalregister.gov/documents/2025/11/21/2025-20573/notice-of-ofac-sanctions-action" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="a8f8098e5e5ceee54e1e52e8a2e9880fddfcaf3a26e18aca148235d2fea14244">a8f8098e5e…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0027">
         <td><code>CU-SRC-0027</code></td>
-        <td>Treasury Sanctions DPRK Bankers and Institutions Involved in Laundering Cybercrime Proceeds and IT Worker Funds (Press Release SB0302)</td>
+        <td>
+          <span class="src-title">Treasury Sanctions DPRK Bankers and Institutions Involved in Laundering Cybercrime Proceeds and IT Worker Funds (Press Release SB0302)</span>
+          <span class="src-publisher">U.S. Department of the Treasury — Office of Foreign Assets Control</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2025-11-04</td>
+        <td class="small">2025-11-04</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0302" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/sb0302" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="a5dbae6664d30dda26764fb562673878971d97e50a09548e5be27ecbaf624ebf">a5dbae6664…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0034">
         <td><code>CU-SRC-0034</code></td>
-        <td>U.S. and U.K. Take Largest Action Ever Targeting Cybercriminal Networks in Southeast Asia (SB0278) + DOJ Chen Zhi Indictment</td>
+        <td>
+          <span class="src-title">U.S. and U.K. Take Largest Action Ever Targeting Cybercriminal Networks in Southeast Asia (SB0278) + DOJ Chen Zhi Indictment</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC; DOJ; UK FCDO</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2025-10-14</td>
+        <td class="small">2025-10-14</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0278" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/sb0278" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="70d4e0cda037112758e266eb0cdd3c7061a0530b6751e989905beadaa4a82d6c">70d4e0cda0…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0035">
         <td><code>CU-SRC-0035</code></td>
-        <td>Treasury Targets Financial Network Supporting Iran&#39;s Military (SB0248; Derakhshan, Alivand, Iranian Shadow Banking Network)</td>
+        <td>
+          <span class="src-title">Treasury Targets Financial Network Supporting Iran&#39;s Military (SB0248; Derakhshan, Alivand, Iranian Shadow Banking Network)</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2025-09-16</td>
+        <td class="small">2025-09-16</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0248" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/sb0248" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="9abb8e2935bcf48fb8de196fe3203562851780c398184bec54f1e32f5cce107a">9abb8e2935…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0029">
         <td><code>CU-SRC-0029</code></td>
-        <td>Treasury Sanctions Cryptocurrency Exchange and Network Enabling Sanctions Evasion and Cyber Criminals (SB0225; Garantex/Grinex)</td>
+        <td>
+          <span class="src-title">Treasury Sanctions Cryptocurrency Exchange and Network Enabling Sanctions Evasion and Cyber Criminals (SB0225; Garantex/Grinex)</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2025-08-14</td>
+        <td class="small">2025-08-14</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0225" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/sb0225" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="afcff95998f4f11d1736127e385ece8cc8c32dd1d6f8263c37ae8e7521a9e849">afcff95998…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0018">
         <td><code>CU-SRC-0018</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-06-05</td>
+        <td class="small">2025-06-05</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250605065454/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="d5af55579af7281b8b7705f60b2c7e163991c232291b1256b38e8b031faaeda6">d5af55579a…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0017">
         <td><code>CU-SRC-0017</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-04-09</td>
+        <td class="small">2025-04-09</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250409112615/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="058a0ce28d9f786f8a006fbf921a5f4edcbc447c86bcedfed283166544699ba2">058a0ce28d…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0030">
         <td><code>CU-SRC-0030</code></td>
-        <td>Treasury Sanctions Houthi Network Procuring Weapons and Commodities from Russia (SB0068)</td>
+        <td>
+          <span class="src-title">Treasury Sanctions Houthi Network Procuring Weapons and Commodities from Russia (SB0068)</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2025-04-02</td>
+        <td class="small">2025-04-02</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0068" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/sb0068" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="98416b4e11193dd971376af872b69252351f6bee106085b9ebb39e7a3d7d0a9e">98416b4e11…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0016">
         <td><code>CU-SRC-0016</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-03-27</td>
+        <td class="small">2025-03-27</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250327135040/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="25fbe1514a4a818e126234b690560282d9c11954c42c7702083816de774b382d">25fbe1514a…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0038">
         <td><code>CU-SRC-0038</code></td>
-        <td>Treasury Lifts Sanctions on Tornado Cash (Delisting; SB0057) following Fifth Circuit Van Loon v. Treasury ruling</td>
+        <td>
+          <span class="src-title">Treasury Lifts Sanctions on Tornado Cash (Delisting; SB0057) following Fifth Circuit Van Loon v. Treasury ruling</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2025-03-21</td>
+        <td class="small">2025-03-21</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0057" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/sb0057" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="717df7f4dbd6fcb3e10540f2356055d78db7b5e8f9543750581b7eef8a2151a6">717df7f4db…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0015">
         <td><code>CU-SRC-0015</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-03-19</td>
+        <td class="small">2025-03-19</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250319134303/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="2b036e3e2146e787bd05fe68216e12d0b970b5185d03778471f8c018bea5cfb7">2b036e3e21…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0014">
         <td><code>CU-SRC-0014</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-03-16</td>
+        <td class="small">2025-03-16</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250316191642/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="c007bd75e8445a2d8fc01aef0637c37db1120741e30e568ae0bc14c1400efced">c007bd75e8…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0013">
         <td><code>CU-SRC-0013</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-03-07</td>
+        <td class="small">2025-03-07</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250307182745/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="0dd7725568dcff7d550393459a86b3409ac86effdc0584ab229c3d9eff6c19e1">0dd7725568…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0012">
         <td><code>CU-SRC-0012</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-02-24</td>
+        <td class="small">2025-02-24</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250224094641/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="f00644845cfa13f964c1a3af19c67032f9dda0bb16fe77ee3d6d054a716322f2">f00644845c…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0011">
         <td><code>CU-SRC-0011</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-02-12</td>
+        <td class="small">2025-02-12</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250212062707/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="1e7fd1b38a9a336ffb9311dac78d8380f12dc1828f09c66ec43be626e25dfdac">1e7fd1b38a…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0037">
         <td><code>CU-SRC-0037</code></td>
-        <td>OFAC Sanctions Zservers for Facilitating LockBit Ransomware Attacks (Feb 11 2025); Circle follow-up Feb 24 2025</td>
+        <td>
+          <span class="src-title">US/UK/Australia Joint Sanctions on Zservers BPH for Enabling LockBit Ransomware (SB0018); Circle follow-up Feb 24 2025</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC (coordinated with UK FCDO, Australia DFAT)</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2025-02-11</td>
+        <td class="small">2025-02-11</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/sb0018" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://www.chainalysis.com/blog/ofac-sanctions-zservers-ransomware-attacks-lockbit-february-2025/" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="87f4d792c9f25e12495d45436b033e9b7e6e88e29f1334dc0e6e8f87bd7f5a30">87f4d792c9…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0010">
         <td><code>CU-SRC-0010</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-02-09</td>
+        <td class="small">2025-02-09</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250209142603/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="12bcc1ecac8622cfb06b025010e4d5081276efe55fa4dcaaeca13998aecc723b">12bcc1ecac…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0009">
         <td><code>CU-SRC-0009</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-02-03</td>
+        <td class="small">2025-02-03</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250203172344/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="b7b823a0855ad918c13bb533d7a398175a95e0d5e951930a2126227a16c2fe35">b7b823a085…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0008">
         <td><code>CU-SRC-0008</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-01-30</td>
+        <td class="small">2025-01-30</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250130062014/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="dd33bac45cf9a782cbe97af1b5d28a0e945314f61f4d98c4532ee76682809262">dd33bac45c…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0007">
         <td><code>CU-SRC-0007</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-01-19</td>
+        <td class="small">2025-01-19</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250119122648/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="cc83db406cc0131973ea7f1cbbafc97976b321ce83d596a16c0a387d83bbacc5">cc83db406c…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0006">
         <td><code>CU-SRC-0006</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2025-01-18</td>
+        <td class="small">2025-01-18</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20250118234639/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="f50b3789342974ebb33ef1aaeb73d31cea350a03176989007adae1b2dfe634af">f50b378934…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0033">
         <td><code>CU-SRC-0033</code></td>
-        <td>Treasury Expands Sanctions on Sa&#39;id al-Jamal Houthi Financial Network (Dec 2024) — 5 crypto addresses + 12 individuals/entities</td>
+        <td>
+          <span class="src-title">Treasury Maintains Pressure on Houthi Procurement and Financing Schemes (JY2757) — Sa&#39;id al-Jamal network expansion with 5 crypto addresses</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2024-12-19</td>
+        <td class="small">2024-12-19</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/jy2757" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="6a65ce49029a8b506bd0092ea683c94c6b856025c477db70d48166cf4fcd76c0">6a65ce4902…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0005">
         <td><code>CU-SRC-0005</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2024-12-07</td>
+        <td class="small">2024-12-07</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20241207231731/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="5d43298bcd18753183830020cc16dc665aeb6cec16c75c554cce2c8179cb7b06">5d43298bcd…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0004">
         <td><code>CU-SRC-0004</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2024-12-05</td>
+        <td class="small">2024-12-05</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20241205035011/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="95b206c819fed0214639b56471e181def0d24b74b720624b22c2917f68daf371">95b206c819…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0003">
         <td><code>CU-SRC-0003</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2024-11-18</td>
+        <td class="small">2024-11-18</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20241118003502/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="7d5b9326789c1ae8fb36f8febeb061c8529c1bdd390c97ac8e6c660d57ac506c">7d5b932678…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0002">
         <td><code>CU-SRC-0002</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2024-11-12</td>
+        <td class="small">2024-11-12</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20241112130057/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="3650db633823005b3179fce1bd2fa4b49603f3888feb84c67928af43aacfd08b">3650db6338…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0001">
         <td><code>CU-SRC-0001</code></td>
-        <td>Circle Privacy Policy</td>
+        <td>
+          <span class="src-title">Circle Privacy Policy</span>
+          <span class="src-publisher">Circle Internet Financial</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">CIRCLE_LEGAL_DOC</td>
-        <td>2024-11-03</td>
+        <td class="small">2024-11-03</td>
+        <td class="src-links">
+          <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <a class="archived-yes" href="https://web.archive.org/web/20241103171204/https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          
+        </td>
         <td>
           
-            <a href="https://www.circle.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="369d7a9121c0d11b6f3b8fa7e0b929a42374263caa87de3230e68850d52fac29">369d7a9121…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0036">
         <td><code>CU-SRC-0036</code></td>
-        <td>Treasury Sanctions Hamas-Aligned Terrorist Fundraising Network (Gaza Now; JY2213; first joint OFAC+OFSI crypto designation)</td>
+        <td>
+          <span class="src-title">Treasury Sanctions Hamas-Aligned Terrorist Fundraising Network (Gaza Now; JY2213; first joint OFAC+OFSI crypto designation)</span>
+          <span class="src-publisher">U.S. Department of the Treasury — OFAC (joint with UK OFSI)</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2024-03-27</td>
+        <td class="small">2024-03-27</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/jy2213" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/jy2213" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="bd38a8e251279f04ebf4e7efed2bdebcb0ac60521d772e80d6bd9bf2c0491c81">bd38a8e251…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0028">
         <td><code>CU-SRC-0028</code></td>
-        <td>Treasury OFAC: Tornado Cash Redesignation (2022-11-08) + Darknet Fentanyl Suppliers (2022-11-09) — Press Release JY1089</td>
+        <td>
+          <span class="src-title">Treasury OFAC: Tornado Cash Redesignation (2022-11-08) + Darknet Fentanyl Suppliers (2022-11-09) — Press Release JY1089</span>
+          <span class="src-publisher">U.S. Department of the Treasury — Office of Foreign Assets Control</span>
+        </td>
         <td>
           
             <span class="badge ok">PRIMARY</span>
           
         </td>
-        <td class="small">GOV_FILING</td>
-        <td>2022-11-09</td>
+        <td class="small">2022-11-09</td>
+        <td class="src-links">
+          <a href="https://home.treasury.gov/news/press-releases/jy1089" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://home.treasury.gov/news/press-releases/jy1089" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="3383c9d39f07e4ac2fa7436f747c7b01b0584233e5c3d68d06f37d874233f522">3383c9d39f…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0023">
         <td><code>CU-SRC-0023</code></td>
-        <td>Circle blacklists all Tornado Cash ETH addresses effectively freezing USDC</td>
+        <td>
+          <span class="src-title">Circle blacklists all Tornado Cash ETH addresses effectively freezing USDC</span>
+          <span class="src-publisher">CryptoSlate (cross-verified by LRQA Cyber Labs)</span>
+        </td>
         <td>
           
             <span class="badge warn">SECONDARY</span>
           
         </td>
-        <td class="small">NEWS_ARTICLE</td>
-        <td>2022-08-08</td>
+        <td class="small">2022-08-08</td>
+        <td class="src-links">
+          <a href="https://cryptoslate.com/circle-blacklists-all-tornado-cash-eth-addresses-effectively-freezing-usdc/" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://cryptoslate.com/circle-blacklists-all-tornado-cash-eth-addresses-effectively-freezing-usdc/" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="099145b0585275753b70e8c49f5c5c9c053d7d5b96d80bd2f49514e0a4ffad35">099145b058…</span>
           
         </td>
       </tr>
       
       <tr id="CU-SRC-0022">
         <td><code>CU-SRC-0022</code></td>
-        <td>Centre appears to have blacklisted an address holding USDC for the first time</td>
+        <td>
+          <span class="src-title">Centre appears to have blacklisted an address holding USDC for the first time</span>
+          <span class="src-publisher">Yahoo Finance (syndicating CoinDesk)</span>
+        </td>
         <td>
           
             <span class="badge warn">SECONDARY</span>
           
         </td>
-        <td class="small">NEWS_ARTICLE</td>
-        <td>2020-07-08</td>
+        <td class="small">2020-07-08</td>
+        <td class="src-links">
+          <a href="https://finance.yahoo.com/news/centre-appears-blacklisted-address-holding-194053348.html" target="_blank" rel="noopener noreferrer">live</a>
+          
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          
+        </td>
         <td>
           
-            <a href="https://finance.yahoo.com/news/centre-appears-blacklisted-address-holding-194053348.html" target="_blank" rel="noopener noreferrer">link</a>
+            <span class="src-sha" title="23ad7cba8be44f53fcddefdb027a66800f0081457f93397aa2df7a32f0863807">23ad7cba8b…</span>
           
         </td>
       </tr>
@@ -730,11 +1065,13 @@
   
   
   
+  
   <ul>
     <li><span class="badge ok">PRIMARY</span> 34 — Circle or US/foreign government primary documents</li>
     <li><span class="badge warn">SECONDARY</span> 4 — Reputable news organizations and court-filed third-party documents</li>
     <li><span class="badge">TERTIARY</span> 2 — Forensics-firm reports, social media, research notes</li>
   </ul>
+  <p class="small">20 of 40 sources have a Wayback Machine snapshot. The remaining 20 rely on a local archived copy verified by SHA256.</p>
 </section>
 
   </main>

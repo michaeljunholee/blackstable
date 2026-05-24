@@ -1,29 +1,48 @@
 {% extends "base.html.j2" %}
 {% block title %}Sources — Stablecoin Blacklisting{% endblock %}
+{% block head_extra %}
+<style>
+  .src-table { table-layout: fixed; }
+  .src-table th, .src-table td { vertical-align: top; }
+  .src-table .col-id { width: 7.5rem; }
+  .src-table .col-tier { width: 6rem; }
+  .src-table .col-date { width: 6.5rem; }
+  .src-table .col-links { width: 9rem; white-space: nowrap; }
+  .src-table .col-sha { width: 8rem; }
+  .src-title { font-weight: 600; line-height: 1.35; }
+  .src-publisher { display: block; font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.25rem; font-weight: 400; }
+  .src-links a { display: inline-block; margin-right: 0.6rem; font-size: 0.85rem; }
+  .src-links .archived-yes { color: var(--ok); }
+  .src-links .archived-no { color: var(--ink-soft); opacity: 0.55; cursor: not-allowed; border-bottom: 1px dotted var(--line); }
+  .src-sha { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); word-break: break-all; }
+</style>
+{% endblock %}
 {% block content %}
 <section>
   <h1>Sources</h1>
   <p class="lede">
-    {{ sources|length }} sources, SHA256-hashed for tamper evidence. Tiered by evidentiary weight:
-    PRIMARY (Circle/government), SECONDARY (reputable news), TERTIARY (forensics, social media).
+    {{ sources|length }} sources tiered by evidentiary weight: <span class="badge ok">PRIMARY</span> (issuer or government documents), <span class="badge warn">SECONDARY</span> (reputable news and cross-referenced reporting), <span class="badge">TERTIARY</span> (forensics-firm and community sources). Each row carries a SHA256 hash of the locally archived copy for tamper evidence; the <em>archive</em> column links to the Wayback Machine where one was captured.
   </p>
 
-  <table>
+  <table class="src-table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Tier</th>
-        <th>Type</th>
-        <th>Published</th>
-        <th>URL</th>
+        <th class="col-id">ID</th>
+        <th>Title and publisher</th>
+        <th class="col-tier">Tier</th>
+        <th class="col-date">Date</th>
+        <th class="col-links">Links</th>
+        <th class="col-sha">SHA256</th>
       </tr>
     </thead>
     <tbody>
       {% for src in sources | sort(attribute='publication_date', reverse=True) %}
       <tr id="{{ src.source_id }}">
         <td><code>{{ src.source_id }}</code></td>
-        <td>{{ src.title }}</td>
+        <td>
+          <span class="src-title">{{ src.title }}</span>
+          {% if src.publisher %}<span class="src-publisher">{{ src.publisher }}</span>{% endif %}
+        </td>
         <td>
           {% if src.source_tier == 'PRIMARY' %}
             <span class="badge ok">PRIMARY</span>
@@ -33,11 +52,20 @@
             <span class="badge">{{ src.source_tier }}</span>
           {% endif %}
         </td>
-        <td class="small">{{ src.source_type }}</td>
-        <td>{{ src.publication_date if src.publication_date else '' }}</td>
+        <td class="small">{{ src.publication_date if src.publication_date else '—' }}</td>
+        <td class="src-links">
+          {% if src.url %}<a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">live</a>{% endif %}
+          {% if src.archived_url %}
+            <a class="archived-yes" href="{{ src.archived_url }}" target="_blank" rel="noopener noreferrer" title="Wayback Machine snapshot">archive ✓</a>
+          {% else %}
+            <span class="archived-no" title="No Wayback snapshot captured; local copy verified by SHA256">archive —</span>
+          {% endif %}
+        </td>
         <td>
-          {% if src.url %}
-            <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">link</a>
+          {% if src.content_sha256 %}
+            <span class="src-sha" title="{{ src.content_sha256 }}">{{ src.content_sha256[:10] }}…</span>
+          {% else %}
+            <span class="small">—</span>
           {% endif %}
         </td>
       </tr>
@@ -49,10 +77,12 @@
   {% set primary_count = sources | selectattr("source_tier", "equalto", "PRIMARY") | list | length %}
   {% set secondary_count = sources | selectattr("source_tier", "equalto", "SECONDARY") | list | length %}
   {% set tertiary_count = sources | selectattr("source_tier", "equalto", "TERTIARY") | list | length %}
+  {% set wayback_count = sources | selectattr("archived_url") | list | length %}
   <ul>
     <li><span class="badge ok">PRIMARY</span> {{ primary_count }} — Circle or US/foreign government primary documents</li>
     <li><span class="badge warn">SECONDARY</span> {{ secondary_count }} — Reputable news organizations and court-filed third-party documents</li>
     <li><span class="badge">TERTIARY</span> {{ tertiary_count }} — Forensics-firm reports, social media, research notes</li>
   </ul>
+  <p class="small">{{ wayback_count }} of {{ sources|length }} sources have a Wayback Machine snapshot. The remaining {{ sources|length - wayback_count }} rely on a local archived copy verified by SHA256.</p>
 </section>
 {% endblock %}
