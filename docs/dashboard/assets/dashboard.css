@@ -703,6 +703,19 @@ body {
   stroke-width: 2.4 !important;
   filter: drop-shadow(0 0 5px color-mix(in oklch, var(--ink) 55%, transparent));
 }
+/* Dashed ring drawn around the pinned bubble for unmistakable visual
+   anchoring. The ring sits on top of all other bubbles. */
+.tl-pin-halo {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 4,3;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: tl-pin-halo-spin 8s linear infinite;
+}
+@keyframes tl-pin-halo-spin {
+  to { stroke-dashoffset: -28; }
+}
 
 /* ===== Brush ===== */
 .brush-handle {

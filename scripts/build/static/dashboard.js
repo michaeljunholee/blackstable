@@ -202,6 +202,31 @@
   }
   function bubbleEl(id) { return document.querySelector(`[data-cid="${CSS.escape(id)}"]`); }
 
+  // Draw (or remove) a clearly visible dashed ring around the currently
+  // pinned bubble. Called from drawTimeline() so the halo persists across
+  // any redraw (brush, filter toggle, theme switch), and from the click
+  // handlers so the halo updates immediately on pin/unpin without a
+  // full timeline rebuild.
+  function updatePinHalo() {
+    const svg = $('#timeline');
+    if (!svg) return;
+    const old = svg.querySelector('.tl-pin-halo');
+    if (old) old.remove();
+    if (!State.pinnedId) return;
+    const bubble = bubbleEl(State.pinnedId);
+    if (!bubble) return;
+    const cx = parseFloat(bubble.getAttribute('cx'));
+    const cy = parseFloat(bubble.getAttribute('cy'));
+    const r = parseFloat(bubble.getAttribute('r'));
+    const halo = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    halo.setAttribute('class', 'tl-pin-halo');
+    halo.setAttribute('cx', cx);
+    halo.setAttribute('cy', cy);
+    halo.setAttribute('r', r + 7);
+    halo.setAttribute('fill', 'none');
+    svg.appendChild(halo);
+  }
+
   // --- Timeline SVG ---
   const TL = { W: 1600, H: 460, pad: { l: 64, r: 28, t: 36, b: 38 } };
   function drawTimeline() {
@@ -285,6 +310,7 @@
     }
 
     svg.innerHTML = s;
+    updatePinHalo();
 
     $$('.tl-bubble', svg).forEach(el => {
       el.addEventListener('mouseenter', e => {
@@ -315,6 +341,7 @@
           el.classList.add('pinned');
           showDetail(id);
         }
+        updatePinHalo();
       });
     });
   }
@@ -704,6 +731,7 @@
           const b = bubbleEl(id); if (b) b.classList.add('pinned');
           showDetail(id);
         }
+        updatePinHalo();
       });
     });
   }
