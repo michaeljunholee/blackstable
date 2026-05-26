@@ -436,6 +436,7 @@ body {
 }
 .dc-tag.unbl { background: var(--ub-soft); color: var(--ub); }
 .dc-tag.muted { background: var(--line-soft); color: var(--ink-soft); }
+.dc-tag.pinned { background: var(--ink); color: var(--bg); margin-left: auto; cursor: help; }
 .dc-body {
   font-size: 14px;
   color: var(--ink-soft);
@@ -696,6 +697,11 @@ body {
 .tl-bubble.active {
   stroke: var(--ink) !important;
   stroke-width: 1.8 !important;
+}
+.tl-bubble.pinned {
+  stroke: var(--ink) !important;
+  stroke-width: 2.4 !important;
+  filter: drop-shadow(0 0 5px color-mix(in oklch, var(--ink) 55%, transparent));
 }
 
 /* ===== Brush ===== */

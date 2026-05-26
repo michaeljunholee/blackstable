@@ -259,9 +259,10 @@
       const fill = (isUnattr && ringMode) ? 'transparent' : (isUnattr ? cssVar('--na') : (c.mech === 'BLACKLIST' ? cssVar('--bl') : cssVar('--ub')));
       const inWin = inFilter(c) && inWindow(c);
       const visClass = inWin ? '' : (inFilter(c) ? 'dim' : 'hidden');
+      const pinClass = c.id === State.pinnedId ? 'pinned' : '';
       const sw = (isUnattr && ringMode) ? 1.6 : 1;
       const fop = isUnattr && ringMode ? 1 : (isUnattr ? 0.7 : 0.85);
-      s += `<circle class="tl-bubble ${visClass}" data-cid="${c.id}" cx="${x.toFixed(1)}" cy="${y}" r="${r.toFixed(1)}" fill="${fill}" fill-opacity="${fop}" stroke="${stroke}" stroke-width="${sw}"/>`;
+      s += `<circle class="tl-bubble ${visClass} ${pinClass}" data-cid="${c.id}" cx="${x.toFixed(1)}" cy="${y}" r="${r.toFixed(1)}" fill="${fill}" fill-opacity="${fop}" stroke="${stroke}" stroke-width="${sw}"/>`;
     }
 
     // Annotations — only render those inside the current x-window
@@ -297,11 +298,23 @@
       el.addEventListener('mouseleave', () => {
         hideTooltip();
         el.classList.remove('active');
-        if (!State.pinnedId) showDetail(State.pinnedId);
+        showDetail(State.pinnedId);
       });
       el.addEventListener('click', () => {
-        State.pinnedId = el.dataset.cid;
-        showDetail(State.pinnedId);
+        const id = el.dataset.cid;
+        if (State.pinnedId === id) {
+          State.pinnedId = null;
+          el.classList.remove('pinned');
+          showDetail(null);
+        } else {
+          if (State.pinnedId) {
+            const prev = bubbleEl(State.pinnedId);
+            if (prev) prev.classList.remove('pinned');
+          }
+          State.pinnedId = id;
+          el.classList.add('pinned');
+          showDetail(id);
+        }
       });
     });
   }
@@ -328,11 +341,13 @@
     const tagText = c.mech === 'UNBLACKLIST' ? 'UNFREEZE' : 'FREEZE';
     const reason = c.triggerDesc || 'No public trigger has been linked to this cluster. The action is recorded on‑chain but the rationale has not appeared in any public source we monitor.';
     const attrPct = c.count > 0 ? Math.round((c.attributed / c.count) * 100) : 0;
+    const isPinned = id === State.pinnedId;
     card.innerHTML = `
       <div class="dc-head">
         <span class="dc-date">${fmtDate(c.date)}</span>
         <span class="${tagClass}">${tagText}</span>
         <span class="dc-tag muted">${CAT_LABEL[c.category]}</span>
+        ${isPinned ? '<span class="dc-tag pinned" title="Click the bubble again to unpin">📌 PINNED</span>' : ''}
       </div>
       <div class="dc-count-cell">
         <div class="dc-count-num">${c.count}</div>
@@ -673,9 +688,23 @@
       });
       row.addEventListener('mouseleave', () => {
         const el = bubbleEl(id); if (el) el.classList.remove('active');
-        if (!State.pinnedId) showDetail(null);
+        showDetail(State.pinnedId);
       });
-      row.addEventListener('click', () => { State.pinnedId = id; showDetail(id); });
+      row.addEventListener('click', () => {
+        if (State.pinnedId === id) {
+          State.pinnedId = null;
+          const b = bubbleEl(id); if (b) b.classList.remove('pinned');
+          showDetail(null);
+        } else {
+          if (State.pinnedId) {
+            const prev = bubbleEl(State.pinnedId);
+            if (prev) prev.classList.remove('pinned');
+          }
+          State.pinnedId = id;
+          const b = bubbleEl(id); if (b) b.classList.add('pinned');
+          showDetail(id);
+        }
+      });
     });
   }
 
