@@ -699,29 +699,7 @@ body {
   stroke-width: 1.8 !important;
 }
 .tl-bubble.pinned {
-  stroke: var(--ink) !important;
-  stroke-width: 4 !important;
   filter: drop-shadow(0 0 8px var(--ink));
-}
-/* Solid ring drawn around the pinned bubble. Sits on top of all
-   bubbles and pointer-events: none so it doesn't intercept clicks. */
-.tl-pin-halo {
-  stroke: var(--ink);
-  stroke-width: 2.5;
-  pointer-events: none;
-  opacity: 1;
-}
-/* Date label next to the pinned bubble — full anchor for the eye. */
-.tl-pin-label {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
-  fill: var(--ink);
-  pointer-events: none;
-  paint-order: stroke;
-  stroke: var(--bg);
-  stroke-width: 4;
-  stroke-linejoin: round;
 }
 
 /* ===== Brush ===== */

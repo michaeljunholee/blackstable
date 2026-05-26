@@ -202,41 +202,14 @@
   }
   function bubbleEl(id) { return document.querySelector(`[data-cid="${CSS.escape(id)}"]`); }
 
-  // Draw (or remove) the visual indicators for the currently pinned
-  // bubble: a solid ring around it and a date label next to it. Called
-  // from drawTimeline() (so the indicators survive any redraw) and from
-  // the click handlers (so they update immediately on pin/unpin without
-  // a full timeline rebuild).
+  // No-op shim — earlier versions drew a halo ring and date label
+  // around the pinned bubble. The bubble's own drop-shadow on
+  // .tl-bubble.pinned is now the sole indicator. Kept as a function
+  // so the click handlers don't need to be rewired; also cleans up
+  // any stale halo/label nodes left by older cached JS.
   function updatePinHalo() {
     const svg = $('#timeline');
-    if (!svg) return;
-    svg.querySelectorAll('.tl-pin-halo, .tl-pin-label').forEach(el => el.remove());
-    if (!State.pinnedId) return;
-    const bubble = bubbleEl(State.pinnedId);
-    if (!bubble) return;
-    const cluster = State.clusters.find(c => c.id === State.pinnedId);
-    const cx = parseFloat(bubble.getAttribute('cx'));
-    const cy = parseFloat(bubble.getAttribute('cy'));
-    const r = parseFloat(bubble.getAttribute('r'));
-    const haloR = r + 10;
-    const halo = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    halo.setAttribute('class', 'tl-pin-halo');
-    halo.setAttribute('cx', cx);
-    halo.setAttribute('cy', cy);
-    halo.setAttribute('r', haloR);
-    halo.setAttribute('fill', 'none');
-    svg.appendChild(halo);
-    if (cluster) {
-      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      label.setAttribute('class', 'tl-pin-label');
-      // Label above for freeze bubbles, below for unfreeze
-      const above = cluster.mech === 'BLACKLIST';
-      label.setAttribute('x', cx);
-      label.setAttribute('y', above ? cy - haloR - 6 : cy + haloR + 14);
-      label.setAttribute('text-anchor', 'middle');
-      label.textContent = fmtDate(cluster.date);
-      svg.appendChild(label);
-    }
+    if (svg) svg.querySelectorAll('.tl-pin-halo, .tl-pin-label').forEach(el => el.remove());
   }
 
   // --- Timeline SVG ---
