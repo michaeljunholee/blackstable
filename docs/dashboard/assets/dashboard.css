@@ -700,21 +700,28 @@ body {
 }
 .tl-bubble.pinned {
   stroke: var(--ink) !important;
-  stroke-width: 2.4 !important;
-  filter: drop-shadow(0 0 5px color-mix(in oklch, var(--ink) 55%, transparent));
+  stroke-width: 4 !important;
+  filter: drop-shadow(0 0 8px var(--ink));
 }
-/* Dashed ring drawn around the pinned bubble for unmistakable visual
-   anchoring. The ring sits on top of all other bubbles. */
+/* Solid ring drawn around the pinned bubble. Sits on top of all
+   bubbles and pointer-events: none so it doesn't intercept clicks. */
 .tl-pin-halo {
   stroke: var(--ink);
-  stroke-width: 2;
-  stroke-dasharray: 4,3;
+  stroke-width: 2.5;
   pointer-events: none;
-  opacity: 0.9;
-  animation: tl-pin-halo-spin 8s linear infinite;
+  opacity: 1;
 }
-@keyframes tl-pin-halo-spin {
-  to { stroke-dashoffset: -28; }
+/* Date label next to the pinned bubble — full anchor for the eye. */
+.tl-pin-label {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--ink);
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 4;
+  stroke-linejoin: round;
 }
 
 /* ===== Brush ===== */
