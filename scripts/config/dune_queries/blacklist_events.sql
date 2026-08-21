@@ -2,10 +2,13 @@
 -- Parameters (set in Dune UI): contract_address (text)
 --
 -- Dune SQL parameter substitution only works for values, not identifiers
--- (table names). Each chain therefore needs its own saved Dune query with
--- the table name hardcoded. Create one saved query per chain by replacing
--- `<chain>` below with the target chain identifier: `ethereum`, `base`,
--- `polygon`, `avalanche_c`, `arbitrum`, `optimism`.
+-- (table names), so the chain table is hardcoded. A single saved query is
+-- shared across chains: before each per-chain execution,
+-- `scripts/01_normalize_onchain.py` rewrites the active `FROM <chain>.logs`
+-- clause via the Dune API (PATCH /query/{id}) to `ethereum`, `base`,
+-- `polygon`, `avalanche_c`, `arbitrum` or `optimism`, then executes it.
+-- (Free-tier accounts cap private saved queries, so one-query-per-chain is
+-- not an option there.)
 --
 -- Low-volume chains (ethereum, base, polygon, avalanche_c) also work against
 -- the cross-chain `evms.logs` view; high-volume chains (arbitrum, optimism)

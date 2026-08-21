@@ -271,9 +271,17 @@ def check_entity_sources_for_yes_no(data_dir: Path) -> list[str]:
     return errors
 
 
-def check_source_hashes(data_dir: Path) -> list[str]:
+def check_source_hashes(data_dir: Path, allow_missing: bool = False) -> list[str]:
+    """Verify archived source copies against their recorded SHA256.
+
+    Local copies under `sources/` and `data/raw/` are gitignored (size), so a
+    fresh clone has only `sources/manifest.json`. With `allow_missing=True` a
+    missing copy is skipped (reported to stderr) while a present copy whose
+    hash differs is still an error.
+    """
     errors: list[str] = []
     sources = _read_table(data_dir, "sources")
+    missing = 0
     for idx, row in sources.iterrows():
         local_path = row["local_path"]
         expected_hash = row["content_sha256"]
@@ -281,6 +289,9 @@ def check_source_hashes(data_dir: Path) -> list[str]:
             continue
         p = Path(local_path)
         if not p.exists():
+            if allow_missing:
+                missing += 1
+                continue
             errors.append(
                 f"sources.csv row {idx} ({row['source_id']}): "
                 f"local_path {local_path} does not exist"
@@ -292,6 +303,9 @@ def check_source_hashes(data_dir: Path) -> list[str]:
                 f"sources.csv row {idx} ({row['source_id']}): "
                 f"hash mismatch. Expected {expected_hash}, got {actual}"
             )
+    if missing:
+        print(f"note: {missing} archived source copies not present locally (gitignored); hashes not checked for those",
+              file=sys.stderr)
     return errors
 
 
@@ -330,7 +344,7 @@ def _check_action_trigger_issuer_fk(actions: pd.DataFrame, triggers: pd.DataFram
     return errors
 
 
-def run_all_checks(data_dir: Path) -> list[str]:
+def run_all_checks(data_dir: Path, allow_missing_local: bool = False) -> list[str]:
     """Run every validation check. Return flat list of error strings."""
     errors: list[str] = []
     errors.extend(check_headers(data_dir))
@@ -346,7 +360,7 @@ def run_all_checks(data_dir: Path) -> list[str]:
     errors.extend(check_date_orderings(data_dir))
     errors.extend(check_future_dates(data_dir))
     errors.extend(check_entity_sources_for_yes_no(data_dir))
-    errors.extend(check_source_hashes(data_dir))
+    errors.extend(check_source_hashes(data_dir, allow_missing=allow_missing_local))
     # Issuer column presence and value checks for every fact table.
     issuer_tables = [
         "actions", "implementations", "triggers", "entities",
@@ -375,8 +389,13 @@ def run_all_checks(data_dir: Path) -> list[str]:
 
 
 def main() -> int:
+    import argparse
+    parser = argparse.ArgumentParser(description="Validate the CircleUSDC fact tables.")
+    parser.add_argument("--allow-missing-local", action="store_true",
+                        help="tolerate archived source copies that are not present locally (they are gitignored); hash mismatches remain errors")
+    args = parser.parse_args()
     data_dir = _HERE.parent / "data"
-    errors = run_all_checks(data_dir)
+    errors = run_all_checks(data_dir, allow_missing_local=args.allow_missing_local)
     if errors:
         print(f"VALIDATION FAILED — {len(errors)} issue(s):")
         for e in errors:

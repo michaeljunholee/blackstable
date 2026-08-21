@@ -154,3 +154,43 @@ def test_validate_detects_missing_csv_file(tmp_path):
     # Don't create any CSVs.
     errors = validate.run_all_checks(data)
     assert any("actions.csv" in e and "missing" in e for e in errors)
+
+
+# ---------------------------------------------------------------------------
+# Local archive copies are gitignored; a clone without them must still be able
+# to validate everything else. Hash mismatches stay fatal.
+# ---------------------------------------------------------------------------
+
+def _with_source(tmp_path, local_path, sha):
+    data = _minimal_data(tmp_path)
+    from scripts.utils.schema import TABLE_HEADERS
+    cols = TABLE_HEADERS["sources"]
+    row = {c: "" for c in cols}
+    row.update({"source_id": "CU-SRC-0001", "source_tier": "PRIMARY", "source_type": "GOV_FILING", "title": "t",
+                "publisher": "p", "publication_date": "2024-01-01", "url": "https://example.org/x",
+                "local_path": local_path, "content_sha256": sha, "accessed_date": "2024-01-02", "issuer": "Circle"})
+    (data / "sources.csv").write_text(",".join(cols) + "\n" + ",".join(row[c] for c in cols) + "\n")
+    return data
+
+
+def test_missing_local_copy_is_error_by_default(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    data = _with_source(tmp_path, "sources/2024/CU-SRC-0001.html", "0" * 64)
+    errors = validate.check_source_hashes(data)
+    assert errors and "does not exist" in errors[0]
+
+
+def test_missing_local_copy_tolerated_with_allow_missing(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    data = _with_source(tmp_path, "sources/2024/CU-SRC-0001.html", "0" * 64)
+    assert validate.check_source_hashes(data, allow_missing=True) == []
+    assert validate.run_all_checks(data, allow_missing_local=True) == []
+
+
+def test_hash_mismatch_still_fatal_with_allow_missing(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "sources" / "2024").mkdir(parents=True)
+    (tmp_path / "sources" / "2024" / "CU-SRC-0001.html").write_text("hello")
+    data = _with_source(tmp_path, "sources/2024/CU-SRC-0001.html", "0" * 64)
+    errors = validate.check_source_hashes(data, allow_missing=True)
+    assert errors and "hash mismatch" in errors[0]

@@ -11,7 +11,7 @@
     triggers: {},
     clusters: [],
     // Multi-select category filter — Set of categories that are ON
-    activeCats: new Set(['ofac', 'court', 'hack', 'untriggered']),
+    activeCats: new Set(['ofac', 'court', 'hack', 'foreign', 'untriggered']),
     timeMin: null,
     timeMax: null,
     timeFullMin: null,
@@ -20,19 +20,24 @@
     pinnedId: null,
   };
 
+  // Filterable categories, in chip order. Anything else maps to 'other', which is
+  // always shown (never silently hidden) but has no chip.
+  const CATS = ['ofac', 'court', 'hack', 'foreign', 'untriggered'];
   function categoryOf(tType) {
     if (!tType) return 'untriggered';
     const t = String(tType).toUpperCase();
     if (t.includes('OFAC')) return 'ofac';
     if (t.includes('COURT')) return 'court';
     if (t.includes('HACK') || t.includes('EXCHANGE')) return 'hack';
+    if (t.includes('FOREIGN')) return 'foreign';
     return 'other';
   }
-  const CAT_LABEL = { ofac: 'OFAC sanction', court: 'Court order', hack: 'Hack response', untriggered: 'No public reason', other: 'Other' };
+  const CAT_LABEL = { ofac: 'OFAC sanction', court: 'Court order', hack: 'Hack response', foreign: 'Foreign regulator', untriggered: 'No public reason', other: 'Other' };
 
   // --- Annotations: marquee events to label inside the chart
   const ANNOTATIONS = [
-    { date: '2025-11-04', mech: 'BLACKLIST', label: 'DPRK bankers', sub: 'OFAC SDN · 339 wallets', side: 'top' },
+    { date: '2026-07-01', mech: 'BLACKLIST', label: 'ISIS-K TRON keys mirrored', sub: 'OFAC SDN · 131 wallets × 6 chains', side: 'top' },
+    { date: '2025-11-04', mech: 'BLACKLIST', label: 'DPRK bankers', sub: 'OFAC SDN · 339 wallets', side: 'bottom' },
     { date: '2025-03-22', mech: 'UNBLACKLIST', label: 'Tornado Cash delisted', sub: '540 wallets unfrozen in 24h', side: 'bottom' },
     { date: '2023-07-21', mech: 'BLACKLIST', label: 'TC redesignation wave', sub: 'Summer 2023 · ~600 wallets', side: 'top' },
   ];
@@ -90,7 +95,7 @@
     return clusters;
   }
 
-  function inFilter(c) { return State.activeCats.has(c.category); }
+  function inFilter(c) { return c.category === 'other' || State.activeCats.has(c.category); }
   function inWindow(c) { return c.ts >= State.timeMin && c.ts <= State.timeMax; }
   function visibleClusters() { return State.clusters.filter(c => inFilter(c) && inWindow(c)); }
 
@@ -528,7 +533,7 @@
     const showingBtn = $('#showing-btn');
     if (showingBtn) {
       showingBtn.addEventListener('click', () => {
-        const all = ['ofac', 'court', 'hack', 'untriggered'];
+        const all = CATS;
         const allOn = all.every(c => State.activeCats.has(c));
         if (allOn) {
           // Already all on — leave on but treat as "reset" of any single-focus state
@@ -546,7 +551,7 @@
         if (State.activeCats.has(cat)) {
           if (State.activeCats.size === 1) {
             // Toggling off the only active → turn ALL on (cleared filter)
-            State.activeCats = new Set(['ofac', 'court', 'hack', 'untriggered']);
+            State.activeCats = new Set(CATS);
           } else {
             State.activeCats.delete(cat);
           }
@@ -558,7 +563,7 @@
       });
     });
     $('#reset-btn').addEventListener('click', () => {
-      State.activeCats = new Set(['ofac', 'court', 'hack', 'untriggered']);
+      State.activeCats = new Set(CATS);
       State.timeMin = State.timeFullMin;
       State.timeMax = State.timeFullMax;
       State.pinnedId = null;
@@ -582,13 +587,13 @@
     $$('#controls [data-filter="category"] .chip:not(.showing-btn)').forEach(c => {
       c.setAttribute('aria-pressed', State.activeCats.has(c.dataset.value) ? 'true' : 'false');
     });
-    const all = ['ofac', 'court', 'hack', 'untriggered'];
+    const all = CATS;
     const allOn = all.every(c => State.activeCats.has(c));
     const btn = $('#showing-btn');
     if (btn) btn.setAttribute('aria-pressed', allOn ? 'true' : 'false');
   }
   function updateChipCounts() {
-    const cats = ['ofac', 'court', 'hack', 'untriggered'];
+    const cats = CATS;
     const inWin = State.clusters.filter(inWindow);
     cats.forEach(cat => {
       const el = document.querySelector(`[data-filter="category"] [data-value="${cat}"] .chip-count`);
@@ -600,10 +605,10 @@
   function renderDonut() {
     if (!$('#donut')) return;
     const vis = visibleClusters();
-    const cats = ['ofac', 'untriggered', 'court', 'hack'];
+    const cats = ['ofac', 'untriggered', 'court', 'hack', 'foreign'];
     const counts = cats.map(c => vis.filter(x => x.category === c).length);
     const total = counts.reduce((a, b) => a + b, 0) || 1;
-    const colors = { ofac: cssVar('--bl'), untriggered: cssVar('--na'), court: cssVar('--court'), hack: cssVar('--hack') };
+    const colors = { ofac: cssVar('--bl'), untriggered: cssVar('--na'), court: cssVar('--court'), hack: cssVar('--hack'), foreign: cssVar('--foreign') };
 
     const cx = 50, cy = 50, R = 38, r = 26;
     let acc = 0;
@@ -647,7 +652,7 @@
         const cat = row.dataset.cat;
         // Toggle: focus this category alone (or restore all)
         if (State.activeCats.size === 1 && State.activeCats.has(cat)) {
-          State.activeCats = new Set(['ofac', 'court', 'hack', 'untriggered']);
+          State.activeCats = new Set(CATS);
         } else {
           State.activeCats = new Set([cat]);
         }
@@ -733,11 +738,11 @@
     }
     const yk = Object.keys(years).sort();
     const max = Math.max(...yk.map(y => years[y].total));
-    const colors = { ofac: cssVar('--bl'), court: cssVar('--court'), hack: cssVar('--hack'), untriggered: cssVar('--na') };
+    const colors = { ofac: cssVar('--bl'), court: cssVar('--court'), hack: cssVar('--hack'), foreign: cssVar('--foreign'), untriggered: cssVar('--na') };
     $('#year-bars').innerHTML = yk.map(y => {
       const data = years[y];
       const totH = (data.total / max) * 100;
-      const segs = ['ofac', 'court', 'hack', 'untriggered'].map(cat => {
+      const segs = CATS.map(cat => {
         if (!data[cat]) return '';
         const h = (data[cat] / data.total) * totH;
         return `<span class="yb-seg ${cat === 'untriggered' ? 'na' : (cat === 'ofac' ? '' : cat)}" style="background:${colors[cat]};height:${h.toFixed(2)}%"></span>`;

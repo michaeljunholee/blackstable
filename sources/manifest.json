@@ -100,6 +100,199 @@
       "archived_url": "https://web.archive.org/web/20260217165945/https://www.circle.com/legal/privacy-policy",
       "content_sha256": "a5e2edcdc5dafb86695aad77eb2510d6ec8e3e086038d6b9bea85b175932dd75",
       "local_path": "sources/2026/CU-SRC-0020.html"
+    },
+    "CU-SRC-0042": {
+      "archived_url": "https://web.archive.org/web/20260821195951/https://ofac.treasury.gov/recent-actions/20260701",
+      "content_sha256": "3e7338bff7a6fdafc6e9aa48b710ffd79cf7e21b0fb19ce005709dd8f3cd2aa5",
+      "local_path": "sources/2026/CU-SRC-0042.html"
+    },
+    "CU-SRC-0043": {
+      "archived_url": "https://web.archive.org/web/20260821200016/https://www.chainalysis.com/blog/isis-designation-crypto-addresses-july-2026/",
+      "content_sha256": "241d5bb585f42899e346c9100f141f984c253bdd8e13454a99c3adff1f6f7803",
+      "local_path": "sources/2026/CU-SRC-0043.html"
+    },
+    "CU-SRC-0044": {
+      "archived_url": "https://web.archive.org/web/20260821200457/https://www.trmlabs.com/resources/blog/ofac-sanctions-134-iskp-cryptocurrency-addresses-tied-to-usd-2-million-in-terrorist-financing",
+      "content_sha256": "b1a548ed89135e00c05226484746e80343172893fdac56ec33ed1cccb1a39113",
+      "local_path": "sources/2026/CU-SRC-0044.html"
+    },
+    "CU-SRC-0045": {
+      "archived_url": "https://web.archive.org/web/20260821200746/https://ofac.treasury.gov/recent-actions/20260520",
+      "content_sha256": "7d402821541fb445ef696d79259dccb72fe5ef3222bee06c67923292f52b7ddc",
+      "local_path": "sources/2026/CU-SRC-0045.html"
+    },
+    "CU-SRC-0046": {
+      "archived_url": "https://web.archive.org/web/20260821200646/https://home.treasury.gov/news/press-releases/sb0503",
+      "content_sha256": "6f3ff2fb58c2617f30394f6ce58b6e66cabaedcd64f02b7890ef44b3bcb166b5",
+      "local_path": "sources/2026/CU-SRC-0046.html"
+    },
+    "CU-SRC-0047": {
+      "archived_url": "https://web.archive.org/web/20260821200807/https://ofac.treasury.gov/recent-actions/20260713",
+      "content_sha256": "8164473b0c164bda73fa904716332d1ec1342ba885a5d2474d5c737b6af52895",
+      "local_path": "sources/2026/CU-SRC-0047.html"
+    },
+    "CU-SRC-0048": {
+      "archived_url": "https://web.archive.org/web/20260821200707/https://home.treasury.gov/news/press-releases/sb0559",
+      "content_sha256": "284eff3f42497c446dcf50bbb9afde7c86bdbfda4d00f5437b503f76259bdb05",
+      "local_path": "sources/2026/CU-SRC-0048.html"
+    },
+    "CU-SRC-0049": {
+      "archived_url": "https://web.archive.org/web/20260821200826/https://ofac.treasury.gov/recent-actions/20260807",
+      "content_sha256": "ed042534f1e6986645cc1d28f03c1405dc4af638c29738ace80300d2848f30f7",
+      "local_path": "sources/2026/CU-SRC-0049.html"
+    },
+    "CU-SRC-0050": {
+      "archived_url": "https://web.archive.org/web/20260821200725/https://home.treasury.gov/news/press-releases/sb0598",
+      "content_sha256": "e956115260a9117f2717d7b7111a75bf912ddbcdd1b4339a3ee05ab2cf4a83b0",
+      "local_path": "sources/2026/CU-SRC-0050.html"
+    },
+    "CU-SRC-0051": {
+      "archived_url": "http://web.archive.org/web/20260821201532/https://ofac.treasury.gov/recent-actions/20260622",
+      "content_sha256": "cdc710b217ee5796aa34d9f44a6751837bbf366c6f73a0623d854c144f7d04c9",
+      "local_path": "sources/2026/CU-SRC-0051.html"
+    },
+    "CU-SRC-0052": {
+      "archived_url": "http://web.archive.org/web/20260821201612/https://home.treasury.gov/news/press-releases/sb0537",
+      "content_sha256": "4b96292782e000e6b3f512b2d08faff790e57b409d8fce4c4373110748a90372",
+      "local_path": "sources/2026/CU-SRC-0052.html"
+    },
+    "CU-SRC-0053": {
+      "archived_url": "http://web.archive.org/web/20260730031608/https://ofac.treasury.gov/recent-actions/20260723",
+      "content_sha256": "2a04d3c5ddf8b9bbeb0036a39cf00efb242dbda0dee2f02962a7cc587abcc95a",
+      "local_path": "sources/2026/CU-SRC-0053.html"
+    },
+    "CU-SRC-0054": {
+      "archived_url": "http://web.archive.org/web/20260730113332/https://home.treasury.gov/news/press-releases/sb0572",
+      "content_sha256": "fafe1075a59d96fa710e22d0fb8d33595ad4f49d17486745afe3232d673a9292",
+      "local_path": "sources/2026/CU-SRC-0054.html"
+    },
+    "CU-SRC-0055": {
+      "archived_url": "http://web.archive.org/web/20260716031147/https://ofac.treasury.gov/recent-actions/20260424",
+      "content_sha256": "08db9381c768de1b93d9584f22e8c60d760d374ad353ce7a97868c33a045f416",
+      "local_path": "sources/2026/CU-SRC-0055.html"
+    },
+    "CU-SRC-0056": {
+      "archived_url": "http://web.archive.org/web/20260821201720/https://ofac.treasury.gov/recent-actions/20260714",
+      "content_sha256": "304f9e69409dc7d5a42f82db39a88303a2ed128b7764c23b1e4e442a03a34665",
+      "local_path": "sources/2026/CU-SRC-0056.html"
+    },
+    "CU-SRC-0057": {
+      "archived_url": "http://web.archive.org/web/20260602182022/https://assets.publishing.service.gov.uk/media/6a1578669819be865f421cf1/Sanctions_Notice_Russia_26_May_2026.pdf",
+      "content_sha256": "e60106df30cb9f6ed5104edaafafb3abfc8935b231b58f30cf5f2f76139c9b03",
+      "local_path": "sources/2026/CU-SRC-0057.pdf"
+    },
+    "CU-SRC-0058": {
+      "archived_url": "https://web.archive.org/web/20260512065930/https://assets.publishing.service.gov.uk/media/69c4ff3193cc6e8b87a6f6ee/Sanctions_Notice__Global_Human_Rights__26_March_2026.pdf",
+      "content_sha256": "519edefe72df07b634eae3fe40dd7799234efc6d8b07d33a30fc5138f981d39a",
+      "local_path": "sources/2026/CU-SRC-0058.pdf"
+    },
+    "CU-SRC-0059": {
+      "archived_url": "http://web.archive.org/web/20260821201149/https://storage.courtlistener.com/recap/gov.uscourts.nysd.660304/gov.uscourts.nysd.660304.22.0.pdf",
+      "content_sha256": "56b525ea03368a9d55eeff15fbaf791fe86b1c610b804d4a1cb53f88a73dcf85",
+      "local_path": "sources/2026/CU-SRC-0059.pdf"
+    },
+    "CU-SRC-0060": {
+      "archived_url": "http://web.archive.org/web/20260821201143/https://storage.courtlistener.com/recap/gov.uscourts.nysd.660304/gov.uscourts.nysd.660304.35.0.pdf",
+      "content_sha256": "e536d4ea84bb58193d1698be7c0a028b27eb0934bc2601dba200024f79a93fb5",
+      "local_path": "sources/2026/CU-SRC-0060.pdf"
+    },
+    "CU-SRC-0061": {
+      "archived_url": "http://web.archive.org/web/20260821201137/https://storage.courtlistener.com/recap/gov.uscourts.nysd.660304/gov.uscourts.nysd.660304.61.0.pdf",
+      "content_sha256": "5da55d17ad15eedec29013ca95a873d00ab4389961f3052947ca3bd610552b50",
+      "local_path": "sources/2026/CU-SRC-0061.pdf"
+    },
+    "CU-SRC-0062": {
+      "archived_url": "",
+      "content_sha256": "c71e25a59068713759196bc9f77a8b9972f81ba2f30c4836a46e45b69788386e",
+      "local_path": "sources/2026/CU-SRC-0062.html"
+    },
+    "CU-SRC-0063": {
+      "archived_url": "http://web.archive.org/web/20260821200905/https://order26cv2327.com/",
+      "content_sha256": "c16a0609eb15202275735509dce29a9eebf79baa5d507a4f110c5171fa931fc6",
+      "local_path": "sources/2026/CU-SRC-0063.html"
+    },
+    "CU-SRC-0064": {
+      "archived_url": "https://web.archive.org/web/20260821201440/https://storage.courtlistener.com/recap/gov.uscourts.mad.299014/gov.uscourts.mad.299014.1.0.pdf",
+      "content_sha256": "7eadb1d07132124d2075edb1b6caeb21f41a2c9a301d7df47e7d4d7585e2d2dd",
+      "local_path": "sources/2026/CU-SRC-0064.pdf"
+    },
+    "CU-SRC-0065": {
+      "archived_url": "http://web.archive.org/web/20260821203241/https://ofac.treasury.gov/recent-actions/20220915",
+      "content_sha256": "7a9e79b7d5a5c2f3f206687d350325881ce8bda6b49202b5fa7e5bd4c3e884e1",
+      "local_path": "sources/2026/CU-SRC-0065.html"
+    },
+    "CU-SRC-0066": {
+      "archived_url": "http://web.archive.org/web/20260821203318/https://ofac.treasury.gov/recent-actions/20230731",
+      "content_sha256": "89cee656af44e67b2cdeb3000db4e68261917ba342ea73c193c57cec936afbd5",
+      "local_path": "sources/2026/CU-SRC-0066.html"
+    },
+    "CU-SRC-0067": {
+      "archived_url": "http://web.archive.org/web/20260821203358/https://ofac.treasury.gov/recent-actions/20231003",
+      "content_sha256": "93837fbb75a3d504b185966e40e997359dba5f8ffc81ad4abd488de95c41c60a",
+      "local_path": "sources/2026/CU-SRC-0067.html"
+    },
+    "CU-SRC-0068": {
+      "archived_url": "http://web.archive.org/web/20260821203440/https://ofac.treasury.gov/recent-actions/20240320",
+      "content_sha256": "a428b21cadd725b7e9427d3cf77d074b1ffc744b140326d2258a566f17579162",
+      "local_path": "sources/2026/CU-SRC-0068.html"
+    },
+    "CU-SRC-0069": {
+      "archived_url": "http://web.archive.org/web/20260821203521/https://ofac.treasury.gov/recent-actions/20240501",
+      "content_sha256": "f55d07099f1f4d5ed48860fca9daca4178b162849ad1fb49726223c2c9645c8b",
+      "local_path": "sources/2026/CU-SRC-0069.html"
+    },
+    "CU-SRC-0070": {
+      "archived_url": "http://web.archive.org/web/20260821203602/https://ofac.treasury.gov/recent-actions/20240528_33",
+      "content_sha256": "5d3cbfb0cf249f357b0f80e2ce71fb0eac752f2e01d23b6db9b14e81d543bfab",
+      "local_path": "sources/2026/CU-SRC-0070.html"
+    },
+    "CU-SRC-0071": {
+      "archived_url": "https://web.archive.org/web/20260821203640/https://ofac.treasury.gov/recent-actions/20240823",
+      "content_sha256": "e42f1b5340ed88fcbd5f0dd557ef70008e0479a54c40bc7a0ebb88b7c687136f",
+      "local_path": "sources/2026/CU-SRC-0071.html"
+    },
+    "CU-SRC-0072": {
+      "archived_url": "http://web.archive.org/web/20260821203725/https://ofac.treasury.gov/recent-actions/20240926",
+      "content_sha256": "a8538007d8d7da9243f55e59d27ecbd9024b9ce644297766ac9f585f628e09c3",
+      "local_path": "sources/2026/CU-SRC-0072.html"
+    },
+    "CU-SRC-0073": {
+      "archived_url": "http://web.archive.org/web/20260821203811/https://ofac.treasury.gov/recent-actions/20241204",
+      "content_sha256": "666f391098d4665758ee1bcd4480ca3503db509f719af9de73a54577ad8f210f",
+      "local_path": "sources/2026/CU-SRC-0073.html"
+    },
+    "CU-SRC-0074": {
+      "archived_url": "http://web.archive.org/web/20260821203846/https://ofac.treasury.gov/recent-actions/20250529",
+      "content_sha256": "c87a2afb7816ee191e00566d3ef663b3d141602ee2e5ba8d5141a8e71cdec029",
+      "local_path": "sources/2026/CU-SRC-0074.html"
+    },
+    "CU-SRC-0075": {
+      "archived_url": "http://web.archive.org/web/20260821203920/https://ofac.treasury.gov/recent-actions/20250701",
+      "content_sha256": "b0248b19c1cd55f4c8a2998ae2f00dbe106e6f025c9ea2f78082d9ad03596aa8",
+      "local_path": "sources/2026/CU-SRC-0075.html"
+    },
+    "CU-SRC-0076": {
+      "archived_url": "https://web.archive.org/web/20260821204005/https://ofac.treasury.gov/recent-actions/20250924",
+      "content_sha256": "ac4ab8c3730f2a0f2a4233035efd87aa277b3261d0a34d57059df3ac93c532fb",
+      "local_path": "sources/2026/CU-SRC-0076.html"
+    },
+    "CU-SRC-0077": {
+      "archived_url": "",
+      "content_sha256": "4871926addc8c72b376a6dd0a0e5748d318a777b61ebc856c50a200ffd2fd74a",
+      "local_path": "sources/2026/CU-SRC-0077.html"
+    },
+    "CU-SRC-0078": {
+      "archived_url": "http://web.archive.org/web/20260821204446/https://storage.courtlistener.com/recap/gov.uscourts.cand.470978/gov.uscourts.cand.470978.1.0.pdf",
+      "content_sha256": "b3ccf1b54413239b111d8e38a3d04ae7196a57e2f94fef277a710ffb5f580649",
+      "local_path": "sources/2026/CU-SRC-0078.pdf"
+    },
+    "CU-SRC-0079": {
+      "archived_url": "http://web.archive.org/web/20260821204454/https://www.theblock.co/post/403091/court-ordered-circle-freeze-traps-12-6-million-in-zama-cusdc-contract-amid-overnight-finance-suit",
+      "content_sha256": "e3c02dc66c3ce9af76e0c06bd6002f4d5cd11d783f7b1eeb2e1f6fb1210ca6c9",
+      "local_path": "sources/2026/CU-SRC-0079.html"
+    },
+    "CU-SRC-0080": {
+      "local_path": "sources/2026/CU-SRC-0080.html"
     }
   }
 }

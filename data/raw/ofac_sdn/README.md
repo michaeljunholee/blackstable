@@ -3,9 +3,9 @@
 Raw OFAC sanctions data used to reconcile blacklisted on-chain addresses
 against US Treasury designations.
 
-## sdn_advanced.xml — fetched on demand, not committed
+## sdn_advanced_<date>.xml — fetched on demand, not committed
 
-The `sdn_advanced.xml` file (the OFAC SDN Advanced list) is published by
+The SDN Advanced list (`SDN_ADVANCED.XML`) is published by
 the US Treasury at:
 
 > https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/SDN_ADVANCED.XML
@@ -15,17 +15,23 @@ frequently — see `.gitignore`). To reproduce the OFAC reconciliation
 locally, download it once:
 
 ```bash
-curl -L -o data/raw/ofac_sdn/sdn_advanced.xml \
+curl -L -A "Mozilla/5.0" -o data/raw/ofac_sdn/sdn_advanced_2026-08-20.xml \
   https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/SDN_ADVANCED.XML
 ```
 
 ## Derived files (committed)
 
-- `ofac_crypto_addresses.csv` — every digital-currency address extracted
-  from the SDN list (regardless of chain/asset).
-- `ofac_matches.csv` — intersection of `ofac_crypto_addresses.csv` with
-  the blacklisted addresses observed on Circle's USDC contract. Each row
-  is one match between an on-chain freeze target and an SDN entry.
+Snapshots are dated by the list's `DateOfIssue` so successive runs never
+overwrite each other (`2026-04-19`, `2026-08-20`, …):
 
-Both derived files are produced by the OFAC reconciliation step of the
-pipeline; see `scripts/utils/` for the parsing logic.
+- `ofac_crypto_addresses_<date>.csv` — every digital-currency address on
+  the SDN list (any chain/asset) with its owning party, programs and
+  listing date, plus `evm_key`: the 20-byte key for 0x-hex identifiers and
+  for TRON base58 identifiers (a TRON address is `base58check(0x41 ‖ key)`;
+  the key is the account's address on every EVM chain).
+- `ofac_matches_<date>.csv` — one row per blacklist/unblacklist action
+  whose target key matches an SDN identifier; `match_basis` records
+  whether the SDN carried the key as `HEX_IDENTIFIER` or via
+  `TRON_KEY_EQUIVALENCE`, and `ofac_listed_address` the printed form.
+
+Both are produced by `scripts/04_ofac_sdn.py --xml <snapshot> --extract --match`.

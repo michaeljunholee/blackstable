@@ -26,7 +26,7 @@
 <section>
   <h1>Triggers</h1>
   <p class="lede">
-    55 triggers — the legal or regulatory causes linked to blacklist / unblacklist actions.
+    76 triggers — the legal or regulatory causes linked to blacklist / unblacklist actions.
   </p>
 
   <table>
@@ -131,7 +131,7 @@
       
       <tr>
         <td><code>CU-TRG-0012</code></td>
-        <td>—</td>
+        <td>2022-09-15</td>
         <td>OFAC_DESIGNATION</td>
         <td>OFAC</td>
         <td class="small">OFAC SDN designation of Task Force Rusich</td>
@@ -203,7 +203,7 @@
       
       <tr>
         <td><code>CU-TRG-0021</code></td>
-        <td>—</td>
+        <td>2023-10-03</td>
         <td>OFAC_DESIGNATION</td>
         <td>OFAC</td>
         <td class="small">OFAC SDN designation of Shen</td>
@@ -219,7 +219,7 @@
       
       <tr>
         <td><code>CU-TRG-0023</code></td>
-        <td>—</td>
+        <td>2023-10-03</td>
         <td>OFAC_DESIGNATION</td>
         <td>OFAC</td>
         <td class="small">OFAC SDN designation of Zhang</td>
@@ -251,7 +251,7 @@
       
       <tr>
         <td><code>CU-TRG-0027</code></td>
-        <td>—</td>
+        <td>2024-05-01</td>
         <td>OFAC_DESIGNATION</td>
         <td>OFAC</td>
         <td class="small">OFAC SDN designation of OKO DESIGN BUREAU</td>
@@ -259,7 +259,7 @@
       
       <tr>
         <td><code>CU-TRG-0028</code></td>
-        <td>—</td>
+        <td>2024-05-28</td>
         <td>OFAC_DESIGNATION</td>
         <td>OFAC</td>
         <td class="small">OFAC SDN designation of Wang</td>
@@ -267,7 +267,7 @@
       
       <tr>
         <td><code>CU-TRG-0029</code></td>
-        <td>—</td>
+        <td>2024-09-26</td>
         <td>OFAC_DESIGNATION</td>
         <td>OFAC</td>
         <td class="small">OFAC SDN designation of Cryptex</td>
@@ -283,7 +283,7 @@
       
       <tr>
         <td><code>CU-TRG-0031</code></td>
-        <td>—</td>
+        <td>2025-05-29</td>
         <td>OFAC_DESIGNATION</td>
         <td>OFAC</td>
         <td class="small">OFAC SDN designation of Funnull Technology Inc</td>
@@ -357,8 +357,8 @@
         <td><code>CU-TRG-0040</code></td>
         <td>2026-03-23</td>
         <td>COURT_ORDER</td>
-        <td>U.S. District Court for the Southern District of New York</td>
-        <td class="small">Sealed SDNY civil-case order (26-cv-2327) directing Circle to blacklist USDC balances across 16 business hot wallets identified in plaintiffs pleadings. Executed by Circle on 2026-03-23; partial reversals (at least 5 addresses including ckETH Minter and Goated.com wallet) by 2026-04-07 after public backlash.</td>
+        <td>U.S. District Court for the Southern District of New York (Preska, J.)</td>
+        <td class="small">Sealed ex parte Order of Attachment (2026-03-22) in Benson v. Islamic Republic of Iran, No. 1:26-cv-02327 (S.D.N.Y.) — ~1,335 judgment creditors of Iran (Willkie Farr &amp; Gallagher) attaching USDT/USDC at 814 &#39;John Doe&#39; wallets (~113 ETH/Polygon, 44 BSC, ~657 Tron) securing $10,498,664,592; Tether and Circle named as garnishees. Appendix A was compiled by plaintiffs&#39; expert (Inca Digital) from Iranian-exchange deposit addresses plus one-hop counterparties, which is how operational wallets such as DFINITY&#39;s ckETH minter and Goated.com were swept in (both labelled &#39;Nobitex_ir&#39;). Circle blacklisted 84 Appendix-A EVM addresses on 2026-03-23; 22 were released 2026-03-26→04-14 while the order was in force, 1 on 04-22, and 60 more after the 2026-04-28 Amended Order vacated the attachment as to all Appendix-A wallets except TNiq (see CU-TRG-0066). Reporting at the time (CoinDesk 04-13) described only a &#39;sealed civil case&#39;.</td>
       </tr>
       
       <tr>
@@ -481,6 +481,174 @@
         <td class="small">Cetus Protocol $223M exploit response (Circle acted 2025-06-20, +29 days after incident)</td>
       </tr>
       
+      <tr>
+        <td><code>CU-TRG-0056</code></td>
+        <td>2026-07-01</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC &#39;Designation Update&#39; (2026-07-01; no dedicated press release) adding 131 TRON (TRX) and 3 Monero (XMR) digital-currency identifiers to the existing SDN entry for ISIL KHORASAN (ISIS-K; FTO/SDGT, first listed 2015-09-29). Same-day Chainalysis/TRM analyses describe the wallets as donation addresses of ISIS-K&#39;s al-Azaim Media Foundation (~$1.4M received since 2023, flows to Syria-based exchangers). Circle blacklisted the EVM-key equivalents of all 131 TRX identifiers (a TRON address is base58check(0x41 + the 20-byte key) — the same key controls the 0x address on every EVM chain) on all six EVM chains the same afternoon (first tx 15:13 UTC), one tx per address per chain, in OFAC list order — 786 actions, the largest single-day USDC blacklist cluster in the dataset. Press coverage credited only Tether&#39;s freeze of the TRON balances.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0057</code></td>
+        <td>2026-05-20</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC (HSTF/DEA-led; coordinated with Mexico&#39;s UIF)</td>
+        <td class="small">OFAC designation (2026-05-20) of two Sinaloa Cartel / Los Chapitos money-laundering networks — Armando de Jesus Ojeda Aviles (primary launderer, successor to Mario Jimenez Castro; bulk cash → crypto → Mexico) and Jesus Gonzalez Penuelas — 11 individuals and 2 entities. Six ETH identifiers listed (5 Ojeda Aviles, 1 Alarcon Palomares). Circle blacklisted all six on all 6 EVM chains within ~10 minutes (15:19–15:28 UTC).</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0058</code></td>
+        <td>2026-07-13</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC (coordinated with UK FCDO; same-day EU/UK cyber packages)</td>
+        <td class="small">OFAC cyber-related designation (2026-07-13) of First VPN Service (1VPNS, Dnipro — VPN infrastructure sold to ransomware crews since 2014), its administrator Dmytro Rashevskyi, and cryptor vendor Yevgeniy Silayev, following the May 2026 Europol/FBI takedown. 20 digital-currency identifiers listed (XBT, ETH, LTC, ZEC, DASH, TRX, DOGE, SOL). Circle blacklisted the 3 ETH identifiers and the EVM-key equivalents of the 3 TRX identifiers on all 6 EVM chains the same day.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0059</code></td>
+        <td>2026-08-07</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC (with IRS-CI; &#39;Economic Fury&#39; / NSPM-2 campaign)</td>
+        <td class="small">OFAC designation (2026-08-07) of the Shelbit Exchange network run by Siavash Kayvanpour — SHPS Shelbit (Georgia), Shelbit General Trading (UAE), Shelbit Technologies (Poland), Crypto Home DMCC and NFT Home DMCC — for moving funds to/from IRGC wallets and Nobitex, plus Aban Tether (Tehran) and a Titan Exchange / Bank-e Shahr network. 14 identifiers listed (XBT, ETH, TRX, BNB, SOL). Circle blacklisted the 4 ETH identifiers and the EVM-key equivalents of the 3 TRX identifiers on all 6 EVM chains the same day; the BNB and SOL identifiers are not EVM-derivable and were not blacklisted.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0060</code></td>
+        <td>2026-06-22</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC counter-terrorism designation (2026-06-22) of three individuals and six entities across Europe, the Middle East and West Africa for facilitating ISIS financial transactions, including France-based Miloud Abderrahmane (a.k.a. &#39;Ibrahim Ghazi&#39;), linked to ISIL, listed with 2 TRX identifiers. Circle blacklisted the EVM-key equivalents of both on all 6 EVM chains the same day.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0061</code></td>
+        <td>2026-07-23</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC counter-terrorism designation (2026-07-23) of a senior Egyptian Muslim Brotherhood official plus three individuals and three entities providing material support to Hamas, including Istanbul-based Iraqi national Zaid Issam Ahmed Al-Jebouri (linked to El-Kahira for General Trading), listed with 7 TRX identifiers. Circle blacklisted the EVM-key equivalents of all 7 on all 6 EVM chains the same day.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0062</code></td>
+        <td>2026-04-24</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC &#39;Designation Update&#39; (2026-04-24) adding 2 TRX digital-currency identifiers to the existing SDN entry for BANK MARKAZI JOMHOURI ISLAMI IRAN (Central Bank of Iran; [IRAN][SDGT][IRGC][IFSR], first listed 2010). The same-day press release concerns Iran&#39;s oil trade/shadow fleet and does not mention the identifiers. Circle blacklisted the EVM-key equivalents of both on all 6 EVM chains the same day.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0063</code></td>
+        <td>2026-07-14</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC &#39;Designation Update&#39; (2026-07-14) adding 4 TRX digital-currency identifiers to the existing SDN entry for BANK MARKAZI JOMHOURI ISLAMI IRAN (Central Bank of Iran). The same-day press release concerns the Shamkhani shipping network and does not mention the identifiers. Circle blacklisted the EVM-key equivalents of all 4 on all 6 EVM chains the same day.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0064</code></td>
+        <td>2026-05-26</td>
+        <td>FOREIGN_REGULATOR</td>
+        <td>UK FCDO / OFSI</td>
+        <td class="small">UK designation (2026-05-26, Russia regime; 18 additions in an A7/Garantex-related package) of EXMO EXCHANGE LIMITED (UK-incorporated crypto exchange, RUS3602) for supporting the Government of Russia via the Russian financial-services sector, listed with 3 TRON wallet addresses. No corresponding OFAC action. Circle blacklisted the EVM-key equivalents of all 3 TRON addresses on all 6 EVM chains the same day — a UK-only listing mirrored by Circle.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0065</code></td>
+        <td>2026-03-26</td>
+        <td>FOREIGN_REGULATOR</td>
+        <td>UK FCDO / OFSI</td>
+        <td class="small">UK designation (2026-03-26, Global Human Rights regime) of XINBI COMPANY LIMITED (GHR0190; &#39;Xinbi Guarantee&#39; — Southeast-Asian scam-centre guarantee marketplace) for enabling and profiting from scam-centre forced labour, listed with 2 Tron crypto addresses. No corresponding OFAC listing of these identifiers. Circle blacklisted the EVM-key equivalents of both on all 6 EVM chains on 2026-07-29 — 125 days after designation (other UK/OFAC mirrors in the dataset are same-day); no July trigger found.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0066</code></td>
+        <td>2026-04-28</td>
+        <td>COURT_ORDER</td>
+        <td>U.S. District Court for the Southern District of New York (Preska, J.)</td>
+        <td class="small">Vacatur of the 2026-03-22 attachment as to all Appendix-A wallets except TNiq (2026-04-28), after plaintiffs narrowed the case (Amended Complaint 2026-04-26) to the two Tron wallets that OFAC had added to the Central Bank of Iran SDN entry on 2026-04-24; Circle was dropped as garnishee (stipulation of dismissal filed under seal 2026-05-21, ECF 48). Circle unblacklisted 46 of the still-frozen Appendix-A addresses on 2026-05-12 (42 Ethereum + 4 Polygon) and 14 on 2026-05-28 — 14 and 30 days after the vacatur; one Nobitex-labelled Ethereum address remained blacklisted as of 2026-08-21. No Circle statement found.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0067</code></td>
+        <td>2023-07-31</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC designation (2023-07-31, &#39;Treasury Designates Leaders and Financial Facilitators of ISIS and al-Qa&#39;ida Cells in Maldives&#39;) of Ali Shafiu (Maldives national based in Afghanistan, linked to ISIL Khorasan) [SDGT], listed with one USDT-TRON identifier. Identifier listed only in TRON (TRX/USDT) form; Circle blacklisted the EVM-key equivalent on all EVM chains it issues USDC on. Circle acted on Polygon 2023-07-31, four further chains 2023-08-01, and Base on 2023-08-18 (native-USDC launch replay).</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0068</code></td>
+        <td>2024-03-20</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC designation (2024-03-20) of Ilya Gambashidze (Moscow; Social Design Agency / Russian government-directed disinformation operations) [RUSSIA-EO14024], listed with two USDT-TRON identifiers. Identifier listed only in TRON (TRX/USDT) form; Circle blacklisted the EVM-key equivalent on all EVM chains it issues USDC on. Circle acted 2024-03-21 on all six chains.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0069</code></td>
+        <td>2023-10-03</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC designation (2023-10-03, &#39;Treasury Targets Large Chinese Network of Illicit Drug Producers&#39;, JY1779) of Wang Jiantong (Xingtai, Hebei) [ILLICIT-DRUGS-EO14059], listed with XBT and USDT-TRON identifiers. Identifier listed only in TRON (TRX/USDT) form; Circle blacklisted the EVM-key equivalent on all EVM chains it issues USDC on. Circle acted 2023-10-04 on all six chains; this resolves part of the previously untriggered 2023-10-04 cluster.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0070</code></td>
+        <td>2023-10-03</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC designation (2023-10-03, JY1779) of Xia Fengbing (Xingtai, Hebei; linked to Qingdao Cemo Technology Develop Co., Ltd.) [ILLICIT-DRUGS-EO14059], listed with XBT and USDT-TRON identifiers. Identifier listed only in TRON (TRX/USDT) form; Circle blacklisted the EVM-key equivalent on all EVM chains it issues USDC on. Circle acted 2023-10-04 on all six chains; this resolves part of the previously untriggered 2023-10-04 cluster.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0071</code></td>
+        <td>2024-08-23</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC designation (2024-08-23, Russia military-industrial base action, JY2546) of OOO Konstruktorskoe Byuro Vostok (KB Vostok, Ryazan) [RUSSIA-EO14024], listed with one USDT-TRON identifier. Identifier listed only in TRON (TRX/USDT) form; Circle blacklisted the EVM-key equivalent on all EVM chains it issues USDC on. Circle acted 2024-08-24 on all six chains.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0072</code></td>
+        <td>2024-12-04</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC designation (2024-12-04, &#39;Treasury Exposes Money Laundering Network Using Digital Assets to Evade Sanctions&#39;, JY2735 — TGR Group) of London-based Elena Chirkinyan [RUSSIA-EO14024], listed with one USDT-TRON identifier. Identifier listed only in TRON (TRX/USDT) form; Circle blacklisted the EVM-key equivalent on all EVM chains it issues USDC on. Circle acted 2024-12-05 on all six chains.</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0073</code></td>
+        <td>2025-07-01</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC designation (2025-07-01, &#39;Treasury Sanctions Global Bulletproof Hosting Service Enabling Cybercriminals and Technology Theft&#39;, SB0185) of Aeza Group LLC and affiliates/leadership [CYBER4][CAATSA - RUSSIA], listed with one USDT-TRON identifier. Identifier listed only in TRON (TRX/USDT) form; Circle blacklisted the EVM-key equivalent on all EVM chains it issues USDC on. Circle acted the same day on all six chains. (Distinct from the 2025-11-19 Media Land / Aeza Hypercore action, CU-TRG-0047.)</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0074</code></td>
+        <td>2025-09-24</td>
+        <td>OFAC_DESIGNATION</td>
+        <td>OFAC</td>
+        <td class="small">OFAC designation (2025-09-24, &#39;Treasury Sanctions Indian Nationals and Online Pharmacy for Supplying Counterfeit Fentanyl-Laden Pills&#39;, SB0261) of India-based Sadiq Abbas Habib Sayyed [ILLICIT-DRUGS-EO14059], listed with one TRX identifier. Identifier listed only in TRON (TRX/USDT) form; Circle blacklisted the EVM-key equivalent on all EVM chains it issues USDC on. Circle acted the same day on all six chains (one chain twice).</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0075</code></td>
+        <td>2026-05-29</td>
+        <td>COURT_ORDER</td>
+        <td>U.S. District Court for the Northern District of California (Pitts, J.)</td>
+        <td class="small">TRO-stage order (2026-05-29) in a civil suit alleging Overnight Finance founder Maxim Ermilov diverted &gt;$15M from treasury wallets; Circle — a named defendant — was directed to block USDC at the address that received ~12.4M USDC on 2026-05-11, which is Zama&#39;s Confidential USDC (cUSDC) wrapper contract. Circle blacklisted it 2026-05-30 01:08 UTC (tx 0x6e24a776…), freezing 12,606,386 USDC belonging to ~1,500 unrelated depositors. Lifted after the 2026-06-01 hearing (CU-TRG-0076).</td>
+      </tr>
+      
+      <tr>
+        <td><code>CU-TRG-0076</code></td>
+        <td>2026-06-01</td>
+        <td>COURT_ORDER</td>
+        <td>U.S. District Court for the Northern District of California (Pitts, J.)</td>
+        <td class="small">After the 2026-06-01 TRO hearing the court lifted the 2026-05-29 block directive; Circle unblacklisted Zama&#39;s cUSDC contract the same day (18:58 UTC), restoring access to ~12.5M USDC after a ~66-hour freeze. First litigated reversal of a civil-order Circle freeze in the dataset (a stipulated consent TRO followed on 2026-06-05 without a USDC block).</td>
+      </tr>
+      
     </tbody>
   </table>
 
@@ -488,9 +656,9 @@
   
   
   <ul>
-    <li><strong>OFAC_DESIGNATION</strong>: 51</li>
-    <li><strong>COURT_ORDER</strong>: 2</li>
-    <li><strong>Other types</strong>: 2</li>
+    <li><strong>OFAC_DESIGNATION</strong>: 67</li>
+    <li><strong>COURT_ORDER</strong>: 5</li>
+    <li><strong>Other types</strong>: 4</li>
   </ul>
 </section>
 

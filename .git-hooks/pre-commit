@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# CircleUSDC pre-commit validation.
-# Install (from monorepo root): ln -sf ../../CircleUSDC/.git-hooks/pre-commit .git/hooks/pre-commit
+# CircleUSDC pre-commit validation (standalone repo layout).
+# Install once per clone: git config core.hooksPath .git-hooks
 set -e
 
-CHANGED=$(git diff --cached --name-only -- 'CircleUSDC/data/*.csv' 'CircleUSDC/sources/manifest.json' 'CircleUSDC/scripts/utils/schema.py')
+CHANGED=$(git diff --cached --name-only -- 'data/*.csv' 'sources/manifest.json' 'scripts/utils/schema.py')
 if [ -z "$CHANGED" ]; then
   exit 0
 fi
 
 echo "CircleUSDC: running validation on changed data/schema files..."
-cd CircleUSDC
-/opt/anaconda3/bin/python scripts/99_validate.py
+cd "$(git rev-parse --show-toplevel)"
+/opt/anaconda3/bin/python scripts/99_validate.py --allow-missing-local

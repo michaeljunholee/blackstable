@@ -241,3 +241,106 @@ def test_dune_error_includes_response_body():
     client = DuneClient(api_key="test-key", poll_interval_sec=0)
     with pytest.raises(DuneQueryError, match="Invalid performance tier"):
         client.execute_query(1234)
+
+
+# ---------------------------------------------------------------------------
+# Saved-query SQL read/update (used to switch the `<chain>.logs` table between
+# per-chain executions of the single shared saved query).
+# ---------------------------------------------------------------------------
+
+@responses.activate
+def test_get_query_sql_returns_sql_text():
+    responses.add(
+        responses.GET,
+        "https://api.dune.com/api/v1/query/555",
+        json={"query_id": 555, "name": "blacklist", "query_sql": "SELECT 1 FROM ethereum.logs"},
+        status=200,
+    )
+    client = DuneClient(api_key="test-key")
+    assert client.get_query_sql(555) == "SELECT 1 FROM ethereum.logs"
+
+
+@responses.activate
+def test_update_query_sql_patches_query_and_returns_none():
+    responses.add(
+        responses.PATCH,
+        "https://api.dune.com/api/v1/query/555",
+        json={"query_id": 555},
+        status=200,
+    )
+    client = DuneClient(api_key="test-key")
+    assert client.update_query_sql(555, "SELECT 1 FROM base.logs") is None
+    body = json.loads(responses.calls[0].request.body)
+    assert body == {"query_sql": "SELECT 1 FROM base.logs"}
+
+
+@responses.activate
+def test_update_query_sql_http_error_wraps_as_dune_query_error():
+    responses.add(
+        responses.PATCH,
+        "https://api.dune.com/api/v1/query/555",
+        json={"error": "forbidden"},
+        status=403,
+    )
+    client = DuneClient(api_key="test-key")
+    with pytest.raises(DuneQueryError, match="update"):
+        client.update_query_sql(555, "SELECT 1")
+
+
+@responses.activate
+def test_get_query_sql_missing_field_raises():
+    responses.add(
+        responses.GET,
+        "https://api.dune.com/api/v1/query/555",
+        json={"query_id": 555},
+        status=200,
+    )
+    client = DuneClient(api_key="test-key")
+    with pytest.raises(DuneQueryError, match="query_sql"):
+        client.get_query_sql(555)
+
+
+# ---------------------------------------------------------------------------
+# Rate limiting: a 429 during polling or fetching must back off and retry,
+# not abort the run (Dune's free tier rate-limits API calls per minute).
+# ---------------------------------------------------------------------------
+
+@responses.activate
+def test_poll_backs_off_on_429_then_succeeds(monkeypatch):
+    sleeps = []
+    monkeypatch.setattr("scripts.utils.dune_client.time.sleep", lambda s: sleeps.append(s))
+    responses.add(responses.POST, "https://api.dune.com/api/v1/query/1/execute",
+                  json={"execution_id": "e1", "state": "QUERY_STATE_PENDING"}, status=200)
+    responses.add(responses.GET, "https://api.dune.com/api/v1/execution/e1/results",
+                  json={"error": "Too many requests"}, status=429)
+    responses.add(responses.GET, "https://api.dune.com/api/v1/execution/e1/results",
+                  json={"state": "QUERY_STATE_COMPLETED", "result": {"rows": [{"a": 1}]}}, status=200)
+
+    client = DuneClient(api_key="k", poll_interval_sec=0, rate_limit_backoff_sec=7)
+    assert client.execute_query(1) == [{"a": 1}]
+    assert 7 in sleeps  # backed off once on the 429
+
+
+@responses.activate
+def test_fetch_latest_results_backs_off_on_429_then_succeeds(monkeypatch):
+    sleeps = []
+    monkeypatch.setattr("scripts.utils.dune_client.time.sleep", lambda s: sleeps.append(s))
+    responses.add(responses.GET, "https://api.dune.com/api/v1/query/1/results",
+                  json={"error": "Too many requests"}, status=429)
+    responses.add(responses.GET, "https://api.dune.com/api/v1/query/1/results",
+                  json={"state": "QUERY_STATE_COMPLETED", "result": {"rows": [{"a": 2}]}}, status=200)
+
+    client = DuneClient(api_key="k", rate_limit_backoff_sec=3)
+    assert client.fetch_latest_results(1) == [{"a": 2}]
+    assert sleeps == [3]
+
+
+@responses.activate
+def test_persistent_429_eventually_raises(monkeypatch):
+    monkeypatch.setattr("scripts.utils.dune_client.time.sleep", lambda s: None)
+    for _ in range(10):
+        responses.add(responses.GET, "https://api.dune.com/api/v1/query/1/results",
+                      json={"error": "Too many requests"}, status=429)
+    client = DuneClient(api_key="k", rate_limit_backoff_sec=1, max_rate_limit_retries=3)
+    with pytest.raises(DuneQueryError, match="429"):
+        client.fetch_latest_results(1)

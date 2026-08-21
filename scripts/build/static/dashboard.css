@@ -16,6 +16,7 @@
   --na-soft: oklch(0.94 0.04 75);
   --court: oklch(0.50 0.12 260);
   --hack: oklch(0.55 0.14 320);
+  --foreign: oklch(0.52 0.11 200);  /* foreign regulator teal */
 
   --shadow-sm: 0 1px 0 rgba(20,20,30,0.04);
   --shadow: 0 1px 0 rgba(20,20,30,0.04), 0 6px 18px -10px rgba(20,20,30,0.10);
@@ -38,6 +39,7 @@ body.dark {
   --na: oklch(0.7 0.10 75);
   --court: oklch(0.65 0.14 260);
   --hack: oklch(0.66 0.15 320);
+  --foreign: oklch(0.68 0.12 200);
   --bl-soft: oklch(0.30 0.10 32);
   --ub-soft: oklch(0.28 0.08 158);
   --na-soft: oklch(0.30 0.08 75);
@@ -617,6 +619,7 @@ body {
 .year-bar .yb-seg.na { background: var(--na); }
 .year-bar .yb-seg.court { background: var(--court); }
 .year-bar .yb-seg.hack { background: var(--hack); }
+.year-bar .yb-seg.foreign { background: var(--foreign); }
 .year-bar .yb-label {
   margin-top: 6px;
   font-family: var(--mono);
