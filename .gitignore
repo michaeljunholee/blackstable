@@ -23,6 +23,7 @@ logs/
 notebooks/
 claude-design/
 docs/superpowers/
+docs/design-system/
 docs/wix-landing-instructions.md
 notes/_review-checklist.md
 .claude/
