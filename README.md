@@ -44,6 +44,32 @@ OFAC and UK FCDO often list an address only in its TRON (base58) form, and
 the issuer blacklists the same key on every EVM chain. `scripts/04_ofac_sdn.py`
 decodes those identifiers and records the `match_basis` for each match.
 
+## What this repository contains — and what it doesn't
+
+This repository is the **evidence**: the dataset, the schema, the ingestion
+and build pipeline, the archived sources, and the dashboard that presents
+them. Everything needed to reproduce the figures is here, and the test
+suite runs against the committed data.
+
+Deliberately **not** published here:
+
+| Held back | Why |
+|---|---|
+| `notes/` — per-cluster research notes | The interpretive work product: the argument rather than the evidence. Held for a forthcoming publication. Every factual claim they rest on is in `data/` and `sources/`. |
+| Working documents and decision logs | Process records — how the research was built, not what it found. |
+| Unreleased work in progress | Coverage still being validated, published once it meets the sourcing standard. |
+
+Two consequences worth stating plainly, so the dataset is not
+over-read:
+
+- **The dashboard's per-action commentary is absent here.** Where the live
+  dashboard links a freeze to a written note, that note is not in this
+  repository. The underlying action, trigger, entity and source rows are.
+- **Coverage is currently Circle's USDC only.** The schema carries an
+  `issuer` column and Tether's USDT is being ingested against the same
+  standard, but no USDT rows are published yet. Absence of an issuer here
+  means "not yet released", never "no freezes found".
+
 ## Methodology and limitations
 
 - [`docs/schema.md`](docs/schema.md) — field-by-field data dictionary
