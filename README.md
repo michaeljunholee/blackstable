@@ -26,16 +26,16 @@ largest events, and year.
 
 | Table | Rows | Notes |
 |---|---|---|
-| `actions.csv` | 4,029 | One row per on-chain BL/UB event |
-| `implementations.csv` | 4,029 | 1:1 with actions; carries tx_hash, block, chain, function called |
-| `entities.csv` | 82 | Sanctioned parties, organizations, individuals |
-| `triggers.csv` | 76 | Legal/regulatory causes |
-| `incidents.csv` | 7 | Real-world events (hacks, sanctions waves) |
-| `sources.csv` | 80 | Primary and secondary sources, archived |
-| `action_sources.csv` | 5,686 | Audit trail linking actions to sources |
+| `actions.csv` | 4,493 | One row per on-chain BL/UB event |
+| `implementations.csv` | 4,493 | 1:1 with actions; carries tx_hash, block, chain, function called |
+| `entities.csv` | 87 | Sanctioned parties, organizations, individuals |
+| `triggers.csv` | 79 | Legal/regulatory causes |
+| `incidents.csv` | 8 | Real-world events (hacks, sanctions waves) |
+| `sources.csv` | 89 | Primary and secondary sources, archived |
+| `action_sources.csv` | 7,690 | Audit trail linking actions to sources |
 | `policies.csv` | 20 | Circle privacy-policy versions over time |
 
-Date range: **2020-06-16 → 2026-08-19.** Chains: Ethereum, Base,
+Date range: **2020-06-16 → 2026-09-10.** Chains: Ethereum, Base,
 Polygon, Avalanche, Arbitrum, Optimism. Attribution coverage to a public
 trigger is roughly 92% of BL events and 85% of UB events.
 

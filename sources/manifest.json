@@ -293,6 +293,46 @@
     },
     "CU-SRC-0080": {
       "local_path": "sources/2026/CU-SRC-0080.html"
+    },
+    "CU-SRC-0081": {
+      "archived_url": null,
+      "content_sha256": "75fc6fd51b7519091e422b1717b41ea7397f2e016988f8b6d4f0fc20aef0b596",
+      "local_path": "sources/2026/CU-SRC-0081.html"
+    },
+    "CU-SRC-0082": {
+      "archived_url": null,
+      "content_sha256": "911a3dcfe880583f69953b1bab0e3c07937301126e9355a8e10c6e6fa2540405",
+      "local_path": "sources/2026/CU-SRC-0082.html"
+    },
+    "CU-SRC-0083": {
+      "archived_url": null,
+      "content_sha256": "ec957285b25b234d151fd82351c9be4b6b444145f2728f5a6428bf71c6a41047",
+      "local_path": "sources/2026/CU-SRC-0083.html"
+    },
+    "CU-SRC-0084": {
+      "archived_url": null,
+      "content_sha256": "14d27fba62532d764383a149798b95d74cbaf05a38b4179547adfe0b27a19992",
+      "local_path": "sources/2026/CU-SRC-0084.html"
+    },
+    "CU-SRC-0085": {
+      "archived_url": null,
+      "content_sha256": "10e268366c4e3edab6cad767667755fa7c9ee152ef6836968f15ed9ff96848d7",
+      "local_path": "sources/2026/CU-SRC-0085.html"
+    },
+    "CU-SRC-0086": {
+      "archived_url": null,
+      "content_sha256": "4ee460056b10ed67711888d40ab0dd0335f0f4fae5e843e9e99f6b46816f8b2e",
+      "local_path": "sources/2026/CU-SRC-0086.html"
+    },
+    "CU-SRC-0087": {
+      "archived_url": null,
+      "content_sha256": "bb5c0bd324d0bf99a13d76cbeef8c0226b358548fc21a2b5d5247d1a4b57e393",
+      "local_path": "sources/2026/CU-SRC-0087.html"
+    },
+    "CU-SRC-0088": {
+      "archived_url": null,
+      "content_sha256": "576b5e1cd465eb352384c3b559536cf8f8960bd2992cdc54714b26e5151913a2",
+      "local_path": "sources/2026/CU-SRC-0088.html"
     }
   }
 }
